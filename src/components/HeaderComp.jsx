@@ -4,7 +4,6 @@ import React from 'react'
 export default function HeaderComp() {
   return (
     <div>   
-<<<<<<< HEAD
 
       <header className='  mt-5 w-screen'>
       
@@ -19,9 +18,6 @@ export default function HeaderComp() {
 
       </div>
       </header>
-=======
-          <h1>Это шапка</h1>
->>>>>>> 9ab4c60eb1eca0fba5219023711d97ef16cf0927
     </div>
   )
 }

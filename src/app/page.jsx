@@ -4,7 +4,6 @@ import HeaderComp from '../components/HeaderComp';
 export default function page() {
   return (
     <div>
-      
         <HeaderComp/>
 
 
