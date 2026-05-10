@@ -4,10 +4,11 @@ import HeaderComp from '../components/HeaderComp';
 export default function page() {
   return (
     <div>
+      
         <HeaderComp/>
 
 
-      <div className=' mt-10 w-screen h-auto bg-[#211C24]'>
+      <div className=' mt-5 w-screen h-auto bg-[#211C24]'>
   <div className='flex justify-center '>
     <div className='flex'>
       <div className='mt-60 mr-30'>
@@ -72,8 +73,8 @@ export default function page() {
         <div className='flex ml-5 items-center ml-40'>
             <div className='w-120'>
           <p className='text-5xl'>MacBook Pro</p>
-          <p className='text-xl mt-3 text-gray-400'>The new 15‑inch MacBook Air makes room for more of <br /> what you love with a spacious Liquid Retina display.</p>
-            <button className='w-50 h-15 border rounded-2xl text-xl '>Shop Now</button>
+          <p className='text-xl mt-3 text-gray-400'>The new 15‑inch MacBook Air makes room for more of<br />what you love with a spacious Liquid Retina display.</p>
+            <button className=' cursor-pointer w-50 h-15 border rounded-2xl text-xl'>Shop Now</button>
             </div>
         </div>
         <img className='w-90 m-0 p-0'  src="MacPro.svg" alt="" />
@@ -81,7 +82,85 @@ export default function page() {
           
       </div>
 
+
+
+<div className='mt-35'>  
+ <div className='ml-63 mb-10'>
+        <p className='text-4xl'>Browse By Category </p>
+      </div>  
+    <div className='flex justify-center'>
+
+
+    <div className='w-50 h-35 bg-gray-200 rounded-2xl  flex justify-center transition-transform duration-300 ease-in-out hover:scale-110  '>
+          <div className = ' mr-2 mt-5 items-center'>
+               <img className='w-17 flex items-center ' src="Phones.svg" alt="" />
+            <div className=''>
+               <p className='text-xl'>Phones</p>
+            </div>
+
+          </div>
+    </div>
+      <div className='w-50 h-35 ml-10  bg-gray-200 rounded-2xl flex justify-items-center '>
+              <div className='ml-5 flex justify-center  mt-5 '>
+                <div className='ml-5'>
+                <img className='w-17 ml-6 ' src="Smart.svg" alt="" />
+                      <div className='flex justify-center'>
+                    <p className='text-xl '>Smart Watches</p>
+                </div>
+                      </div>
+              </div>
+      </div>
+
+      <div className='w-50 ml-10 h-35 bg-gray-200 rounded-2xl flex justify-center'>
+            <div className=' flex mt-5 justify-center'>
+              <div className=''>
+                  <img className='w-17' src="Cameras.svg" alt="" />
+                    <p className='text-xl'> Cameras</p> 
+              </div>
+            </div>
+      </div>
+
+
+ <div className='w-50 ml-10 h-35 bg-gray-200 rounded-2xl flex justify-center'>
+            <div className=' flex mt-5 justify-center'>
+              <div className=''>
+                  <img className='w-17 ml-5' src="Headphones.svg" alt="" />
+                    <p className='text-xl'> Headphones</p> 
+              </div>
+            </div>
+      </div>
+
+
+
+       <div className='w-50 ml-10 h-35 bg-gray-200 rounded-2xl flex justify-center'>
+            <div className=' flex mt-5 justify-center'>
+              <div className=''>
+                  <img className='w-17 ml-3' src="Computers.svg" alt="" />
+                    <p className='text-xl'> Compuners</p> 
+              </div>
+            </div>
+      </div>
+
+
+
+       <div className='w-50 ml-10 h-35 bg-gray-200 rounded-2xl flex justify-center'>
+            <div className=' flex mt-5 justify-center'>
+              <div className=''>
+                  <img className='w-17' src="Gaming.svg" alt="" />
+                    <p className='text-xl'> Gaming</p> 
+              </div>
+            </div>
+      </div>
+</div>
  
+
+     
+
+
+
+    </div>
+
+
       </div>
   )
 }

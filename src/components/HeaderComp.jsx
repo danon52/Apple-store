@@ -5,6 +5,7 @@ export default function HeaderComp() {
   return (
     <div>   
 
+
       <header className='  mt-5 w-screen'>
       
           <div className='flex justify-between w-auto'>
@@ -18,6 +19,8 @@ export default function HeaderComp() {
 
       </div>
       </header>
+
+
     </div>
   )
 }
