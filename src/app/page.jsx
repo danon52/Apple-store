@@ -1,8 +1,25 @@
-import React from 'react'
+'use client'
+import React, {useEffect, useState } from 'react'
 import HeaderComp from '../components/HeaderComp';
 
-export default function page() {
 
+export default function Page() {
+
+
+
+
+
+  const [products , setProducts] = useState([])
+    useEffect(()=>{
+      async function GetProducts () {
+          const resp = await fetch('http://localhost:1452/api/products/')
+          const data  = await resp.json()
+          setProducts(data)
+          console.log(data)
+        }
+      GetProducts()
+    },[])
+    
 
 
 
@@ -10,8 +27,12 @@ export default function page() {
 
   return (
     <div>
+      
         <HeaderComp/>
+      <div>
+      </div>
       <div className=' mt-5 w-screen h-auto bg-[#211C24]'>
+
   <div className='flex justify-center '>
     <div className='flex'>
       <div className='mt-60 mr-30'>
@@ -153,6 +174,21 @@ export default function page() {
       </div>
 </div>
     </div>
+
+
+    <div className='grid grid-cols-4  gap-4'>
+        {products.length  > 0 ?(
+        products.map(prod =>(
+          <div key={prod.id}> 
+          <img src={`http://localhost:1452/${prod.images[0]}`} alt="" />
+                <p>{prod.brand}</p>
+                <p>{prod.name}</p>
+          </div>
+        ))
+      ): <p>Загрузка фото </p>
+      }
+    
       </div>
-  )
+      </div>
+    )
 }
