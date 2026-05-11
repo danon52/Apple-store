@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// enum ANY {
+//   Int
+//   String
+//   Float
+//   Boolean
+// }
+
+model categories {
+  id       Int        @id @default(autoincrement())
+  name     String
+  products products[]
+}
+
+model products {
+  id              Int           @id @default(autoincrement())
+  createdAt       String
+  price           Int
+  discount_price  Int?
+  guarantee       Int
+  rating          Float
+  count_review    Int
+  is_available    Boolean
+  store_address   String?
+  color           String
+  brand           String
+  country         String
+  category_id     Int
+  category        categories    @relation(fields: [category_id], references: [id])
+  images          images[]
+  product_type_id Int
+  product_types   product_types @relation(fields: [product_type_id], references: [id])
+}
+
+model images {
+  id          Int      @id @default(autoincrement())
+  products    products @relation(fields: [products_id], references: [id])
+  products_id Int
+  image_link  String
+}
+
+model product_types {
+  id                         Int                          @id @default(autoincrement())
+  product_name               String
+  products                   products[]
+  products_x_characteristics products_x_characteristics[]
+}
+
+model products_x_characteristics {
+  id                 Int             @id @default(autoincrement())
+  characteristics    characteristics @relation(fields: [characteristics_id], references: [id])
+  characteristics_id Int
+  product_types_id   Int
+  product_types      product_types   @relation(fields: [product_types_id], references: [id])
+  value              String
+}
+
+model characteristics {
+  id                         Int                          @id @default(autoincrement())
+  name                       String
+  unit_type                  String
+  products_x_characteristics products_x_characteristics[]
+}
