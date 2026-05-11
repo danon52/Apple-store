@@ -2,12 +2,15 @@ import React from 'react'
 import HeaderComp from '../components/HeaderComp';
 
 export default function page() {
+
+
+
+
+
+
   return (
     <div>
-      
         <HeaderComp/>
-
-
       <div className=' mt-5 w-screen h-auto bg-[#211C24]'>
   <div className='flex justify-center '>
     <div className='flex'>
@@ -43,7 +46,7 @@ export default function page() {
                  integrated I/O will redefine your PlayStation <br /> experience.
               </p>
             </div>
-            
+
           </div>
           <div className='flex'>
           <div className='flex  items-center h-120 bg-[#EDEDED] w-120'>
@@ -140,9 +143,6 @@ export default function page() {
               </div>
             </div>
       </div>
-
-
-
        <div className='w-50 ml-10 h-35 bg-gray-200 rounded-2xl flex justify-center'>
             <div className=' flex mt-5 justify-center'>
               <div className=''>
@@ -152,15 +152,7 @@ export default function page() {
             </div>
       </div>
 </div>
- 
-
-     
-
-
-
     </div>
-
-
       </div>
   )
 }
