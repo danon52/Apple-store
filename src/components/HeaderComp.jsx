@@ -6,8 +6,7 @@ export default function HeaderComp() {
     <div>   
 
 
-      <header className='  mt-5 w-screen'>
-      
+      <header className=' md:  mt-5 w-screen'>
           <div className='flex justify-between w-auto'>
           <img className='ml-40 w-30' src="Logo.svg" alt="" />
       <input className= ' ml-10  bg-gray-200 p-3  w-70 h-13 rounded-2xl' type="text" placeholder='Search' />

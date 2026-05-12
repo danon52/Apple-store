@@ -31,24 +31,23 @@ export default function Page() {
         <HeaderComp/>
       <div>
       </div>
-      <div className=' mt-5 w-screen h-auto bg-[#211C24]'>
-
+      <div className=' bg-[#211C24]'>
   <div className='flex justify-center '>
-    <div className='flex'>
-      <div className='mt-60 mr-30'>
-          <p className='text-3xl text-gray-500'>
+    <div className=' block sm:flex  '>
+      <div className='md:mt-60 mr-30   lg: mt-30 mr-15'>
+          <p className=' md:text-2xl text-start   text-gray-400  lg:text-gray-400  sm:text-white  text-4xl'>
             Pro.Beyond.
           </p>
-          <div className='text-7xl text-white'>
+          <div className='md:text-7xl  lg:text-7xl text-white  sm: text-5xl  '>
             Iphone 14 Pro 
           </div>
-          <p className='text-gray-500'>Created to change everything for the better. For everyone</p>
-          <button className='w-50 text-white border mt-5  rounded-xl h-13 bg-none'>Shop Now</button>
+          <p className= 'sm:text-lg text-gray-400 md:text-gray-500'>Created to change everything for the better. For everyone</p>
+          <button className=' cursor-pointer  lg: w-50 text-white border mt-5  rounded-xl h-13 bg-none '>Shop Now</button>
       </div>
-      <div className='flex '>
-            <img className='w-130' src="iphone.svg" alt="" />
+      <div className='flex md: w-110 lg: flex w-100  sm: block w-80  '>
+            <img className='md: w-130 lg: w-110 h-full  sm: w-80 shrink-0 h-full block' src="iphone.svg" alt="" />
             </div>
-    </div>
+       </div>
       </div>
       </div>
 
@@ -176,7 +175,7 @@ export default function Page() {
     </div>
 
 
-    <div className='grid grid-cols-4  gap-4'>
+    {/* <div className='grid grid-cols-4  gap-4'>
         {products.length  > 0 ?(
         products.map(prod =>(
           <div key={prod.id}> 
@@ -188,7 +187,7 @@ export default function Page() {
       ): <p>Загрузка фото </p>
       }
     
-      </div>
+      </div> */}
       </div>
     )
 }
