@@ -27,37 +27,39 @@ export default function Page() {
 
   return (
     <div>
-      
+
         <HeaderComp/>
       <div>
       </div>
-      <div className=' bg-[#211C24]'>
+      <div className=' mt-5 bg-[#211C24]'>
   <div className='flex justify-center '>
-    <div className=' block sm:flex  '>
-      <div className='md:mt-60 mr-30   lg: mt-30 mr-15'>
-          <p className=' md:text-2xl text-start   text-gray-400  lg:text-gray-400  sm:text-white  text-4xl'>
+    <div className='  sm:flex  '>
+
+      <div className='md:mt-60  lg: mt-30 mr-15'>
+          <p className=' 
+             md:text-2xl  text-gray-400 lg:text-gray-400   sm:text-white text-4xl sm:text-left text-center  '>
             Pro.Beyond.
           </p>
-          <div className='md:text-7xl  lg:text-7xl text-white  sm: text-5xl  '>
+          <div className='md:text-7xl  lg:text-7xl text-white  sm: text-5xl  sm:text-left text-center '>
+            <p>
             Iphone 14 Pro 
+            </p>
           </div>
-          <p className= 'sm:text-lg text-gray-400 md:text-gray-500'>Created to change everything for the better. For everyone</p>
+          <p className= 'sm:text-lg  text-gray-400 md:text-gray-500'>Created to change everything for the better. For everyone</p>
           <button className=' cursor-pointer  lg: w-50 text-white border mt-5  rounded-xl h-13 bg-none '>Shop Now</button>
       </div>
-      <div className='flex md: w-110 lg: flex w-100  sm: block w-80  '>
+      <div className='flex md: w-110 lg: flex w-100  sm: block w-50  '>
             <img className='md: w-130 lg: w-110 h-full  sm: w-80 shrink-0 h-full block' src="iphone.svg" alt="" />
             </div>
        </div>
       </div>
       </div>
 
-
-
       <div className='flex'>
         
         <div className=''>
           <div className='flex w-250'>
-            {/* ps 5  */}
+
           <img className='w-120' src="PlayStation.svg" alt="" />
             <div className='mt-30 '>
               <p className='text-4xl'>PlayStation 5 </p>
