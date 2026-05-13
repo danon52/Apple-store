@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 
@@ -11,8 +12,10 @@ export default function HeaderComp() {
         <div className=' h-25 w-screen flex justify-between '>
             {/* сделать бургер  выпадающий элемент   */}
             <img className='w-60   lg:hidden md:hidden' src="Burger.svg" alt="" />
+            <Link href='/cart'>
       <img className= 'hidden md:block w-17 ml-10'src="Vector.svg" alt="" />  
-      <img className=' hidden lg: ml-5 w-13 ' src="Favorites.svg" alt="" />      
+            </Link>
+      <img className=' hidden md:block ml-5 w-13 ' src="Favorites.svg" alt="" />      
       </div>
       </div>
       </header>
