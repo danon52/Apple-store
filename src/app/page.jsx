@@ -20,27 +20,27 @@ export default function Page() {
     <div>
         <HeaderComp/>
 
-      <div className='w-180  mt-5 bg-[#211C24]'>
-  <div className=' sm: flex w-screen justify-center '>
-    <div className=' block w-screen  sm:flex  '>
+      <div className='w-345 mt-5 bg-[#211C24]'>
+  <div className=''>
+    <div className=''>
       <div className=' md:mt-60  lg: mt-30 mr-15'>
-          <p className=' 
-             md:text-2xl  text-gray-400 lg:text-gray-400   sm:text-left text-center  '>
+          <p className=' text-4xl
+                     md:text-2xl  text-gray-400 lg:text-gray-400    text-center  '>
             Pro.Beyond.
           </p>
-          <div className='md:text-7xl  lg:text-7xl text-white  sm: text-5xl  sm:text-left text-center '>
-            <p>
-            Iphone 14 Pro 
+          <div className='flex justify-center  text-7xl  sm:text-left text-center  md:text-7xl  lg:text-7xl text-white  r '>
+            <p className='w-screen'>
+            Iphone 14 Pro
             </p>
           </div>
-          <p className= 'sm:text-lg  text-gray-400 md:text-gray-500'>Created to change everything for the better. For everyone</p>
+          <p className= 'text-2xl text-center mt-5  text-gray-400 md:text-gray-500'>Created to change everything for the better. For everyone</p>
           <div className='flex sm:justify-start sm: justify-center'>
           <button className='cursor-pointer lg: w-50 text-white border mt-5  rounded-xl h-13 bg-none 
           '>Shop Now</button>
           </div>
       </div>
-      <div className='flex w-70 justify-center'>
-            <img className=' flex justify-center  w-80 shrink-0 h-full block md: w-130 lg: w-110 h-full' src="iphone.svg" alt="" />
+      <div className='flex  justify-center'>
+            <img className=' w-120 shrink-0 h-full block md: w-130 lg: w-110 h-full' src="iphone.svg" alt="" />
             </div>
        </div>
       </div>
