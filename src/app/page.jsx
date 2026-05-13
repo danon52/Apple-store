@@ -5,27 +5,25 @@ import HeaderComp from '../components/HeaderComp';
 
 export default function Page() {
   const [products , setProducts] = useState([])
-    useEffect(()=>{
-      async function GetProducts () {
-          const resp = await fetch('http://localhost:1452/api/products/')
-          const data  = await resp.json()
-          setProducts(data)
-          console.log(data)
-        }
-      GetProducts()
-    },[])
+    // useEffect(()=>{
+    //   async function GetProducts () {
+    //       const resp = await fetch('http://localhost:1452/api/products/')
+    //       const data  = await resp.json()
+    //       setProducts(data)
+    //       console.log(data)
+    //     }
+    //   GetProducts()
+    // },[])
     
     
   return (
     <div>
         <HeaderComp/>
-      <div>
-      </div>
-      <div className=' mt-5 bg-[#211C24]'>
-  <div className='flex justify-center '>
-    <div className='  sm:flex  '>
 
-      <div className='md:mt-60  lg: mt-30 mr-15'>
+      <div className='w-180  mt-5 bg-[#211C24]'>
+  <div className=' sm: flex w-screen justify-center '>
+    <div className=' block w-screen  sm:flex  '>
+      <div className=' md:mt-60  lg: mt-30 mr-15'>
           <p className=' 
              md:text-2xl  text-gray-400 lg:text-gray-400   sm:text-left text-center  '>
             Pro.Beyond.
@@ -41,8 +39,8 @@ export default function Page() {
           '>Shop Now</button>
           </div>
       </div>
-      <div className='flex md: w-110 lg: flex w-100  sm: block w-50  '>
-            <img className='md: w-130 lg: w-110 h-full  sm: w-80 shrink-0 h-full block' src="iphone.svg" alt="" />
+      <div className='flex w-70 justify-center'>
+            <img className=' flex justify-center  w-80 shrink-0 h-full block md: w-130 lg: w-110 h-full' src="iphone.svg" alt="" />
             </div>
        </div>
       </div>
