@@ -14,12 +14,24 @@ export default function page(){
   //       }
   //       GetProducts()
   //     },[])
+export default function Page() {
+  const [products , setProducts] = useState([])
+    // useEffect(()=>{
+    //   async function GetProducts () {
+    //       const resp = await fetch('http://localhost:1452/api/products/')
+    //       const data  = await resp.json()
+    //       setProducts(data)
+    //       console.log(data)
+    //     }
+    //   GetProducts()
+    // },[])
+    
+
     
   
 
   
   return (
-    
       <div>
         <HeaderComp/>
       <div className='mt-5 bg-[#211C24]'>
@@ -35,14 +47,24 @@ export default function page(){
       <div className='md:mt-60   lg: mt-30 mr-15'>
           <p className=' 
              md:text-2xl  text-gray-400 lg:text-gray-400   sm:text-left text-center  '>
+
+    <div>
+        <HeaderComp/>
+
+      <div className='w-345 mt-5 bg-[#211C24]'>
+  <div className=''>
+    <div className=''>
+      <div className=' md:mt-60  lg: mt-30 mr-15'>
+          <p className=' text-4xl
+                     md:text-2xl  text-gray-400 lg:text-gray-400    text-center  '>
             Pro.Beyond.
           </p>
-          <div className='md:text-7xl  lg:text-7xl text-white  sm: text-5xl  sm:text-left text-center '>
-            <p>
-            Iphone 14 Pro 
+          <div className='flex justify-center  text-7xl  sm:text-left text-center  md:text-7xl  lg:text-7xl text-white  r '>
+            <p className='w-screen'>
+            Iphone 14 Pro
             </p>
           </div>
-          <p className= 'sm:text-lg  text-gray-400 md:text-gray-500'>Created to change everything for the better. For everyone</p>
+          <p className= 'text-2xl text-center mt-5  text-gray-400 md:text-gray-500'>Created to change everything for the better. For everyone</p>
           <div className='flex sm:justify-start sm: justify-center'>
           <button className='cursor-pointer lg: w-50 text-white border mt-5  rounded-xl h-13 bg-none 
           '>Shop Now</button>
@@ -50,6 +72,9 @@ export default function page(){
       </div>
           <div className=''>
             <img className='md: w-130 lg: w-110 h-full  sm: w-80 shrink-0 h-full block' src="iphone.svg" alt="" />
+
+      <div className='flex  justify-center'>
+            <img className=' w-120 shrink-0 h-full block md: w-130 lg: w-110 h-full' src="iphone.svg" alt="" />
             </div>
        </div>
       </div>
