@@ -1,21 +1,23 @@
-import React from 'react'
+  'use client'
+
 import HeaderComp from '../components/HeaderComp';
+import { useState } from 'react';
 
 export default function page() {
 
-
-
-
+const [count , setCount]  = useState(0)
 
 
   return (
-    <div>
+
+    <div > 
         <HeaderComp/>
       <div className=' mt-5 w-screen h-auto bg-[#211C24]'>
   <div className='flex justify-center '>
     <div className='flex'>
       <div className='mt-60 mr-30'>
-          <p className='text-3xl text-gray-500'>
+          <p className=' text-4xl text-red-400
+               sm:text-gray-500 text-xl    '>
             Pro.Beyond.
           </p>
           <div className='text-7xl text-white'>
@@ -38,10 +40,10 @@ export default function page() {
         <div className=''>
           <div className='flex w-250'>
             {/* ps 5  */}
-          <img className='w-120' src="PlayStation.svg" alt="" />
-            <div className='mt-30 '>
-              <p className='text-4xl'>PlayStation 5 </p>
-              <p className='text-2xl text-gray-400 mt-3'>
+          <img className='w-120 ' src="PlayStation.svg" alt="" />
+            <div className='mt-30  '>
+              <p className='text-4xl '>PlayStation 5 </p>
+              <p className='text-2xl text-gray-400 mt-3 '>
                 Incredibly powerful CPUs, GPUs, and an SSD with <br />
                  integrated I/O will redefine your PlayStation <br /> experience.
               </p>
@@ -132,8 +134,6 @@ export default function page() {
               </div>
             </div>
       </div>
-
-
 
        <div className='w-50 ml-10 h-35 bg-gray-200 rounded-2xl flex justify-center'>
             <div className=' flex mt-5 justify-center'>
