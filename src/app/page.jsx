@@ -1,49 +1,91 @@
+<<<<<<< HEAD
   'use client'
 
+=======
+'use client'
+import React, {useEffect, useState } from 'react'
+>>>>>>> 2ceadac23bac920f7afdc892d0ecbd877a263c56
 import HeaderComp from '../components/HeaderComp';
 import { useState } from 'react';
 
+<<<<<<< HEAD
 export default function page() {
 
 const [count , setCount]  = useState(0)
 
+=======
+>>>>>>> 2ceadac23bac920f7afdc892d0ecbd877a263c56
 
+export default function Page() {
+  const [products , setProducts] = useState([])
+    useEffect(()=>{
+      async function GetProducts () {
+          const resp = await fetch('http://localhost:1452/api/products/')
+          const data  = await resp.json()
+          setProducts(data)
+          console.log(data)
+        }
+      GetProducts()
+    },[])
+    
+    
   return (
 
     <div > 
         <HeaderComp/>
-      <div className=' mt-5 w-screen h-auto bg-[#211C24]'>
+      <div>
+      </div>
+      <div className=' mt-5 bg-[#211C24]'>
   <div className='flex justify-center '>
+<<<<<<< HEAD
     <div className='flex'>
       <div className='mt-60 mr-30'>
           <p className=' text-4xl text-red-400
                sm:text-gray-500 text-xl    '>
+=======
+    <div className='  sm:flex  '>
+
+      <div className='md:mt-60  lg: mt-30 mr-15'>
+          <p className=' 
+             md:text-2xl  text-gray-400 lg:text-gray-400   sm:text-left text-center  '>
+>>>>>>> 2ceadac23bac920f7afdc892d0ecbd877a263c56
             Pro.Beyond.
           </p>
-          <div className='text-7xl text-white'>
+          <div className='md:text-7xl  lg:text-7xl text-white  sm: text-5xl  sm:text-left text-center '>
+            <p>
             Iphone 14 Pro 
+            </p>
           </div>
-          <p className='text-gray-500'>Created to change everything for the better. For everyone</p>
-          <button className='w-50 text-white border mt-5  rounded-xl h-13 bg-none'>Shop Now</button>
+          <p className= 'sm:text-lg  text-gray-400 md:text-gray-500'>Created to change everything for the better. For everyone</p>
+          <div className='flex sm:justify-start sm: justify-center'>
+          <button className='cursor-pointer lg: w-50 text-white border mt-5  rounded-xl h-13 bg-none 
+          '>Shop Now</button>
+          </div>
       </div>
-      <div className='flex '>
-            <img className='w-130' src="iphone.svg" alt="" />
+      <div className='flex md: w-110 lg: flex w-100  sm: block w-50  '>
+            <img className='md: w-130 lg: w-110 h-full  sm: w-80 shrink-0 h-full block' src="iphone.svg" alt="" />
             </div>
-    </div>
+       </div>
       </div>
       </div>
-
-
 
       <div className='flex'>
         
         <div className=''>
           <div className='flex w-250'>
+<<<<<<< HEAD
             {/* ps 5  */}
           <img className='w-120 ' src="PlayStation.svg" alt="" />
             <div className='mt-30  '>
               <p className='text-4xl '>PlayStation 5 </p>
               <p className='text-2xl text-gray-400 mt-3 '>
+=======
+
+          <img className='w-120' src="PlayStation.svg" alt="" />
+            <div className='mt-30 '>
+              <p className='text-4xl'>PlayStation 5 </p>
+              <p className='text-2xl text-gray-400 mt-3'>
+>>>>>>> 2ceadac23bac920f7afdc892d0ecbd877a263c56
                 Incredibly powerful CPUs, GPUs, and an SSD with <br />
                  integrated I/O will redefine your PlayStation <br /> experience.
               </p>
@@ -153,6 +195,21 @@ const [count , setCount]  = useState(0)
       </div>
 </div>
     </div>
+
+
+    {/* <div className='grid grid-cols-4  gap-4'>
+        {products.length  > 0 ?(
+        products.map(prod =>(
+          <div key={prod.id}> 
+          <img src={`http://localhost:1452/${prod.images[0]}`} alt="" />
+                <p>{prod.brand}</p>
+                <p>{prod.name}</p>
+          </div>
+        ))
+      ): <p>Загрузка фото </p>
+      }
+    
+      </div> */}
       </div>
-  )
+    )
 }
