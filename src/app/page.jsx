@@ -51,12 +51,12 @@ export default function Page() {
     <div>
         <HeaderComp/>
 
-      <div className='w-345 mt-5 bg-[#211C24]'>
+      <div className='w-345 bg-[#211C24] md: w-screen'>
   <div className=''>
     <div className=''>
       <div className=' md:mt-60  lg: mt-30 mr-15'>
           <p className=' text-4xl
-                     md:text-2xl  text-gray-400 lg:text-gray-400    text-center  '>
+                     md:text-2xl  text-gray-400 lg:text-gray-400  text-center  '>
             Pro.Beyond.
           </p>
           <div className='flex justify-center  text-7xl  sm:text-left text-center  md:text-7xl  lg:text-7xl text-white  r '>
