@@ -1,8 +1,6 @@
 'use client'
 import React, {useEffect, useState } from 'react'
 import HeaderComp from '../components/HeaderComp';
-
-
 export default function Page() {
 
   
@@ -14,19 +12,19 @@ export default function Page() {
   const [products , setProducts] = useState([])
      useEffect(()=>{
       // самому написать 
-       async function GetProducts () {
-        const prodId = [1,90,130,100,120,6,7,8,]
-        const findId = prodId.map(id => 
-          fetch(`http://localhost:1452/api/products/${id}`).then(resp => resp.json())
-        )
-        const result = await Promise.all(findId)
-        setProducts(result)
-          console.log(result)
-       }
-       GetProducts()
-     }, [])
-  
-        
+        async function GetProducts() {
+              const idProd =  [1,130 , 90 , 8,100 , 95 , 110 ,121 ]
+              const  findId = idProd.map(id => 
+                    fetch(`http://localhost:1452/api/products/${id}`).then(resp => resp.json()) 
+              ) 
+                const result  = await Promise.all(findId)
+                // Promise асинхронная функция  
+                setProducts(result)
+                console.log(result)
+            }
+              GetProducts()
+          } ,[])
+          
   return (
     <div>
     
@@ -34,20 +32,20 @@ export default function Page() {
         <HeaderComp/>
 
       <div className='w-345 bg-[#211C24] md: w-screen'>
-  <div className=''>
+  <div className= '   '>
     <div className=''>
-      <div className=' md:mt-60  lg: mt-30 mr-15'>
+      <div className=' md:mt-60  lg: mt-30 mr-15 '>
           <p className=' text-4xl
-                     md:text-2xl  text-gray-400 lg:text-gray-400  text-center  '>
+                      lg:text-2xl  text-gray-400 lg:text-gray-400    '>
             Pro.Beyond.
           </p>
-          <div className='flex justify-center  text-7xl  sm:text-left text-center  md:text-7xl  lg:text-7xl text-white  r '>
+          <div className='flex justify-center  text-7xl  text-left text-center  lg:text-7xl  lg:text-7xl text-white   '>
             <p className='w-screen'>
             Iphone 14 Pro
             </p>
           </div>
-          <p className= 'text-2xl text-center mt-5  text-gray-400 md:text-gray-500'>Created to change everything for the better. For everyone</p>
-          <div className='flex sm:justify-start sm: justify-center'>
+          <p className= 'text-2xl mt-5  text-gray-400 lg:text-gray-500 '>Created to change everything for the better. For everyone</p>
+          <div className='flex justify-start  justify-center'>
           <button className='cursor-pointer lg: w-50 text-white border mt-5  rounded-xl h-13 bg-none 
           '>Shop Now</button>
           </div>
