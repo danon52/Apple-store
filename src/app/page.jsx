@@ -14,8 +14,7 @@ export default function Page() {
       // самому написать 
         async function GetProducts() {
               const idProd =  [1,130 , 90 , 8,100 , 95 , 110 ,121 ]
-              const  findId = idProd.map(id => 
-                    fetch(`http://localhost:1452/api/products/${id}`).then(resp => resp.json()) 
+              const  findId = idProd.map(id => fetch(`http://localhost:1452/api/products/${id}`).then(resp => resp.json()) 
               ) 
                 const result  = await Promise.all(findId)
                 // Promise асинхронная функция  
@@ -30,16 +29,15 @@ export default function Page() {
     
     <div>
         <HeaderComp/>
-
-      <div className='w-345 bg-[#211C24] md: w-screen'>
-  <div className= '   '>
-    <div className=''>
-      <div className=' md:mt-60  lg: mt-30 mr-15 '>
-          <p className=' text-4xl
-                      lg:text-2xl  text-gray-400 lg:text-gray-400    '>
+      <div className='w-345 bg-[#211C24] lg:w-screen h-200 '>
+  <div className= 'lg:flex justify-center  mt-20  '>
+    <div className='lg:flex justify-center'>
+      <div className=' md:mt-60    mr-15  '>
+          <p className=' text-4xl text-center
+                      lg: text-2xl text-start   text-gray-400 lg:text-gray-400'>
             Pro.Beyond.
           </p>
-          <div className='flex justify-center  text-7xl  text-left text-center  lg:text-7xl  lg:text-7xl text-white   '>
+          <div className='flex justify-center  text-7xl  text-left text-center  lg:text-7xl  lg:text-7xl  text-white w-104  '>
             <p className='w-screen'>
             Iphone 14 Pro
             </p>
@@ -50,10 +48,11 @@ export default function Page() {
           '>Shop Now</button>
           </div>
       </div>
-          <div className=''>
-            <img className='md: w-130 lg: w-110 h-full  sm: w-80 shrink-0 h-full block' src="iphone.svg" alt="" />
- </div>
-     
+      <div className='lg:flex justify-center'>
+          <div className='lg:flex justify-center ml-60 w-110'>
+            <img className='lg:w-130 mt-28 ' src="iphone.svg" alt="" />
+          </div>
+      </div>
        </div>
       </div>
       </div>
@@ -180,12 +179,12 @@ export default function Page() {
 </div>
     </div>
 
-    <div className='grid grid-cols-4  gap-4'>
+    <div className='grid grid-cols-4 gap-4'>
 
         { products.length > 0 ? (
             products.map(prod => (
               <div key= {prod.id}>
-              <img src={`http://localhost:1452/${prod.images[0]}`} alt="" />
+              <img className='w-65' src={`http://localhost:1452/${prod.images[0]}`} alt="" />
                 <p>{prod.category}</p>
                 <p>{prod.brand}</p>
               </div>
