@@ -3,51 +3,33 @@ import React, {useEffect, useState } from 'react'
 import HeaderComp from '../components/HeaderComp';
 
 
-export default function page(){
-  // const [products , setProducts] = useState([])
-  //   useEffect(()=>{
-  //     async function GetProducts () {
-  //         const resp = await fetch('http://localhost:1452/api/products/')
-  //         const data  = await resp.json()
-  //         setProducts(data)
-  //         console.log(data)
-  //       }
-  //       GetProducts()
-  //     },[])
 export default function Page() {
+
+  
+      // async function  getData() {
+      //     const respOblj = await fetch('http://localhost:1452/api/products/1')
+      // }
+
+
   const [products , setProducts] = useState([])
-    // useEffect(()=>{
-    //   async function GetProducts () {
-    //       const resp = await fetch('http://localhost:1452/api/products/')
-    //       const data  = await resp.json()
-    //       setProducts(data)
-    //       console.log(data)
-    //     }
-    //   GetProducts()
-    // },[])
-    
-
-    
+     useEffect(()=>{
+      // самому написать 
+       async function GetProducts () {
+        const prodId = [1,90,130,100,120,6,7,8,]
+        const findId = prodId.map(id => 
+          fetch(`http://localhost:1452/api/products/${id}`).then(resp => resp.json())
+        )
+        const result = await Promise.all(findId)
+        setProducts(result)
+          console.log(result)
+       }
+       GetProducts()
+     }, [])
   
-
-  
+        
   return (
-      <div>
-        <HeaderComp/>
-      <div className='mt-5 bg-[#211C24]'>
-  <div className='flex justify-center '>
-          </div>
-
-    <div className='flex'>
-      <div className='mt-60 mr-30'>
-          <p className=' text-4xl text-red-400
-               sm:text-gray-500 text-xl'></p>
-    <div className='  sm:flex  '>
-
-      <div className='md:mt-60   lg: mt-30 mr-15'>
-          <p className=' 
-             md:text-2xl  text-gray-400 lg:text-gray-400   sm:text-left text-center  '>
-
+    <div>
+    
     <div>
         <HeaderComp/>
 
@@ -72,10 +54,8 @@ export default function Page() {
       </div>
           <div className=''>
             <img className='md: w-130 lg: w-110 h-full  sm: w-80 shrink-0 h-full block' src="iphone.svg" alt="" />
-
-      <div className='flex  justify-center'>
-            <img className=' w-120 shrink-0 h-full block md: w-130 lg: w-110 h-full' src="iphone.svg" alt="" />
-            </div>
+ </div>
+     
        </div>
       </div>
       </div>
@@ -202,21 +182,26 @@ export default function Page() {
 </div>
     </div>
 
+    <div className='grid grid-cols-4  gap-4'>
 
-
-    {/* <div className='grid grid-cols-4  gap-4'>
-        {products.length  > 0 ?(
-          products.map(prod =>(
-            <div key={prod.id}> 
-            <img src={`http://localhost:1452/${prod.images[0]}`} alt="" />
+        { products.length > 0 ? (
+            products.map(prod => (
+              <div key= {prod.id}>
+              <img src={`http://localhost:1452/${prod.images[0]}`} alt="" />
+                <p>{prod.category}</p>
                 <p>{prod.brand}</p>
-                <p>{prod.name}</p>
-                </div>
-        ))
-        ): <p>Загрузка фото </p>
+              </div>
+             
+            ))
+           
+          
+               
+        ): <p> Загрузка данных </p>
+        
       }
-      
-      </div> */}
-      </div>
+     
+      </div> 
+      </div> 
+
     )
-      }
+}
