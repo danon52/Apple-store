@@ -29,36 +29,7 @@ export default function Page() {
     
     <div>
         <HeaderComp/>
-      <div className='w-400 bg-[#211C24]  lg:w-screen mt-20 h-200    '>
-      <div className= 'text-center  lg:w-screen '>
-        <div className=''>
-        <div className='text-center  lg:text-start '>
-          <p className=' text-4xl  text-gray-400 lg:text-red-400 text-3xl   '>
-            Pro.Beyond.
-          </p>
-        </div>
-          <div className=' w-400 flex justify-center lg:justify-start text-red-500 w-104  '>
-            <p className='text-7xl'>
-            Iphone 14 Pro
-            </p>
-          </div>
-          <div className='text-center lg:text-start'>
-          <p className= 'text-2xl mt-5  text-gray-400 lg:text-gray-500 w-147 '>Created to change everything for the better. For everyone</p>
-          </div>
-          <div className='flex justify-center lg:flex justify-start'>
-          <button className='cursor-pointer lg: w-50 text-white border mt-5 
-          rounded-xl h-13 bg-none 
-          '>Shop Now</button> 
-          </div>
-        </div>
 
-       <div className='flex justify-center  '>
-          <div className='flex justify-center lg: w-170 justify-center'>
-            <img className=' w-90  ' src="iphone.svg" alt="" />
-          </div>
-      </div>
-      </div>
-      </div>
       <div className='flex'>
         <div className=''>
           <div className='flex w-250'>
