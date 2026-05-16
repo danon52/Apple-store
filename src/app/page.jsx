@@ -29,35 +29,37 @@ export default function Page() {
     
     <div>
         <HeaderComp/>
-      <div className='w-345 bg-[#211C24] lg:w-screen h-200 '>
-  <div className= 'lg:flex justify-center  mt-20  '>
-    <div className='lg:flex justify-center'>
-      <div className=' md:mt-60    mr-15  '>
-          <p className=' text-4xl text-center
-                      lg: text-2xl text-start   text-gray-400 lg:text-gray-400'>
+      <div className='w-400 bg-[#211C24]  lg:w-screen mt-20 h-200    '>
+      <div className= 'text-center  lg:w-screen '>
+        <div className=''>
+        <div className='text-center  lg:text-start '>
+          <p className=' text-4xl  text-gray-400 lg:text-red-400 text-3xl   '>
             Pro.Beyond.
           </p>
-          <div className='flex justify-center  text-7xl  text-left text-center  lg:text-7xl  lg:text-7xl  text-white w-104  '>
-            <p className='w-screen'>
+        </div>
+          <div className=' w-400 flex justify-center lg:justify-start text-red-500 w-104  '>
+            <p className='text-7xl'>
             Iphone 14 Pro
             </p>
           </div>
-          <p className= 'text-2xl mt-5  text-gray-400 lg:text-gray-500 '>Created to change everything for the better. For everyone</p>
-          <div className='flex justify-start  justify-center'>
-          <button className='cursor-pointer lg: w-50 text-white border mt-5  rounded-xl h-13 bg-none 
-          '>Shop Now</button>
+          <div className='text-center lg:text-start'>
+          <p className= 'text-2xl mt-5  text-gray-400 lg:text-gray-500 w-147 '>Created to change everything for the better. For everyone</p>
+          </div>
+          <div className='flex justify-center lg:flex justify-start'>
+          <button className='cursor-pointer lg: w-50 text-white border mt-5 
+          rounded-xl h-13 bg-none 
+          '>Shop Now</button> 
+          </div>
+        </div>
+
+       <div className='flex justify-center  '>
+          <div className='flex justify-center lg: w-170 justify-center'>
+            <img className=' w-90  ' src="iphone.svg" alt="" />
           </div>
       </div>
-      <div className='lg:flex justify-center'>
-          <div className='lg:flex justify-center ml-60 w-110'>
-            <img className='lg:w-130 mt-28 ' src="iphone.svg" alt="" />
-          </div>
-      </div>
-       </div>
       </div>
       </div>
       <div className='flex'>
-
         <div className=''>
           <div className='flex w-250'>
             {/* ps 5  */}
@@ -183,10 +185,12 @@ export default function Page() {
 
         { products.length > 0 ? (
             products.map(prod => (
-              <div key= {prod.id}>
+              <div  key= {prod.id}>
+                <div className=''>
               <img className='w-65' src={`http://localhost:1452/${prod.images[0]}`} alt="" />
                 <p>{prod.category}</p>
                 <p>{prod.brand}</p>
+                </div>
               </div>
              
             ))
