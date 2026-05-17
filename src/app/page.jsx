@@ -29,6 +29,48 @@ export default function Page() {
     
     <div>
         <HeaderComp/>
+        {/* верстка первого блока и адаптация 
+        это пиздец ё
+        */}
+ <div className="w-full mt-15 bg-[#211C24] overflow-hidden">
+  <div className="px-6 lg:px-30 py-12 lg:h-180 flex flex-col lg:flex-row items-center justify-between">
+    <div className="w-full lg:w-1/2 mb-40">
+      <div className="flex justify-center lg:justify-start">
+        <p className="w-auto text-5xl text-center text-gray-400 lg:text-2xl mt-50">
+          Pro.Beyond.
+        </p>
+      </div>
+      <div className="text-center py-2 lg:text-start">
+        <p className="text-8xl text-white lg:text-8xl">
+          Iphone 14 Pro
+        </p>
+      </div>
+
+      <div>
+        <p className="text-center text-3xl text-gray-400 lg:hidden">
+          Created to change everything for the better. <br /> For everyone
+        </p>
+        <p className="hidden lg:block text-gray-400 lg:block text-xl lg:text-start ">
+          Created to change everything for the better. For everyone
+        </p>
+      </div>
+
+      <div className="flex justify-center mt-5 lg:justify-start">
+        <button className="text-white w-60 h-15 rounded-2xl border border-white text-xl">
+          Shop Now
+        </button>
+      </div>
+    </div>
+
+    <div className="w-full lg:w-1/2 flex justify-center lg:justify-end items-end min-w-0 mt-8 lg:mt-0">
+      <img
+        className="w-[280px] lg:w-[520px] h-auto object-contain"
+        src="Iphone.svg"
+        alt=""
+      />
+    </div>
+  </div>
+</div>
 
       <div className='flex'>
         <div className=''>
