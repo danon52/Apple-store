@@ -138,6 +138,31 @@ export default function Page() {
       </div>
 
     </div>
+
+              <div className=' lg:flex justify-items-cente '>
+      <div className=' w-348 h-auto   lg:flex justify-items-center bg-[#EDEDED]  '>
+      <div className=' py-15 lg:flex'>
+        <img className='w-210 lg:w-100' src="MacBookPro14.svg" alt="" />
+      </div>
+      <div className=' text-center lg:mt-25'>
+        <div className='text-center'>
+      <div className=' text-center'>
+        <p  className='text-8xl ml-10  lg:text-5xl'> MacBook  Pro </p>
+      </div> 
+        </div>
+      <div className=' mt-10 text-center '>
+            <p className='text-gray-400 text-3xl' >
+             The new 15‑inch MacBook Air makes room 
+             for more of <br /> what you love with a spacious Liquid Retina display.
+            </p>  
+            <div className=''>
+            <button className='w-200 h-20 mb-20 text-5xl bg-none mt-13 py-4 border-2  rounded-2xl '>Shop Now</button>
+            </div>
+      </div>
+        </div>
+          
+      </div>
+      </div>
       </div>
 
 
