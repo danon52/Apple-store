@@ -11,7 +11,7 @@ export default function Page() {
 
   const [products , setProducts] = useState([])
      useEffect(()=>{
-      // самому написать 
+
         async function GetProducts() {
               const idProd =  [1,130 , 90 , 8,100 , 95 , 110 ,121 ]
               const  findId = idProd.map(id => fetch(`http://localhost:1452/api/products/${id}`).then(resp => resp.json()) 
@@ -23,13 +23,11 @@ export default function Page() {
             }
               GetProducts()
           } ,[])
-          
   return (
     <div>
-    
     <div>
-        <HeaderComp/>
- <div className="w-348 mb-0 mt-15 bg-[#211C24] overflow-hidden lg:w-screen">
+        <HeaderComp/>     
+  <div className="w-348 mb-0 mt-15 bg-[#211C24] overflow-hidden lg:w-screen">
   <div className=" lg:px-30  lg:h-180 flex flex-col lg:flex-row items-center justify-between">
     <div className="w-full lg:w-1/2 mb-40">
       <div className="flex justify-center lg:justify-start">
@@ -57,24 +55,17 @@ export default function Page() {
       </div>
     </div>  
     <div className="w-full lg:w-1/2 flex justify-center lg:justify-end items-end min-w-0 mt-8 lg:mt-0">
-      <img
-        className="w-190 mb-0 lg:w-[520px]  shrink-0 h-auto object-contain"
-        src="Iphone.svg"
-        alt=""
-      />
+      <img  className="w-190 mb-0 lg:w-[520px]  shrink-0 h-auto object-contain" src="Iphone.svg"alt="" />
     </div>
   </div>
   </div>
-
-          <div className=''>
-            {/* apple vision  */}
-        
-      {/* AirPods Max  */}
+          <div>
         <div className=''>
-        <div className='lg:flex justify-items-cente  '>
-      <div className='w-348 h-240  lg:flex justify-items-center  bg-[#EDEDED] '>
+        <div className='lg:flex'>
+      <div className='w-full h-240  lg:flex justify-items-center bg-[#EDEDED]  '>
       <div className='lg:flex'>
-        <img className='w-130  lg:w-100' src="SizeMax.svg" alt="" />
+        <img className='w-20  lg:hidden w-100 ' src="SizeMax.svg" alt="" />
+        <img className='w-130 hidden lg:block lg:w-50 ' src="Max.svg" alt="" />
       </div>
       <div className='text-center mt-10 lg:mt-25'>
         <div className='text-center'>
@@ -83,8 +74,8 @@ export default function Page() {
       </div> 
         </div>
       <div className='mt-4 text-center '>
-            <p className='text-gray-400 text-4xl' >
-              Computational audio. Listen, it's powerful
+            <p className='text-gray-400 text-4xl lg:text-xl ml-3  ' >
+            Computational audio. Listen, it's powerful
             </p>
       </div>
         </div>
@@ -92,7 +83,6 @@ export default function Page() {
       </div>
         </div>
         {/* vision */}
-
             <div className=' lg:flex justify-items-cente '>
       <div className=' w-348 h-220   lg:flex justify-items-center bg-[#353535]  '>
       <div className=' py-15 lg:flex'>
@@ -110,9 +100,9 @@ export default function Page() {
             </p>
       </div>
         </div>
-          
       </div>
       </div>
+
         {/* ps 5  */}
         <div className=' '>
     <div className='  lg:flex justify-items-cente bg-white'>
@@ -132,15 +122,12 @@ export default function Page() {
             Incredibly powerful CPUs, GPUs, and an SSD with <br /> integrated I/O will redefine your PlayStation <br /> experience.
           </p>
       </div>
-        </div>
-          
+        </div>    
       </div>
       </div>
-
     </div>
-
-              <div className=' lg:flex justify-items-cente '>
-      <div className=' w-348 h-auto   lg:flex justify-items-center bg-[#EDEDED]  '>
+    <div className=' lg:flex justify-items-cente '>
+      <div className=' w-full h-auto   lg:flex justify-items-center bg-[#EDEDED]  '>
       <div className=' py-15 lg:flex'>
         <img className='w-210 lg:w-100' src="MacBookPro14.svg" alt="" />
       </div>
@@ -156,7 +143,7 @@ export default function Page() {
              for more of <br /> what you love with a spacious Liquid Retina display.
             </p>  
             <div className=''>
-            <button className='w-200 h-20 mb-20 text-5xl bg-none mt-13 py-4 border-2  rounded-2xl '>Shop Now</button>
+            <button className=' cursor-pointer w-200 h-20 mb-20 text-5xl bg-none mt-13 py-4 border-2  rounded-2xl '>Shop Now</button>
             </div>
       </div>
         </div>
