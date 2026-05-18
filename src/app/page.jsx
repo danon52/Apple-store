@@ -29,9 +29,6 @@ export default function Page() {
     
     <div>
         <HeaderComp/>
-        {/* верстка первого блока и адаптация 
-        это пиздец ё
-        */}
  <div className="w-348 mb-0 mt-15 bg-[#211C24] overflow-hidden lg:w-screen">
   <div className=" lg:px-30 py-12 lg:h-180 flex flex-col lg:flex-row items-center justify-between">
     <div className="w-full lg:w-1/2 mb-40">
@@ -68,10 +65,34 @@ export default function Page() {
       />
     </div>
   </div>
-</div>
+  </div>
 
-      <div className='flex'>
+          <div className='flex '>
+        {/* ps 5  */}
+        <div className=' '>
+    <div className='  lg:flex justify-items-cente bg-white'>
+      <div className=' w-348 h-auto  lg:flex justify-items-center '>
+      <div className='lg:flex'>
+        <img className='w-170 lg:w-100' src="SizePlay.svg" alt="" />
+      </div>
+      <div className='ml-40 lg:mt-25'>
+      <div className='flex  mr-20  justify-center  lg:'>
+        <p  className='  text-7xl lg:text-5xl mt-7 flex '>PlayStation 5 </p>
+      </div>  
+      <div className=''>
+         <p className='text-4xl    lg:text-xl mt-4'>
+            Incredibly powerful CPUs, GPUs, and an SSD with <br /> integrated I/O will redefine your PlayStation experience.``
+          </p>
+        <p className='hidden lg:text-xl block mt-4 text-gray-400'>
+            Incredibly powerful CPUs, GPUs, and an SSD with <br /> integrated I/O will redefine your PlayStation <br /> experience.``
+          </p>
+      </div>
+        </div>
+          
+      </div>
+      </div>
 
+    </div>
       </div>
 
 
