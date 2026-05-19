@@ -20,9 +20,7 @@ export default function HeaderComp() {
             </div>
       </div>
       </div>
-      </header>
-
-
+      </header>z
     </div>
   )
 }
