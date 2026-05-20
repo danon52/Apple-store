@@ -42,7 +42,7 @@ export default function Page() {
   return (
     <div>
     <div>
-        <HeaderComp/>     
+        {/* <HeaderComp/>      */}
   <div className="w-full mb-0 mt-15 bg-[#211C24] overflow-hidden lg:w-screen">
   <div className=" lg:px-30  lg:h-180 flex flex-col lg:flex-row items-center justify-between">
     <div className="w-full lg:w-1/2 mb-40">
