@@ -22,6 +22,22 @@ export default function Page() {
             }
               GetProducts()
           } ,[])
+
+
+
+
+          const [items , setItems] = useState ([])
+          useEffect(()=> {
+              async function getIttem() {
+                const  findItem = [126 , 32 , 104 ,107]
+                const Inputitem = findItem.map(id =>  fetch(`http://localhost:1452/api/products/${id}`).then(resp => resp.json())
+                )
+                    const resultI  =  await Promise.all(Inputitem)
+                    setItems(resultI)
+                  console.log(resultI)
+                    }
+                getIttem()
+          },[])
   return (
     <div>
     <div>
@@ -289,6 +305,35 @@ export default function Page() {
                   </div>
             </div>
             </div>
+          <div> 
+
+              <div>
+                    <p className='text-2xl'> Discounts up to -50%</p>
+              </div>
+
+              <div>
+                <div className='grid grid-cols-2 gap-4 text-center mt-10'>
+                  { items.length > 0 ? (
+                    items.map(i => (
+                      <div key={i.id}>
+                        <div className='' > 
+                          <div >
+                            <img className='w-70' src={`http://localhost:1452/${i.images[0]}`} alt="" /> 
+                            <div className='mt-3'>
+                            <p className='text-xl'>{i.name}</p>
+                            <p></p>
+                            <p className='text-xl'> цена по скидке :<br />{i.discount_price}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))
+                  ): <p>Загрузка данных</p>
+                }
+                
+                </div>
+              </div>
+          </div>
       </div> 
     )
 }
