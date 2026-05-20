@@ -1,6 +1,7 @@
 'use client'
 import React, {useEffect, useState } from 'react'
 import HeaderComp from '../components/HeaderComp';
+import Link from 'next/link';
 export default function Page() {
 
   
@@ -310,23 +311,24 @@ export default function Page() {
               <div>
                     <p className='text-2xl'> Discounts up to -50%</p>
               </div>
-
+        
               <div>
                 <div className='grid grid-cols-2 gap-4 text-center mt-10'>
                   { items.length > 0 ? (
                     items.map(i => (
-                      <div key={i.id}>
+                      <div  key={i.id}>
                         <div className='' > 
-                          <div >
+                            <Link href={`/products/${i.id}`}>
                             <img className='w-70' src={`http://localhost:1452/${i.images[0]}`} alt="" /> 
                             <div className='mt-3'>
-                            <p className='text-xl'>{i.name}</p>
+                            <p className='text-xl'>{`/products${i.id}`}</p>
                             <p></p>
                             <p className='text-xl'> цена по скидке :<br />{i.discount_price}</p>
                             </div>
+                            </Link>
                           </div>
                         </div>
-                      </div>
+                        
                     ))
                   ): <p>Загрузка данных</p>
                 }
