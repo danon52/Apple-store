@@ -203,14 +203,12 @@ export default function Page() {
           {/* хуй пойми че */}
           <div className='grid grid-cols-2 gap-4'>
               <div>
-
-<<<<<<< HEAD
               </div>
 
         </div>
 
     <div className='grid grid-cols-2 gap-4'>
-=======
+
 
              <div className=' w-[135px] h-[128px] rounded-2xl  bg-gray-200'>
               <div className='flex  justify-center items-center  mt-6'>
@@ -265,10 +263,7 @@ export default function Page() {
       </div>
 
     <div className=''>
-      <div className=' mt-10 grid grid-cols-2 gap-4  
-         ' >
-          
->>>>>>> 1b6f9a70b8a9f6e45a4712fa16f66810f40fabdd
+      <div className=' mt-10 grid grid-cols-2 gap-4' >
         { products.length > 0 ? (
           products.map(prod => (
             <div className=' rounded-2xl '  
@@ -346,5 +341,7 @@ export default function Page() {
               </div>
           </div>
       </div> 
+      </div>
+
     )
 }
