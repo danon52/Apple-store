@@ -7,7 +7,7 @@ export default function HeaderComp() {
     <div >   
 
     <div>   
-     <header className="py-10 w-full">
+     <header className=" w-full">
   <div className="flex items-center justify-between w-full">
     <Link href="/">
       <img className="h-25 w-40 lg:w-80" src="/Logo.svg" alt="Logo" />
