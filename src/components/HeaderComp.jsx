@@ -4,6 +4,9 @@ import React from 'react'
 
 export default function HeaderComp() {
   return (
+
+    <div >   
+    
     <div>   
      <header className="py-10 w-full">
   <div className="flex items-center justify-between w-full">
@@ -27,5 +30,6 @@ export default function HeaderComp() {
   </div>
 </header>
     </div>
+     </div>
   )
 }

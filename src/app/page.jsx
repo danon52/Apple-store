@@ -12,7 +12,7 @@ export default function Page() {
   const [products , setProducts] = useState([])
      useEffect(()=>{
         async function GetProducts() {
-              const  idProd =  [1,130 , 90 , 8,100 , 95 , 110 ,121]
+              const  idProd =  [1,130 , 90 , 8, 98 , 95 , 110 ,121]
               const  findId = idProd.map(id => fetch(`http://localhost:1452/api/products/${id}`).then(resp => resp.json()) 
               ) 
                 const result  = await Promise.all(findId)
@@ -22,6 +22,22 @@ export default function Page() {
             }
               GetProducts()
           } ,[])
+
+
+
+
+          const [items , setItems] = useState ([])
+          useEffect(()=> {
+              async function getIttem() {
+                const  findItem = [126 , 32 , 104 ,107]
+                const Inputitem = findItem.map(id =>  fetch(`http://localhost:1452/api/products/${id}`).then(resp => resp.json())
+                )
+                    const resultI  =  await Promise.all(Inputitem)
+                    setItems(resultI)
+                  console.log(resultI)
+                    }
+                getIttem()
+          },[])
   return (
     <div>
     <div>
@@ -159,33 +175,176 @@ export default function Page() {
       </div>
       </div>  
 
+      <div className='mt-5'>
+        <p className='text-2xl ml-10 mb-7'>Browse By Category</p> 
+          <div className='ml-10 grid grid-cols-2 gap-4 '>
+            <div className=' w-[135px] h-[128px] rounded-2xl  bg-gray-200'>
+              <div className='flex  justify-center items-center  mt-6'>
+          <div className='flex '>
+            <img className='w-13' src="Phones.svg" alt="" />
+          </div>
+              </div>
+              <div className='flex justify-center' >
+          <p>Phones</p>
+              </div>
+            </div>
+
+             <div className=' w-[135px] h-[128px] rounded-2xl  bg-gray-200'>
+              <div className='flex  justify-center items-center  mt-6'>
+          <div className='flex '>
+            <img className='w-13' src="Smart.svg" alt="" />
+          </div>
+              </div>
+              <div className='flex justify-center' >
+          <p>Smart Watches</p>
+              </div>
+            </div>
 
           {/* хуй пойми че */}
           <div className='grid grid-cols-2 gap-4'>
               <div>
 
+<<<<<<< HEAD
               </div>
 
         </div>
 
     <div className='grid grid-cols-2 gap-4'>
+=======
+
+             <div className=' w-[135px] h-[128px] rounded-2xl  bg-gray-200'>
+              <div className='flex  justify-center items-center  mt-6'>
+          <div className='flex '>
+            <img className='w-13' src="Cameras.svg" alt="" />
+          </div>
+              </div>
+              <div className='flex justify-center' >
+          <p>Cameras</p>
+              </div>
+            </div>
+
+
+             <div className=' w-[135px] h-[128px] rounded-2xl  bg-gray-200'>
+              <div className='flex  justify-center items-center  mt-6'>
+          <div className='flex '>
+            <img className='w-13' src="Headphones.svg" alt="" />
+          </div>
+              </div>
+              <div className='flex justify-center' >
+          <p>Headphones</p>
+              </div>
+            </div>
+
+
+             <div className=' w-[135px] h-[128px] rounded-2xl  bg-gray-200'>
+              <div className='flex  justify-center items-center  mt-6'>
+          <div className='flex '>
+            <img className='w-13' src="Computers.svg" alt="" />
+          </div>
+              </div>
+              <div className='flex justify-center' >
+          <p>Computers</p>
+              </div>
+            </div>
+
+
+             <div className=' w-[135px] h-[128px] rounded-2xl  bg-gray-200'>
+              <div className='flex  justify-center items-center  mt-6'>
+          <div className='flex '>
+            <img className='w-13' src="Gaming.svg" alt="" />
+          </div>
+              </div>
+              <div className='flex justify-center' >
+          <p>Gaming </p>
+              </div>
+            </div>
+
+            
+          </div>
+
+      </div>
+
+    <div className=''>
+      <div className=' mt-10 grid grid-cols-2 gap-4  
+         ' >
+          
+>>>>>>> 1b6f9a70b8a9f6e45a4712fa16f66810f40fabdd
         { products.length > 0 ? (
-            products.map(prod => (
-              <div  key= {prod.id}>
-                <div className=''>
-              <img className='w-65' src={`http://localhost:1452/${prod.images[0]}`} alt="" />
-                <p>{prod.category}</p>
-                <p>{prod.brand}</p>
+          products.map(prod => (
+            <div className=' rounded-2xl '  
+            key= {prod.id}>
+              <div className='flex justify-end'>
+              <img src="Favorites.svg" alt="" />
+              </div>
+                <div className=' text-center '>
+                  <div className=''>
+                    <div className=''>
+                    <img  className=' bg-gray-200 w-70' src={`http://localhost:1452/${prod.images[0]}`} alt="" />
+                    </div>
+                <p className='text-xl'>{prod.brand}</p>
+                <p className='text-xl'>{prod.name}</p>
+                <div>
+                  <p className='text-xl'> {prod.price} ₽</p>
+                </div>
+                <div>
+                  {/* добовление в корзину  */}
+                <button className=' cursor-pointer w-40 h-10 text-lg  rounded-xl  bg-black text-white'>Buy Now </button>
+                </div>
+                  </ div>
                 </div>
               </div>
-             
             )) 
-        ): <p> Загрузка данных </p>
-        
-      }
-     
+          ): <p> Загрузка данных </p>
+        }
       </div> 
-      </div> 
+        </div>
+            <div className='mt-5 bg-[#F9F9F9]'>
+            <div className='flex justify-end'>
+              <img src="Ipad.svg" alt="" />
+            </div>
+            <div>
+              <div className='flex justify-center'>
+                  <p className='text-5xl'>Ipad Pro </p>
+              </div>
+              <div className='text-center  mt-5 text-gray-400'>
+                <p className=''>iPad combines a magnificent 10.2-inch Retina display,
+                 </p>
+                 <p>  incredible performance, multitasking and ease of use.</p>
+              </div>
+                  <div className='flex justify-center mt-5'>
+              <button className='w-50 h-15 bg-none border rounded-xl text-black'>Shop Now </button>
+                  </div>
+            </div>
+            </div>
+          <div> 
 
+              <div>
+                    <p className='text-2xl'> Discounts up to -50%</p>
+              </div>
+
+              <div>
+                <div className='grid grid-cols-2 gap-4 text-center mt-10'>
+                  { items.length > 0 ? (
+                    items.map(i => (
+                      <div key={i.id}>
+                        <div className='' > 
+                          <div >
+                            <img className='w-70' src={`http://localhost:1452/${i.images[0]}`} alt="" /> 
+                            <div className='mt-3'>
+                            <p className='text-xl'>{i.name}</p>
+                            <p></p>
+                            <p className='text-xl'> цена по скидке :<br />{i.discount_price}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))
+                  ): <p>Загрузка данных</p>
+                }
+                
+                </div>
+              </div>
+          </div>
+      </div> 
     )
 }
