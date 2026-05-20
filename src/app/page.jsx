@@ -160,9 +160,15 @@ export default function Page() {
       </div>  
 
 
+          {/* хуй пойми че */}
+          <div className='grid grid-cols-2 gap-4'>
+              <div>
 
-    <div className='grid grid-cols-4 gap-4'>
+              </div>
 
+        </div>
+
+    <div className='grid grid-cols-2 gap-4'>
         { products.length > 0 ? (
             products.map(prod => (
               <div  key= {prod.id}>
