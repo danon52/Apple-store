@@ -1,17 +1,23 @@
 'use client'
-import React, {useEffect, useState } from 'react'
-
+import React, {useContext, useEffect, useState } from 'react'
 import Link from 'next/link';
-import ComBut from '@/components/ComBut';
 export default function Page() {
 
   
       // async function  getData() {
       //     const respOblj = await fetch('http://localhost:1452/api/products/1')
-      // }
+      // }ы
 
 
-  const [products , setProducts] = useState([])
+
+ 
+  const [products , setProducts] = useState([]) 
+
+
+  // const hel = "hello"
+
+
+
      useEffect(()=>{
         async function GetProducts() {
               const  idProd =  [1,130 , 90 , 8, 98 , 95 , 110 ,121]
@@ -25,10 +31,8 @@ export default function Page() {
               GetProducts()
           } ,[])
 
-
-
-
-          const [items , setItems] = useState ([])
+            const [items , setItems] = useState ([])
+            
           useEffect(()=> {
               async function getIttem() {
                 const  findItem = [126 , 32 , 104 ,107]
@@ -40,6 +44,11 @@ export default function Page() {
                     }
                 getIttem()
           },[])
+              
+
+
+
+
   return (
     <div>
 
@@ -254,7 +263,6 @@ export default function Page() {
 
 
       </div>
-
     <div className=''>
       <div className=' mt-10 grid grid-cols-2 gap-4' >
         { products.length > 0 ? (
@@ -277,14 +285,13 @@ export default function Page() {
                 </div>
                 <div>
                   {/* добовление в корзину  */}
-                {/* <button className=' cursor-pointer w-40 h-10 text-lg  rounded-xl  bg-black text-white'>Buy Now </button> */}
+
                 
                 </div>
                   </ div>
                 </div>
               </Link>
-              <ComBut />
-
+                <button className=' cursor-pointer w-40 h-10 text-lg  rounded-xl  bg-black text-white'>Buy Now </button>
               </div>
             )) 
           ): <p> Загрузка данных </p>
@@ -305,7 +312,7 @@ export default function Page() {
                  <p>  incredible performance, multitasking and ease of use.</p>
               </div>
                   <div className='flex justify-center mt-5'>
-              <button className='w-50 h-15 bg-none border rounded-xl text-black'>Shop Now </button>
+              <button  className='w-50 h-15 bg-none border rounded-xl text-black'>Shop Now </button>
                   </div>
             </div>
             </div>
@@ -329,7 +336,8 @@ export default function Page() {
                             </div>
                             </Link>
                           </div>
-                            <ComBut/>
+              <button className='w-50 h-15 bg-none border rounded-xl text-black'>Shop Now </button>
+
                         </div>
                         
                     ))
