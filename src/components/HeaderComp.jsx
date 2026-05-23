@@ -5,7 +5,6 @@ import React from 'react'
 export default function HeaderComp() {
   return (
     <div >   
-
     <div>   
      <header className=" w-full">
   <div className="flex items-center justify-between w-full">
@@ -23,7 +22,6 @@ export default function HeaderComp() {
       <Link href="/cart">
         <img className="hidden md:block w-15 mt-6" src="/Vector.svg" alt="Cart" />
       </Link>
-
       <img className="hidden lg:block w-20 ml-5" src="/Favorites.svg" alt="Favorites" />
     </div>
   </div>

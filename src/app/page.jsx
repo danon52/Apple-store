@@ -1,7 +1,8 @@
 'use client'
 import React, {useEffect, useState } from 'react'
-import HeaderComp from '../components/HeaderComp';
+
 import Link from 'next/link';
+import ComBut from '@/components/ComBut';
 export default function Page() {
 
   
@@ -41,6 +42,7 @@ export default function Page() {
           },[])
   return (
     <div>
+
     <div>
         {/* <HeaderComp/>      */}
   <div className="w-full mb-0 mt-15 bg-[#211C24] overflow-hidden lg:w-screen">
@@ -178,7 +180,8 @@ export default function Page() {
 
       <div className='mt-5'>
         <p className='text-2xl ml-10 mb-7'>Browse By Category</p> 
-          <div className='ml-10 grid grid-cols-2 gap-4 '>
+      <div className='grid grid-cols-2 gap-4 ml-10'>
+
             <div className=' w-[135px] h-[128px] rounded-2xl  bg-gray-200'>
               <div className='flex  justify-center items-center  mt-6'>
           <div className='flex '>
@@ -200,17 +203,6 @@ export default function Page() {
           <p>Smart Watches</p>
               </div>
             </div>
-
-          {/* хуй пойми че */}
-          <div className='grid grid-cols-2 gap-4'>
-              <div>
-              </div>
-
-        </div>
-
-    <div className='grid grid-cols-2 gap-4'>
-
-
              <div className=' w-[135px] h-[128px] rounded-2xl  bg-gray-200'>
               <div className='flex  justify-center items-center  mt-6'>
           <div className='flex '>
@@ -259,7 +251,7 @@ export default function Page() {
             </div>
 
             
-          </div>
+
 
       </div>
 
@@ -272,6 +264,7 @@ export default function Page() {
               <div className='flex justify-end'>
               <img src="Favorites.svg" alt="" />
               </div>
+              <Link href={`products/${prod.id}`}> 
                 <div className=' text-center '>
                   <div className=''>
                     <div className=''>
@@ -284,10 +277,13 @@ export default function Page() {
                 </div>
                 <div>
                   {/* добовление в корзину  */}
-                <button className=' cursor-pointer w-40 h-10 text-lg  rounded-xl  bg-black text-white'>Buy Now </button>
+              <ComBut />
+                {/* <button className=' cursor-pointer w-40 h-10 text-lg  rounded-xl  bg-black text-white'>Buy Now </button> */}
+                
                 </div>
                   </ div>
                 </div>
+              </Link>
               </div>
             )) 
           ): <p> Загрузка данных </p>
@@ -314,7 +310,7 @@ export default function Page() {
             </div>
           <div> 
 
-              <div>
+              <div className='mt-10'>
                     <p className='text-2xl'> Discounts up to -50%</p>
               </div>
         
@@ -327,11 +323,11 @@ export default function Page() {
                             <Link href={`/products/${i.id}`}>
                             <img className='w-70' src={`http://localhost:1452/${i.images[0]}`} alt="" /> 
                             <div className='mt-3'>
-                            <p className='text-xl'>{`/products${i.id}`}</p>
-                            <p></p>
+                            <p className='text-3xl'>{i.name}</p>
                             <p className='text-xl'> цена по скидке :<br />{i.discount_price}</p>
                             </div>
                             </Link>
+                            <ComBut/>
                           </div>
                         </div>
                         
