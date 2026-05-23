@@ -277,13 +277,14 @@ export default function Page() {
                 </div>
                 <div>
                   {/* добовление в корзину  */}
-              <ComBut />
                 {/* <button className=' cursor-pointer w-40 h-10 text-lg  rounded-xl  bg-black text-white'>Buy Now </button> */}
                 
                 </div>
                   </ div>
                 </div>
               </Link>
+              <ComBut />
+
               </div>
             )) 
           ): <p> Загрузка данных </p>
@@ -327,8 +328,8 @@ export default function Page() {
                             <p className='text-xl'> цена по скидке :<br />{i.discount_price}</p>
                             </div>
                             </Link>
-                            <ComBut/>
                           </div>
+                            <ComBut/>
                         </div>
                         
                     ))
