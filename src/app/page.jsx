@@ -1,6 +1,7 @@
 'use client'
 import React, {useContext, useEffect, useState } from 'react'
 import Link from 'next/link';
+import { Cartcontext } from '@/store';
 export default function Page() {
 
   
@@ -12,9 +13,8 @@ export default function Page() {
 
  
   const [products , setProducts] = useState([]) 
+  
 
-
-  // const hel = "hello"
 
 
 
@@ -46,6 +46,7 @@ export default function Page() {
           },[])
               
 
+          const {AddToCart } = useContext(Cartcontext)
 
 
 
@@ -291,7 +292,7 @@ export default function Page() {
                   </ div>
                 </div>
               </Link>
-                <button className=' cursor-pointer w-40 h-10 text-lg  rounded-xl  bg-black text-white'>Buy Now </button>
+                <button onClick={()=> AddToCart(prod)} className=' cursor-pointer w-40 h-10 text-lg  rounded-xl  bg-black text-white'>Buy Now </button>
               </div>
             )) 
           ): <p> Загрузка данных </p>
@@ -336,14 +337,14 @@ export default function Page() {
                             </div>
                             </Link>
                           </div>
-              <button className='w-50 h-15 bg-none border rounded-xl text-black'>Shop Now </button>
+                <button onClick={()=> AddToCart(i)} className=' cursor-pointer w-40 h-10 text-lg  rounded-xl  bg-black text-white'>Buy Now </button>
+                  
 
                         </div>
                         
                     ))
                   ): <p>Загрузка данных</p>
                 }
-                
                 </div>
               </div>
           </div>

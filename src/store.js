@@ -2,24 +2,47 @@
 import { createContext, useEffect, useState } from "react";
 
 
-
 export const Cartcontext = createContext([])
-
 export function CartProvider({children}){
-    // const [products , setProducts] = useState([])
-    // useEffect(()=>{
-    //     async function getProd() {
-    //         const data = await fetch('http://localhost:1452/api/products/').then(resp =>resp.json())
-    //             setProducts(data)
-    //             console.log(data)
-    //     }
-    //     getProd()   
-    // }, [])
 
+    const [cart , setCart] = useState([]) 
 
-return(
-    <Cartcontext.Provider value={{products,setProducts}}>
-        {children}
-    </Cartcontext.Provider>  
-)
+    useEffect(()=>{
+        const save = localStorage.getItem('cart')
+        if(save) {
+            setCart(JSON.parse(save)) 
+        }
+    },[])
+
+    useEffect(()=>{
+        localStorage.setItem('cart' , JSON.stringify(cart))
+    }, [cart])
+
+    function AddToCart(newrod){
+        // Защита от undefined
+        if(!newrod || !newrod.id){
+            console.error("Товар не передан в AddToCart", newrod)
+            return
+        }
+
+        setCart(prevCart => {
+            const existing = prevCart.find(item => item.id === newrod.id)
+            
+            if(existing){
+                return prevCart.map(item => 
+                    item.id === newrod.id
+                        ? {...item, quantity: item.quantity + 1}
+                        : item
+                )
+            } else {
+                return [...prevCart, {...newrod, quantity: 1}]
+            }
+        })
+    }
+        
+    return(
+        <Cartcontext.Provider value={{cart, AddToCart}}>
+            {children}
+        </Cartcontext.Provider>  
+    )
 }
