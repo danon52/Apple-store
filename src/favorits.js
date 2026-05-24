@@ -37,10 +37,11 @@ const [favorits , setFavorits] = useState([])
     // функция для очитски корзины полностью 
   function deleteFromOrder(delfavor) {
         setFavorits(favor => {
-            const index = favor.findIndex(item => item.id !== delfavor.id)
-            if (index !== -1) favor.splice(index, 1)
+            const first = favor.findIndex(item => item.id === item.id)
+           if(first !== -1 ) favor.splice(first , 1)
+            return[...favor]
             })
-  }
+            }
     
     return (
         <FavoritsContext.Provider value={{favorits , AddToFavorits , deleteFromOrder}}>

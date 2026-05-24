@@ -34,8 +34,24 @@ export function CartProvider({children}){
         })
     }
         
+      function delProducts() {
+        setCart(favor => {
+            const first = favor.findIndex(item => item.id === item.id)
+           if(first !== -1 ) favor.splice(first , 1)
+            return[...favor]
+            })
+            }
+
+
+                function DelAllCart(delell){
+                    setCart(allitem => {
+                        const del = allitem.findIndex(item => item.id ===  delell.id)
+                        if(allitem !== -1 ) allitem.splice(del,1)
+                    })
+                }
+
     return(
-        <Cartcontext.Provider value={{cart, AddToCart}}>
+        <Cartcontext.Provider value={{cart, AddToCart , delProducts , DelAllCart }}>
             {children}
         </Cartcontext.Provider>  
     )
