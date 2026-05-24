@@ -8,6 +8,7 @@ export default function LikePage() {
 
 
  const { favorits } = useContext(FavoritsContext)
+ const { deleteFromOrder } = useContext(FavoritsContext)
 
 console.log(favorits)
   return (
@@ -21,7 +22,8 @@ console.log(favorits)
                     <p>{item.quantity}</p>
 <img className='w-70' src={`http://localhost:1452/${item.images[0]}`} alt="" /> 
 
-                  </div>
+                  </div> 
+                  <button onClick={()=> deleteFromOrder(item.id)} className='w-100 bg-black text-white text-center h-15'>Удалить нахуй </button>
             </div>
           ))
         ) : <p></p>

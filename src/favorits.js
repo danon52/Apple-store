@@ -26,18 +26,23 @@ const [favorits , setFavorits] = useState([])
                     if(addfav) {
                         return favor.map(item=> 
                             item.id === newfavor.id
-                            ?{...item , quantity : quantity + 1}
-                            : item 
+                            ? {...item, quantity: item.quantity + 1}
+                        : item
                         )
-                    } else{
-                        return [...favor ,{...newfavor , quantity:1}]
-                    }
+                    } else return [...favor ,{...newfavor , quantity:1}]
                  })    
     }
 
+  function deleteFromOrder(delfavor) {
+    setFavorits(favordel => {
+   const index = favordel.findIndex((item) => item.id === delfavor.id)
+    if (index !== -1) order.value.splice(index, 1)
+    })
+ 
+  }
     
     return (
-        <FavoritsContext.Provider value={{favorits , AddToFavorits}}>
+        <FavoritsContext.Provider value={{favorits , AddToFavorits , deleteFromOrder}}>
                 {children}
         </FavoritsContext.Provider>
 )
