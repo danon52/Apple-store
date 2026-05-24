@@ -19,12 +19,6 @@ export function CartProvider({children}){
     }, [cart])
 
     function AddToCart(newrod){
-        // Защита от undefined
-        if(!newrod || !newrod.id){
-            console.error("Товар не передан в AddToCart", newrod)
-            return
-        }
-
         setCart(prevCart => {
             const existing = prevCart.find(item => item.id === newrod.id)
             

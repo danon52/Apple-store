@@ -1,15 +1,33 @@
-import React from 'react'
+  'use client'
+import React, { useContext } from 'react'
+import { FavoritsContext } from '@/favorits';
 
 export default function LikePage() {
+
+
+
+
+ const { favorits } = useContext(FavoritsContext)
+
+console.log(favorits)
   return (
-<<<<<<< HEAD
-    <div>LikePage</div>
-=======
     <div>
-            <h1>
-                Hello i page like products 
-            </h1>
+        { favorits && favorits.length > 0 ? (
+          favorits.map((item) => (
+            <div key={item.id}>
+                  <div>
+                    <p>{item.name}</p>
+                    <p>{item.price}</p>
+                    <p>{item.quantity}</p>
+<img className='w-70' src={`http://localhost:1452/${item.images[0]}`} alt="" /> 
+
+                  </div>
+            </div>
+          ))
+        ) : <p></p>
+
+        }
     </div>
->>>>>>> de0f7cf5dbab13d40f6c05652a1108759d2deb97
   )
 }
+ 

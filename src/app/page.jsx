@@ -2,6 +2,7 @@
 import React, {useContext, useEffect, useState } from 'react'
 import Link from 'next/link';
 import { Cartcontext } from '@/store';
+import { FavoritsContext } from '@/favorits';
 export default function Page() {
 
   
@@ -49,7 +50,7 @@ export default function Page() {
           const {AddToCart } = useContext(Cartcontext)
 
 
-
+          const {AddToFavorits} = useContext(FavoritsContext)
   return (
     <div>
 
@@ -271,7 +272,9 @@ export default function Page() {
             <div className=' rounded-2xl '  
             key= {prod.id}>
               <div className='flex justify-end'>
+                <button onClick={() => AddToFavorits(prod)} className='cursor-pointer'>
               <img src="Favorites.svg" alt="" />
+                </button>
               </div>
               <Link href={`products/${prod.id}`}> 
                 <div className=' text-center '>
