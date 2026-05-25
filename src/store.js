@@ -17,7 +17,8 @@ export function CartProvider({children}){
     useEffect(()=>{
         localStorage.setItem('cart' , JSON.stringify(cart))
     }, [cart])
-
+// общий счет корзины 
+// reduce 
     function AddToCart(newrod){
         setCart(prevCart => {
             const existing = prevCart.find(item => item.id === newrod.id)
