@@ -5,7 +5,7 @@ import { FavoritsContext } from '@/favorits';
 export default function LikePage() {
 
 
-
+// верстка страницы , алаптация 
 
  const { favorits } = useContext(FavoritsContext)
  const { deleteFromOrder } = useContext(FavoritsContext)
