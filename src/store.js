@@ -32,9 +32,16 @@ export function CartProvider({children}){
             } else {
                 return [...prevCart, {...newrod, quantity: 1}]
             }
+            
         })
     }
-        
+        function ReduceValue(){
+            // массив favorits 
+const numbers = [1, 2, 3, 4, 5];
+const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+console.log(sum); // 15
+
+            }
       function delProducts() {
         setCart(favor => {
             const first = favor.findIndex(item => item.id === item.id)
