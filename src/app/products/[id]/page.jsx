@@ -7,7 +7,7 @@ import React, {} from 'react'
 
 export default async function ProdictPage({params}) {
 
-    // const 
+  
     const param = await params
 
     const resp = await fetch(`http://localhost:1452/api/products/${param.id}`)
@@ -19,6 +19,7 @@ export default async function ProdictPage({params}) {
 
     
   return (
+    //  данные  характеристик 
     <div>
             
         < hr className='text-gray-400' />
