@@ -10,6 +10,7 @@ export default function CartPage() {
 // получение данных с хранилеща 
  const { cart } = useContext(Cartcontext)
 console.log(cart)
+// верстка , адаптация 
   return (
 
     <div>
