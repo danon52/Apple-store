@@ -23,7 +23,6 @@ export function CartProvider({children}){
     function AddToCart(newrod){
         setCart(prevCart => {
             const existing = prevCart.find(item => item.id === newrod.id)
-            
             if(existing){
                 return prevCart.map(item => 
                     item.id === newrod.id
