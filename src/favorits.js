@@ -31,9 +31,6 @@ const [favorits , setFavorits] = useState([])
                     } else return [...favor ,{...newfavor , quantity:1}]
                  })    
     }
-
-
-
     // функция для очитски корзины полностью 
   function deleteFromOrder(delfavor) {
         setFavorits(favor => {

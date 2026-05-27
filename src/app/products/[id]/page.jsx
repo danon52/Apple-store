@@ -19,10 +19,9 @@ export default async function ProdictPage({params}) {
 
     
   return (
-    //  данные  характеристик 
+    //  данные  характеристик  СДЕЛАТЬ ПИЗДЕЦ НАДО 
     <div>
-            
-        < hr className='text-gray-400' />
+        <hr className='text-gray-400' />
             <div className='mt-5'> 
                 <div className='flex  justify-center'>
             <img  className='w-85' src={`http://localhost:1452/${data.images[0]}`} alt="" />

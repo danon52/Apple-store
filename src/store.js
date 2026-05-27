@@ -19,6 +19,7 @@ export function CartProvider({children}){
     }, [cart])
 // общий счет корзины 
 // reduce 
+// счетчик с ценой товара 
     function AddToCart(newrod){
         setCart(prevCart => {
             const existing = prevCart.find(item => item.id === newrod.id)
@@ -36,21 +37,18 @@ export function CartProvider({children}){
         })
     }
         function ReduceValue(){
-            // массив favorits 
-const numbers = [1, 2, 3, 4, 5];
-const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-console.log(sum); // 15
+            const sum = favorits.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+            return sum
+        
+        }
 
-            }
-      function delProducts() {
+        function delProducts() {
         setCart(favor => {
             const first = favor.findIndex(item => item.id === item.id)
            if(first !== -1 ) favor.splice(first , 1)
             return[...favor]
             })
-            }
-
-
+        }
                 function DelAllCart(delell){
                     setCart(allitem => {
                         const del = allitem.findIndex(item => item.id ===  delell.id)
@@ -59,7 +57,7 @@ console.log(sum); // 15
                 }
 
     return(
-        <Cartcontext.Provider value={{cart, AddToCart , delProducts , DelAllCart }}>
+        <Cartcontext.Provider value={{cart, AddToCart , delProducts , DelAllCart,ReduceValue}}>
             {children}
         </Cartcontext.Provider>  
     )
