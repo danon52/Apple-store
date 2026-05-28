@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 export default function FooterComp() {
@@ -45,15 +46,23 @@ export default function FooterComp() {
                     <p className='py-4'>Frequently asked questions</p>
                     <p>Terms of use of the site</p>
                 </div>
-
-
                 <div className='flex py-5 justify-center'>
+                    <Link  href={'https://x.com/?lang=ru'}>
                         <img className=' w-10' src="Twitter.svg" alt="" />
-                        <img className='ml-5 w-10'  src="Tiktok.svg" alt="" />
-                        <img className='ml-5 w-10' src="Instagram.svg" alt="" />
+                    </Link>
+                      <Link href={'https://www.facebook.com/'}>
                         <img  className='ml-5 w-10' src="Facebook.svg" alt="" />
+                    </Link>
+                    <Link href={'https://www.tiktok.com/'}>
+                        <img className='ml-5 w-10'  src="Tiktok.svg" alt="" />
+                    </Link>
+                    <Link href={'https://www.instagram.com/'}>
+                        <img className='ml-5 w-10' src="Instagram.svg" alt="" />
+                    </Link>
+                  
                 </div>
             </div>
+
             </footer>
     </div>
   )

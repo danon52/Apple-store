@@ -4,8 +4,7 @@ import { useContext, useState} from "react"
 import { Cartcontext } from '@/store';
 import Link from "next/link";
 import FooterComp from "../../components/FooterComp";
-
-
+import { Skeleton } from "@/components/ui/skeleton"
 export default function CartPage() {
 
 
@@ -29,7 +28,6 @@ console.log(cart)
       {cart && cart.length > 0 ?(
           cart.map((item)=>(
             <div  key={item.id}>
-            
               <div className="">                
                   <div className=" ">
                     <div className="ml-3 flex mt-10">
@@ -76,7 +74,8 @@ console.log(cart)
               </div>
             </div>
           ))
-        ) : <p>Данные загружаются</p>
+        ) : <Skeleton className="w-50 h-20 " /> 
+
       }
     </div>
           <form className="mt-5 border w-90 ml-5 h-140 rounded-2xl border-gray-400 " action="">
