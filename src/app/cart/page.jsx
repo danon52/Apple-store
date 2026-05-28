@@ -1,5 +1,5 @@
 'use client'
-import { useContext, useState} from "react"
+import { useContext, useEffect, useState} from "react"
 
 import { Cartcontext } from '@/store';
 import Link from "next/link";
@@ -9,14 +9,38 @@ export default function CartPage() {
 
 
   // счетчик 
- const { cart } = useContext(Cartcontext)
+
+
  const {delProducts} = useContext(Cartcontext)
 
+  const {cart} = useContext(Cartcontext)
+  const {sum} = useContext(Cartcontext)
+    // const [cartone , setCartone] = useState([]) 
+    // useEffect(()=>{
+    //     const save = localStorage.getItem('cart')
+    //     if(save) {
+    //         setCartone(JSON.parse(save)) 
+    //     }
+    // },[])
+
+
+
+
+    // const sum = cart.reduce(
+    //   (sum , item) => sum+ item.price * item.quantity,
+    //    0)
 
 //  
-const [count , setCount ] = useState(0)
+// сделать промокод 
+const LuckiCode = 'HAVEFIVE'
+
   
-console.log(cart)
+
+
+
+
+
+
 
 // добавить загрузку скелетона 
 // верстка,адаптация 
@@ -37,7 +61,7 @@ console.log(cart)
                 <hr className="text-gray-400 " />
                   <div className="w-full h-20  ml-3 ">
                         <p className="text-lg">{item.name}</p>
-                       
+
                             <p>id : #{item.id}</p>
                         
                       
@@ -45,17 +69,19 @@ console.log(cart)
                         <div className="flex justify-center"> 
                       
                           <Link href={`products/${item.id}`}>
+
                             <div className="flex justify-start">
-                      
+
                       
                         <p className="text-xl ">{item.price}</p>
+
                </div>
                     
                           </Link>
                <div className=" flex ml-7 text-center">
                         <button className="mr-2" >+</button>
-                          <p className="text-xl bg-white w-5 h-7">{count}</p>
-                        <button className="ml-2">-</button>
+                          <p className="text-xl bg-white w-5 h-7">{item.quantity}</p>
+                        <button  className="ml-2">-</button>
                </div>
                         </div>
                         <div className="mr-10 text-center">
@@ -73,11 +99,22 @@ console.log(cart)
                          </div>
               </div>
             </div>
-          ))
-        ) : <Skeleton className="w-50 h-20 " /> 
-
+                      ))
+        ) :   <div className="flex mt-10">
+        <Skeleton className=" ml-3 w-40 h-30  " />  
+        <div>
+          <Skeleton className =  " mt-2 ml-5 h-5 w-50" />
+          <Skeleton className =  " mt-5 ml-5 h-5 w-50" />
+          <Skeleton className =  " mt-5 ml-5 h-5 w-50" />
+        </div>
+        </div> 
+        
       }
+
     </div>
+
+{/* посчитать итоговую сумму товара  */}
+
           <form className="mt-5 border w-90 ml-5 h-140 rounded-2xl border-gray-400 " action="">
     <div className=" mt-10 ml-12">
         <p className="text-xl font-bold">Order Summary </p>
@@ -108,8 +145,9 @@ console.log(cart)
           </div>
           <div className="mt-20">
               <div className="flex justify-between">
-                <p className=" ml-3">SubTotal </p>
-            <p className="mr-5">Дохуя денег </p>
+                <p className=" text-xl ml-3">SubTotal </p>
+                    <p className=" mr-5 text-xl">  ₽{sum}</p>
+
               </div>
                 <div className="flex justify-between">
                       <p className=" ml-3">Estimated Tax</p>

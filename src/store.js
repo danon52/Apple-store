@@ -5,7 +5,8 @@ import { createContext, useEffect, useState } from "react";
 export const Cartcontext = createContext([])
 export function CartProvider({children}){
 
-    const [cart , setCart] = useState([]) 
+    const [cart, setCart] = useState([]) 
+
 
     useEffect(()=>{
         const save = localStorage.getItem('cart')
@@ -13,6 +14,10 @@ export function CartProvider({children}){
             setCart(JSON.parse(save)) 
         }
     },[])
+
+
+
+
 
     useEffect(()=>{
         localStorage.setItem('cart' , JSON.stringify(cart))
@@ -36,11 +41,12 @@ export function CartProvider({children}){
             
         })
     }
-        function ReduceValue(){
-            const sum = favorits.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-            return sum
-        
-        }
+    
+    
+    const sum = cart.reduce(
+      (sum , item) => sum+ item.price * item.quantity,
+       0)
+
 
         function delProducts() {
         setCart(favor => {
@@ -57,7 +63,12 @@ export function CartProvider({children}){
                 }
 
     return(
-        <Cartcontext.Provider value={{cart, AddToCart , delProducts , DelAllCart,ReduceValue}}>
+        <Cartcontext.Provider value={{cart, 
+            AddToCart , 
+            delProducts , 
+            DelAllCart,
+            sum
+         }}>
             {children}
         </Cartcontext.Provider>  
     )
