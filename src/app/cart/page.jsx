@@ -82,10 +82,8 @@ console.log(cart)
     <div className=" mt-10 ml-12">
         <p className="text-xl font-bold">Order Summary </p>
       </ div>     
-
-
         <div>
-          <div >
+          <div>
             <div>
           <div className="flex ml-12 py-2">
             <p className="text-gray-400">Discount code </p>
