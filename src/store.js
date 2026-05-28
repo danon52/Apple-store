@@ -17,7 +17,8 @@ export function CartProvider({children}){
     useEffect(()=>{
         localStorage.setItem('cart' , JSON.stringify(cart))
     }, [cart])
-// общий счет корзины 
+// общий счет
+// корзины 
 // reduce 
 // счетчик с ценой товара 
     function AddToCart(newrod){
