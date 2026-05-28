@@ -3,6 +3,7 @@ import { useContext, useState} from "react"
 
 import { Cartcontext } from '@/store';
 import Link from "next/link";
+import FooterComp from "../../components/FooterComp";
 
 
 export default function CartPage() {
@@ -132,6 +133,9 @@ console.log(cart)
 
 
 
+      <div className="mt-10">
+          <FooterComp />
+      </div>
     </div>
     
   )
