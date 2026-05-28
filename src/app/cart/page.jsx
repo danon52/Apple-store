@@ -97,9 +97,9 @@ const [count , setcount] = useState(0)
         ) :  <div className="flex mt-10">
         <Skeleton className=" ml-3 w-40 h-30  " />  
         <div>
-          <Skeleton className =  " mt-2 ml-5 h-5 w-50" />
-          <Skeleton className =  " mt-5 ml-5 h-5 w-50" />
-          <Skeleton className =  " mt-5 ml-5 h-5 w-50" />
+          <Skeleton className =  "mt-2 ml-5 h-5 w-50" />
+          <Skeleton className =  "mt-5 ml-5 h-5 w-50" />
+          <Skeleton className =  "mt-5 ml-5 h-5 w-50" />
         </div>
         </div> 
         
