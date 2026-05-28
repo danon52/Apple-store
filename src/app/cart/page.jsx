@@ -8,33 +8,29 @@ import { Skeleton } from "@/components/ui/skeleton"
 export default function CartPage() {
 
 
-  // счетчик 
+
 
 
  const {delProducts} = useContext(Cartcontext)
 
   const {cart} = useContext(Cartcontext)
   const {sum} = useContext(Cartcontext)
-    // const [cartone , setCartone] = useState([]) 
-    // useEffect(()=>{
-    //     const save = localStorage.getItem('cart')
-    //     if(save) {
-    //         setCartone(JSON.parse(save)) 
-    //     }
-    // },[])
+  const {Decrement } = useContext(Cartcontext)
+  const {Increment} = useContext(Cartcontext)
 
 
 
 
-    // const sum = cart.reduce(
-    //   (sum , item) => sum+ item.price * item.quantity,
-    //    0)
 
-//  
+
 // сделать промокод 
 const LuckiCode = 'HAVEFIVE'
 
   
+
+const [count , setcount] = useState(0)
+
+
 
 
 
@@ -71,21 +67,19 @@ const LuckiCode = 'HAVEFIVE'
                           <Link href={`products/${item.id}`}>
 
                             <div className="flex justify-start">
-
-                      
-                        <p className="text-xl ">{item.price}</p>
+                        <p className="text-xl ">{item.price} ₽</p>
 
                </div>
                     
                           </Link>
                <div className=" flex ml-7 text-center">
-                        <button className="mr-2" >+</button>
+                    <button  onClick={()=> Decrement(cart -1 )}  className="ml-2">-</button>
                           <p className="text-xl bg-white w-5 h-7">{item.quantity}</p>
-                        <button  className="ml-2">-</button>
+                        <button onClick={() => Increment(cart+1 )} className="mr-2" >+</button>
                </div>
                         </div>
                         <div className="mr-10 text-center">
-                          <button onClick={()=>delProducts() } className="text-2xl">X</button>
+                          <button onClick={()=>delProducts()} className="text-2xl">X</button>
                         </div>
                       </div>
                       
@@ -100,7 +94,7 @@ const LuckiCode = 'HAVEFIVE'
               </div>
             </div>
                       ))
-        ) :   <div className="flex mt-10">
+        ) :  <div className="flex mt-10">
         <Skeleton className=" ml-3 w-40 h-30  " />  
         <div>
           <Skeleton className =  " mt-2 ml-5 h-5 w-50" />
@@ -113,7 +107,7 @@ const LuckiCode = 'HAVEFIVE'
 
     </div>
 
-{/* посчитать итоговую сумму товара  */}
+
 
           <form className="mt-5 border w-90 ml-5 h-140 rounded-2xl border-gray-400 " action="">
     <div className=" mt-10 ml-12">
@@ -146,20 +140,20 @@ const LuckiCode = 'HAVEFIVE'
           <div className="mt-20">
               <div className="flex justify-between">
                 <p className=" text-xl ml-3">SubTotal </p>
-                    <p className=" mr-5 text-xl">  ₽{sum}</p>
+                    <p className=" mr-5 text-xl">  {sum.toFixed(2.)} ₽</p>
 
               </div>
                 <div className="flex justify-between">
                       <p className=" ml-3">Estimated Tax</p>
-                      <p className="mr-5">Дохуя чего </p>
+                      <p className="mr-5">250 ₽ </p>
                 </div>
         <div className="flex justify-between">
           <p className=" ml-3">Estimated shipping & Handling</p>
-          <p className="mr-5">Хз </p>
+          <p className="mr-5">100 ₽ </p>
         </div>
               <div className="flex justify-between">
                 <p className=" ml-3">Total</p>
-                <p className="mr-5">дохуя </p>
+                <p className="mr-5">{sum} ₽ </p>
               </div>
           </div>    
           </div>

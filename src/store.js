@@ -1,4 +1,5 @@
 'use client'
+
 import { createContext, useEffect, useState } from "react";
 
 
@@ -22,10 +23,7 @@ export function CartProvider({children}){
     useEffect(()=>{
         localStorage.setItem('cart' , JSON.stringify(cart))
     }, [cart])
-// общий счет
-// корзины 
-// reduce 
-// счетчик с ценой товара 
+
     function AddToCart(newrod){
         setCart(prevCart => {
             const existing = prevCart.find(item => item.id === newrod.id)
@@ -41,13 +39,35 @@ export function CartProvider({children}){
             
         })
     }
-    
+
+        function Increment(id){
+            setCart(curent => (
+                curent.map(item => 
+                    item.id === id 
+                    ? {item , quantity: item.quantity + 1}
+                    : item
+
+                )
+            ))
+        }
+        
+        function Decrement(id){
+           setCart(curent => (
+    curent.map(item => 
+        item.id === id
+            ? {...item, quantity: item.quantity + 1}
+            : item
+    ) .filter(item => item.quantity < 0)
+))
+        }
+
     
     const sum = cart.reduce(
       (sum , item) => sum+ item.price * item.quantity,
        0)
 
 
+                
         function delProducts() {
         setCart(favor => {
             const first = favor.findIndex(item => item.id === item.id)
@@ -55,19 +75,19 @@ export function CartProvider({children}){
             return[...favor]
             })
         }
-                function DelAllCart(delell){
-                    setCart(allitem => {
-                        const del = allitem.findIndex(item => item.id ===  delell.id)
-                        if(allitem !== -1 ) allitem.splice(del,1)
-                    })
-                }
 
+
+
+
+                
     return(
         <Cartcontext.Provider value={{cart, 
+            sum, 
             AddToCart , 
             delProducts , 
-            DelAllCart,
-            sum
+            Decrement, 
+            Increment
+
          }}>
             {children}
         </Cartcontext.Provider>  
