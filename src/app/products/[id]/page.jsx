@@ -17,7 +17,6 @@ export default async  function ProdictPage({params}) {
 
 // https://mui.com/material-ui/react-rating/ сделать рейтинг 
   return (
-
     <div>
         <hr className='text-gray-400' />
             <div className='mt-5'> 
@@ -33,12 +32,11 @@ export default async  function ProdictPage({params}) {
             <p className='text-3xl ml-5'>${data.price}</p>
             <p className='text-3xl'> ${data.discount_price}  </p>
                 </div>
-
-        <div className='grid grid-cols-2 gap-4 mt-10' >
+            <div className='grid grid-cols-2 gap-4 mt-10' >
             {data.characteristics.map((item , prod)  => (
                 <div className='' key={prod}>
                             <div className=''  >
-                                <div className=' bg-gray-200 w-45 h-25 rounded-2xl  py-5 text-center'>
+                                <div className=' bg-gray-200 w-45 h-auto rounded-2xl  py-5 text-center'>
                                     <div>
                              <span className='text-lg'>{item.characteristic}</span>
                                     </div>
@@ -48,8 +46,7 @@ export default async  function ProdictPage({params}) {
 
                         </div>
                     </div>
-                ))
-            }
+                ))}
             </div>
               <div className='mt-10 ml-8'>
                 <p className='text-xs'>
@@ -61,7 +58,6 @@ export default async  function ProdictPage({params}) {
             </div>
             </div>
             <div>
-
                  <div className="flex justify-center mt-5">
                 <button className="w-90 h-15 border  text-xl rounded-2xl"> Add to Wishlist</button>
             </div>

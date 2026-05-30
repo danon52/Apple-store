@@ -1,5 +1,8 @@
 import Link from 'next/link'
 import React from 'react'
+import { DropdownMenuTrigger } from './ui/dropdown-menu'
+import { Button } from './ui/button'
+import { DropdownMenu } from 'radix-ui'
 
 
 export default function HeaderComp() {
@@ -18,7 +21,6 @@ export default function HeaderComp() {
     />
     <div className="flex items-center gap-4">
       <img className="w-10 lg:hidden" src="/Burger.svg" alt="Menu" />
-
       <Link href="/cart">
         <img className="hidden md:block w-15 mt-6" src="/Vector.svg" alt="Cart" />
       </Link>

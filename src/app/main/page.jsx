@@ -1,11 +1,63 @@
-import React from 'react'
+'use client'
+import React, { useEffect, useState } from 'react'
 import FooterComp from '../../components/FooterComp'
 
-export default function page() {
+export default function MainPage() {
+
+
+  const [products , setProducst] = useState([])
+
+    useEffect(()=> {
+   async   function  GetAllProd(){
+          const resp = await fetch('http://localhost:1452/api/products')
+          const data =  await  resp.json()
+          setProducst(data)
+          console.log(data)
+      }
+      GetAllProd()
+
+    }, [])
+
+
+
   return (  
     <div>
-        <h1>Hi i main page </h1>
 
+
+      <div className='bg- grid grid-cols-2 gap-10 '> 
+    
+{ products.map((item)=> (
+      <div className=''  key={item.id}>
+           <div className=''>
+            <div className=''>
+
+            <div className=''>
+        <div className='text-center h-75   '>
+          <div className='flex justify-end'>
+            <button className='absolute'>
+            <img src="Favorites.svg" alt="" />
+            </button>
+          </div>
+          <div className=''>
+            <img className='w-50' src={`http://localhost:1452/${item.images[0]}`} alt="" /> 
+          </div>
+          <div className=''>
+                <p>{item.name}</p>
+                <p>{item.price}</p>
+          </div>
+          <div className='mt-4'>
+          <button className='bg-black w-40 h-13 text-white rounded-lg'> By  Now</button>
+          </div>
+            </div>
+            </div>
+
+        </div>
+          </div>
+
+      </div>    
+    ))
+}
+    </div>
 
 
 
