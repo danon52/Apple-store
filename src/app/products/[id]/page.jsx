@@ -56,13 +56,15 @@ export default async function ProdictPage({ params }) {
                             yesand in bright lightusing the <br /> new systemwith two cameras more...
                         </p>
                     </div>
+
+                </div>
+                <div>
+                    {/* добавить рейтинг  */}
                     <div className="ml-8 mt-10">
                         <p className="text-2xl">Reting</p>
                         <Rating name="no-value" value={data.rating} />
 
                     </div>
-                </div>
-                <div>
                     <div className="flex justify-center mt-5">
                         <button className="w-90 h-15 border  text-xl rounded-2xl"> Add to Wishlist</button>
                     </div>
@@ -75,7 +77,6 @@ export default async function ProdictPage({ params }) {
 
 
 
-                {/* добавить рейтинг  */}
 
             </div>
             <div className="mt-10">

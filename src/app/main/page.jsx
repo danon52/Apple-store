@@ -20,6 +20,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import Rating from '@mui/material/Rating';
 
 
 export default function MainPage() {
@@ -105,21 +106,27 @@ export default function MainPage() {
                 <DropdownMenuPortal>
                   <DropdownMenuSubContent>
                     <div>
-                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">Iphone</label></DropdownMenuItem>
-                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">MacBook</label></DropdownMenuItem>
-                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">AirPods Max</label></DropdownMenuItem>
-                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">AirPods Pro</label></DropdownMenuItem>
-                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">AirPods</label></DropdownMenuItem>
-                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">iMac</label></DropdownMenuItem>
-                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">iPad Air</label></DropdownMenuItem>
-                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">iPad Pro </label></DropdownMenuItem>
+                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">
+                        <Rating name="no-value" value={1} />
+                      </label></DropdownMenuItem>
+                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">
+                        <Rating name="no-value" value={2} />
+                      </label></DropdownMenuItem>
+                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">
+                        <Rating name="no-value" value={3} />
+                      </label></DropdownMenuItem>
+                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">
+                        <Rating name="no-value" value={4} />
+                      </label></DropdownMenuItem>
+                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">
+                        <Rating name="no-value" value={5} />
+                      </label></DropdownMenuItem>
                       <DropdownMenuSeparator />
                     </div>
                   </DropdownMenuSubContent>
                 </DropdownMenuPortal>
               </DropdownMenuSub>
             </DropdownMenuGroup>
-
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
