@@ -33,18 +33,24 @@ export default function MainPage() {
 
 
 
-
-
   useEffect(() => {
     async function GetAllProd() {
       const resp = await fetch('http://localhost:1452/api/products')
       const data = await resp.json()
       setProducst(data)
-      console.log(data)
+
     }
     GetAllProd()
-
   }, [])
+
+
+  function Filter() {
+    let FilteProd = products.find(item => item.name === products.name)
+    return FilteProd
+    console.log(FilteProd)
+  }
+  Filter()
+
 
   return (
     <div>
@@ -54,24 +60,26 @@ export default function MainPage() {
           <DropdownMenuTrigger asChild>
             <Button className='w-40 h-10' variant="outline">Filtres</Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-50" align="start">
+          <DropdownMenuContent onSelect={(event) => event.preventDefault()} className="w-50" align="start">
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuSub>
                 <DropdownMenuSubTrigger>Type</DropdownMenuSubTrigger>
                 <DropdownMenuPortal>
-                  <DropdownMenuSubContent>
-                    <div>
-                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">Iphone</label></DropdownMenuItem>
-                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">MacBook</label></DropdownMenuItem>
-                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">AirPods Max</label></DropdownMenuItem>
-                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">AirPods Pro</label></DropdownMenuItem>
-                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">AirPods</label></DropdownMenuItem>
-                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">iMac</label></DropdownMenuItem>
-                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">iPad Air</label></DropdownMenuItem>
-                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">iPad Pro </label></DropdownMenuItem>
-                      <DropdownMenuSeparator />
-                    </div>
+                  <DropdownMenuSubContent >
+                    <form action={Filter()}>
+                      <div>
+                        <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">Iphone</label></DropdownMenuItem>
+                        <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">MacBook</label></DropdownMenuItem>
+                        <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">AirPods Max</label></DropdownMenuItem>
+                        <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">AirPods Pro</label></DropdownMenuItem>
+                        <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">AirPods</label></DropdownMenuItem>
+                        <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">iMac</label></DropdownMenuItem>
+                        <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">iPad Air</label></DropdownMenuItem>
+                        <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">iPad Pro </label></DropdownMenuItem>
+                        <DropdownMenuSeparator />
+                      </div>
+                    </form>
                   </DropdownMenuSubContent>
                 </DropdownMenuPortal>
               </DropdownMenuSub>
@@ -79,17 +87,20 @@ export default function MainPage() {
             <DropdownMenuSub>
               <DropdownMenuSubTrigger>Built-in memory </DropdownMenuSubTrigger>
               <DropdownMenuPortal>
-                <DropdownMenuSubContent>
-                  <DropdownMenuItem>8  gb </DropdownMenuItem>
-                  <DropdownMenuItem>16 gb </DropdownMenuItem>
-                  <DropdownMenuItem>24 gb</DropdownMenuItem>
-                  <DropdownMenuItem>32 gb</DropdownMenuItem>
-                  <DropdownMenuItem>64 gb</DropdownMenuItem>
-                  <DropdownMenuItem>256 gb</DropdownMenuItem>
-                  <DropdownMenuItem>512 gb</DropdownMenuItem>
-                  <DropdownMenuItem>1 Tb</DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                </DropdownMenuSubContent>
+                <form action="">
+
+                  <DropdownMenuSubContent>
+                    <DropdownMenuItem><input type="checkbox" /> <label htmlFor=""> 8 Gb</label></DropdownMenuItem>
+                    <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">16 Gb</label></DropdownMenuItem>
+                    <DropdownMenuItem><input type="checkbox" /> <label htmlFor=""> 24 Gb</label></DropdownMenuItem>
+                    <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">32  Gb</label></DropdownMenuItem>
+                    <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">64 Gb</label></DropdownMenuItem>
+                    <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">256 Gb</label></DropdownMenuItem>
+                    <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">512 Gb</label></DropdownMenuItem>
+                    <DropdownMenuItem><input type="checkbox" /> <label htmlFor=""> 1 Tb </label></DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                  </DropdownMenuSubContent>
+                </form>
               </DropdownMenuPortal>
             </DropdownMenuSub>
           </DropdownMenuContent>
