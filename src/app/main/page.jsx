@@ -32,6 +32,10 @@ export default function MainPage() {
   const { AddToCart } = useContext(Cartcontext)
 
 
+  const [stateBox, setStateBox] = useState([])
+
+
+
 
   useEffect(() => {
     async function GetAllProd() {
@@ -44,12 +48,21 @@ export default function MainPage() {
   }, [])
 
 
+
   function Filter() {
-    let FilteProd = products.find(item => item.name === products.name)
-    return FilteProd
-    console.log(FilteProd)
+    if (stateBox === setStateBox) {
+      setProducst(
+        products.filter(item => {
+          return item.name === products.name
+        }))
+      console.log(stateBox)
+    }
   }
   Filter()
+  // При фильтрации ты проверяешь: если категория товара есть в выбранных
+  // Категориях → показывать
+
+
 
 
   return (
@@ -60,23 +73,56 @@ export default function MainPage() {
           <DropdownMenuTrigger asChild>
             <Button className='w-40 h-10' variant="outline">Filtres</Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent onSelect={(event) => event.preventDefault()} className="w-50" align="start">
+          <DropdownMenuContent className="w-50" align="start">
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
               <DropdownMenuSub>
                 <DropdownMenuSubTrigger>Type</DropdownMenuSubTrigger>
                 <DropdownMenuPortal>
                   <DropdownMenuSubContent >
-                    <form action={Filter()}>
+                    <form onChange={() => Filter()} action=''>
                       <div>
-                        <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">Iphone</label></DropdownMenuItem>
-                        <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">MacBook</label></DropdownMenuItem>
-                        <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">AirPods Max</label></DropdownMenuItem>
-                        <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">AirPods Pro</label></DropdownMenuItem>
-                        <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">AirPods</label></DropdownMenuItem>
-                        <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">iMac</label></DropdownMenuItem>
-                        <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">iPad Air</label></DropdownMenuItem>
-                        <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">iPad Pro </label></DropdownMenuItem>
+                        <DropdownMenuItem>
+                          <input
+                            id='Iphone'
+                            onChange={() => setStateBox('Iphone')}
+                            checked={stateBox.includes('Iphone')}
+                            data-contgory='Iphone'
+                            type="checkbox" />
+                          <label htmlFor="iphone">Iphone</label></DropdownMenuItem>
+
+                        <DropdownMenuItem><input id='Macbook' onChange={() => setStateBox('MacBook')}
+                          checked={stateBox.includes('MacBook')} data-category='MacBook' type="checkbox" />
+                          <label htmlFor="macbook">MacBook</label> </DropdownMenuItem>
+
+                        <DropdownMenuItem><input id='AirPods Max' onChange={() => setStateBox('AirPods Max')}
+                          checked={stateBox.includes('AirPods Max')} data-category='AirPods Max' type="checkbox" />
+                          <label htmlFor="airpods-max">AirPods Max</label></DropdownMenuItem>
+
+                        <DropdownMenuItem><input id='AirPdos Pro' onChange={() => setStateBox('AirPods Pro')}
+                          checked={stateBox.includes('AirPods Pro')} data-category='AirPods Pro' type="checkbox" />
+                          <label htmlFor="airpods-pro">AirPods Pro</label>
+                        </DropdownMenuItem>
+
+                        <DropdownMenuItem><input id='AirPods' onChange={() => setStateBox('AirPods')}
+                          checked={stateBox.includes('AirPods')} data-category='AirPods' type="checkbox" />
+                          <label htmlFor="airpods">AirPods</label>
+                        </DropdownMenuItem>
+
+                        <DropdownMenuItem><input id='iMac' onChange={() => setStateBox('iMac')}
+                          checked={stateBox.includes('iMac')} data-category='iMac' type="checkbox" />
+                          <label htmlFor="imac">iMac</label></DropdownMenuItem>
+
+                        <DropdownMenuItem>
+                          <input id='iPad Air'
+                            onChange={() => setStateBox('iPad Air')}
+                            checked={stateBox.includes('iPad Air')} data-category='iPad Air' type="checkbox" />
+                          <label htmlFor="ipad-air">iPad Air</label></DropdownMenuItem>
+
+                        <DropdownMenuItem><input id='iPad Pro' onChange={() => setStateBox('iPad Pro')}
+                          checked={stateBox.includes('iPad Pro ')} data-category='iPad Pro' type="checkbox" />
+                          <label htmlFor="ipad-pro">iPad Pro</label></DropdownMenuItem>
+
                         <DropdownMenuSeparator />
                       </div>
                     </form>
