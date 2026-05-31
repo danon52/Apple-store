@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import FooterComp from '../../components/FooterComp'
 import { FavoritsContext } from '@/favorits';
 import { Cartcontext } from '@/store';
+import Link from 'next/link';
 
 export default function MainPage() {
 
@@ -11,6 +12,11 @@ export default function MainPage() {
 
   const {AddToFavorits} = useContext(FavoritsContext)
   const {AddToCart} = useContext(Cartcontext)
+
+
+
+
+
     useEffect(()=> {
    async   function  GetAllProd(){
           const resp = await fetch('http://localhost:1452/api/products')
@@ -22,35 +28,62 @@ export default function MainPage() {
 
     }, [])
 
-
-
   return (  
     <div>
+
+      <div className='flex ml-2 justify-between'>
+        <div className=''>
+            <div className=' border  rounded-xl  w-45 h-15'>
+          <div className=''>
+            <Link href={'/filtres'}>  
+          <p className='py-4 px-2 text-xl'>filtres</p>
+            </Link>
+          </div>
+            </div>
+        </div>
+         <div className='mr-2' >
+            <div className=' border  rounded-xl  w-45 h-15'>
+          <div className=''>
+            {/* выпадающий список  */}
+          <p className='py-4 px-2 text-xl'> by Reting</p>
+          </div>
+            </div>
+        </div>
+      </div>
+      <div  className='py-4 ml-5   flex'>
+        <p className='text-2xl'>Products result:</p> 
+        <p className='text-2xl'>{products.length}</p>
+      </div>
+
       <div className='bg- grid grid-cols-2 gap-10 '> 
 { products.map((item)=> (
-      <div className=''  key={item.id}>
+  <div className=''  key={item.id}>
+
            <div className=''>
             <div className=''>
             <div className=''>
         <div className='text-center h-75   '>
           <div className='flex justify-end'>
-            <button onClick={()=> AddToFavorits()} className='absolute'>
+            <button onClick={()=> AddToFavorits()} className='absolute  '>
             <img src="Favorites.svg" alt="" />
             </button>
           </div>
-          <div className=''>
-            <img className='w-50' src={`http://localhost:1452/${item.images[0]}`} alt="" /> 
+          <div>
+         <Link href={`/products/${item.id}`}>
+          <div className='mr-2'>
+            <img className='  w-50' src={`http://localhost:1452/${item.images[0]}`} alt="" /> 
           </div>
           <div className=''>
                 <p>{item.name}</p>
                 <p>{item.price}</p>
+          </div>
+      </Link>
           </div>
           <div className='mt-4'>
           <button onClick={()=> AddToCart()} className='bg-black w-40 h-13 text-white rounded-lg'> By  Now</button>
           </div>
             </div>
             </div>
-
         </div>
           </div>
 

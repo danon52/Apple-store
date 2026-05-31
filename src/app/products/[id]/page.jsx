@@ -68,6 +68,9 @@ export default async  function ProdictPage({params}) {
            
             </div>
 
+
+
+                    {/* добавить рейтинг  */}
             
             </div>
                 <div className="mt-10">
