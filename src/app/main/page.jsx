@@ -46,61 +46,84 @@ export default function MainPage() {
   }, [])
 
   return (
-    <div><DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline">Open</Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-40" align="start">
-        <DropdownMenuGroup>
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
-          <DropdownMenuItem>
-            Profile
-            <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            Billing
-            <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            Settings
-            <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-          </DropdownMenuItem>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuItem>Team</DropdownMenuItem>
-          <DropdownMenuSub>
-            <DropdownMenuSubTrigger>Invite users</DropdownMenuSubTrigger>
-            <DropdownMenuPortal>
-              <DropdownMenuSubContent>
-                <DropdownMenuItem>Email</DropdownMenuItem>
-                <DropdownMenuItem>Message</DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>More...</DropdownMenuItem>
-              </DropdownMenuSubContent>
-            </DropdownMenuPortal>
-          </DropdownMenuSub>
-          <DropdownMenuItem>
-            New Team
-            <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
-          </DropdownMenuItem>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuItem>GitHub</DropdownMenuItem>
-          <DropdownMenuItem>Support</DropdownMenuItem>
-          <DropdownMenuItem disabled>API</DropdownMenuItem>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuItem>
-            Log out
-            <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-          </DropdownMenuItem>
-        </DropdownMenuGroup>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <div>
+      <div className='flex justify-between px-5'>
 
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button className='w-40 h-10' variant="outline">Filtres</Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-50" align="start">
+            <DropdownMenuSeparator />
+            <DropdownMenuGroup>
+              <DropdownMenuSub>
+                <DropdownMenuSubTrigger>Type</DropdownMenuSubTrigger>
+                <DropdownMenuPortal>
+                  <DropdownMenuSubContent>
+                    <div>
+                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">Iphone</label></DropdownMenuItem>
+                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">MacBook</label></DropdownMenuItem>
+                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">AirPods Max</label></DropdownMenuItem>
+                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">AirPods Pro</label></DropdownMenuItem>
+                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">AirPods</label></DropdownMenuItem>
+                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">iMac</label></DropdownMenuItem>
+                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">iPad Air</label></DropdownMenuItem>
+                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">iPad Pro </label></DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                    </div>
+                  </DropdownMenuSubContent>
+                </DropdownMenuPortal>
+              </DropdownMenuSub>
+            </DropdownMenuGroup>
+            <DropdownMenuSub>
+              <DropdownMenuSubTrigger>Built-in memory </DropdownMenuSubTrigger>
+              <DropdownMenuPortal>
+                <DropdownMenuSubContent>
+                  <DropdownMenuItem>8  gb </DropdownMenuItem>
+                  <DropdownMenuItem>16 gb </DropdownMenuItem>
+                  <DropdownMenuItem>24 gb</DropdownMenuItem>
+                  <DropdownMenuItem>32 gb</DropdownMenuItem>
+                  <DropdownMenuItem>64 gb</DropdownMenuItem>
+                  <DropdownMenuItem>256 gb</DropdownMenuItem>
+                  <DropdownMenuItem>512 gb</DropdownMenuItem>
+                  <DropdownMenuItem>1 Tb</DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                </DropdownMenuSubContent>
+              </DropdownMenuPortal>
+            </DropdownMenuSub>
+          </DropdownMenuContent>
+        </DropdownMenu>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button className='w-40 h-10' variant="outline">by reiting</Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-50" align="start">
+            <DropdownMenuSeparator />
+            <DropdownMenuGroup>
+              <DropdownMenuSub>
+                <DropdownMenuSubTrigger>Reting</DropdownMenuSubTrigger>
+                <DropdownMenuPortal>
+                  <DropdownMenuSubContent>
+                    <div>
+                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">Iphone</label></DropdownMenuItem>
+                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">MacBook</label></DropdownMenuItem>
+                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">AirPods Max</label></DropdownMenuItem>
+                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">AirPods Pro</label></DropdownMenuItem>
+                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">AirPods</label></DropdownMenuItem>
+                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">iMac</label></DropdownMenuItem>
+                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">iPad Air</label></DropdownMenuItem>
+                      <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">iPad Pro </label></DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                    </div>
+                  </DropdownMenuSubContent>
+                </DropdownMenuPortal>
+              </DropdownMenuSub>
+            </DropdownMenuGroup>
+
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
+      {/* 
       <div className='flex ml-2 justify-between'>
         <div className=''>
           <div className=' border  rounded-xl  w-45 h-15'>
@@ -114,12 +137,13 @@ export default function MainPage() {
         <div className='mr-2' >
           <div className=' border  rounded-xl  w-45 h-15'>
             <div className=''>
-              {/* выпадающий список  */}
+
               <p className='py-4 px-2 text-xl'> by Reting</p>
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+
       <div className='py-4 ml-5   flex'>
         <p className='text-2xl'>Products result:</p>
         <p className='text-2xl'>{products.length}</p>
@@ -176,4 +200,5 @@ export default function MainPage() {
       </div>
     </div>
   )
+
 }
