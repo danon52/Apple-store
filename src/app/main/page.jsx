@@ -49,19 +49,6 @@ export default function MainPage() {
 
 
 
-  function Filter() {
-    if (stateBox === setStateBox) {
-      setProducst(
-        products.filter(item => {
-          return item.name === products.name
-        }))
-      console.log(stateBox)
-    }
-  }
-  Filter()
-  // При фильтрации ты проверяешь: если категория товара есть в выбранных
-  // Категориях → показывать
-
 
 
 
@@ -80,33 +67,32 @@ export default function MainPage() {
                 <DropdownMenuSubTrigger>Type</DropdownMenuSubTrigger>
                 <DropdownMenuPortal>
                   <DropdownMenuSubContent >
-                    <form onChange={() => Filter()} action=''>
+                    <form action=''>
                       <div>
                         <DropdownMenuItem>
                           <input
                             id='Iphone'
                             onChange={() => setStateBox('Iphone')}
                             checked={stateBox.includes('Iphone')}
-                            data-contgory='Iphone'
+                            data-category='Iphone'
                             type="checkbox" />
                           <label htmlFor="iphone">Iphone</label></DropdownMenuItem>
-
                         <DropdownMenuItem><input id='Macbook' onChange={() => setStateBox('MacBook')}
                           checked={stateBox.includes('MacBook')} data-category='MacBook' type="checkbox" />
                           <label htmlFor="macbook">MacBook</label> </DropdownMenuItem>
 
                         <DropdownMenuItem><input id='AirPods Max' onChange={() => setStateBox('AirPods Max')}
-                          checked={stateBox.includes('AirPods Max')} data-category='AirPods Max' type="checkbox" />
-                          <label htmlFor="airpods-max">AirPods Max</label></DropdownMenuItem>
+                          checked={stateBox.includes('Max')} data-category='AirPods Max' type="checkbox" />
+                          <label htmlFor="air-pods-max">AirPods Max</label></DropdownMenuItem>
 
                         <DropdownMenuItem><input id='AirPdos Pro' onChange={() => setStateBox('AirPods Pro')}
-                          checked={stateBox.includes('AirPods Pro')} data-category='AirPods Pro' type="checkbox" />
-                          <label htmlFor="airpods-pro">AirPods Pro</label>
+                          checked={stateBox.includes('Pro')} data-category='AirPods Pro' type="checkbox" />
+                          <label htmlFor="air-pods-pro">AirPods Pro</label>
                         </DropdownMenuItem>
 
                         <DropdownMenuItem><input id='AirPods' onChange={() => setStateBox('AirPods')}
                           checked={stateBox.includes('AirPods')} data-category='AirPods' type="checkbox" />
-                          <label htmlFor="airpods">AirPods</label>
+                          <label htmlFor="air-pods">AirPods</label>
                         </DropdownMenuItem>
 
                         <DropdownMenuItem><input id='iMac' onChange={() => setStateBox('iMac')}
@@ -120,7 +106,7 @@ export default function MainPage() {
                           <label htmlFor="ipad-air">iPad Air</label></DropdownMenuItem>
 
                         <DropdownMenuItem><input id='iPad Pro' onChange={() => setStateBox('iPad Pro')}
-                          checked={stateBox.includes('iPad Pro ')} data-category='iPad Pro' type="checkbox" />
+                          checked={stateBox.includes('iPad Pro')} data-category='iPad Pro' type="checkbox" />
                           <label htmlFor="ipad-pro">iPad Pro</label></DropdownMenuItem>
 
                         <DropdownMenuSeparator />
@@ -134,7 +120,6 @@ export default function MainPage() {
               <DropdownMenuSubTrigger>Built-in memory </DropdownMenuSubTrigger>
               <DropdownMenuPortal>
                 <form action="">
-
                   <DropdownMenuSubContent>
                     <DropdownMenuItem><input type="checkbox" /> <label htmlFor=""> 8 Gb</label></DropdownMenuItem>
                     <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">16 Gb</label></DropdownMenuItem>
