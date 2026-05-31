@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Slider } from "@/components/ui/slider"
 import { ChevronsUpDown } from "lucide-react"
@@ -9,23 +9,27 @@ import {
     CollapsibleContent,
     CollapsibleTrigger,
 } from "@/components/ui/collapsible"
+import FooterComp from '../../components/FooterComp'
+import Link from 'next/link'
 
 
 
-export default function FiltresPAge() {
+export default function FiltresPage() {
 
 
     const [isOpen, setIsOpen] = React.useState(false)
     const [count, setCount] = useState([0])
     const [oneOpen, setOneOpne] = useState(false)
-
     const [secOpen, setSecOpen] = useState(false)
 
     const Value = (event) => {
         const newValue = Number(event.target.value)
-
         setCount(newValue)
     }
+
+
+
+
     return (
         <div>
 
@@ -61,19 +65,10 @@ export default function FiltresPAge() {
                             </div>
                         </div>
                         <div className='ml-5'>
-
                             <input type="range"
                                 className='w-full'
                                 value={count}
-                                onChange={Value}
-                            />
-                            {/* 
-        <Slider 
-        value = {[count]}
-      max={100}
-      step={1}
-      className="mx-auto w-full max-w-xs"
-      /> */}
+                                onChange={Value} />
                         </div>
                     </CollapsibleContent>
                 </Collapsible>
@@ -196,7 +191,6 @@ export default function FiltresPAge() {
 
                                     <input className='w-5 h-5' type="checkbox" />
                                     <label className='text-xl ml-5' htmlFor="">64 Gb </label>
-
                                 </div>
                                 <div>
                                     <input className='w-5 h-5' type="checkbox" />
@@ -209,7 +203,6 @@ export default function FiltresPAge() {
                                     <label className='text-xl ml-5' htmlFor="">
                                         265 Gb
                                     </label>
-
                                 </div>
                                 <input className='w-5 h-5' type="checkbox" />
                                 <label className='text-xl ml-5' htmlFor="">
@@ -236,12 +229,15 @@ export default function FiltresPAge() {
                 </div>
 
             </div>
-            <div className='flex justify-center'>
-                <button className='w-90 rounded-lg h-10 bg-black text-white'>Apply</button>
+            <div className='flex justify-center mt-10'>
+                <Link href={'/main'}>
+                    <button className='w-90 rounded-lg h-10 bg-black text-white'>Apply</button>
+                </Link>
             </div>
 
-
-
+            <div className='mt-10'>
+                <FooterComp />
+            </div>
         </div>
 
     )
