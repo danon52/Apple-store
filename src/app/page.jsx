@@ -338,7 +338,7 @@ export default function Page() {
       {/* --------------------------- */}
       <div className='mt-5'>
         <p className='text-2xl ml-10 mb-7'>Browse By Category</p>
-        <div className='grid grid-cols-2 gap-4 ml-10'>
+        <div className='block grid grid-cols-2  gap-4 ml-10 lg:hidden'>
 
           <div className=' w-[135px] h-[128px] rounded-2xl  bg-gray-200'>
             <div className='flex  justify-center items-center  mt-6'>
@@ -412,6 +412,87 @@ export default function Page() {
 
 
         </div>
+
+        <div className='hidden lg:block '>
+          <div className='lg:flex justify-center  mt-20'>
+
+            <div className=' w-[135px] h-[128px] rounded-2xl  bg-gray-200'>
+              <div className='flex  justify-center items-center  mt-6'>
+                <div className='flex '>
+                  <img className='w-13' src="Phones.svg" alt="" />
+                </div>
+              </div>
+              <div className='flex justify-center' >
+                <p>Phones</p>
+              </div>
+            </div>
+
+            <div className=' w-[135px] h-[128px] rounded-2xl  bg-gray-200 lg:ml-10 '>
+              <div className='flex  justify-center items-center  mt-6'>
+                <div className='flex '>
+                  <img className='w-13' src="Smart.svg" alt="" />
+                </div>
+              </div>
+              <div className='flex justify-center' >
+                <p>Smart Watches</p>
+              </div>
+            </div>
+            <div className=' w-[135px] h-[128px] rounded-2xl  bg-gray-200 lg:ml-10'>
+              <div className='flex  justify-center items-center  mt-6'>
+                <div className='flex '>
+                  <img className='w-13' src="Cameras.svg" alt="" />
+                </div>
+              </div>
+              <div className='flex justify-center' >
+                <p>Cameras</p>
+              </div>
+            </div>
+
+
+            <div className=' w-[135px] h-[128px] rounded-2xl  bg-gray-200 lg:ml-10'>
+              <div className='flex  justify-center items-center  mt-6'>
+                <div className='flex '>
+                  <img className='w-13' src="Headphones.svg" alt="" />
+                </div>
+              </div>
+              <div className='flex justify-center' >
+                <p>Headphones</p>
+              </div>
+            </div>
+
+
+            <div className=' w-[135px] h-[128px] rounded-2xl  bg-gray-200 lg:ml-10'>
+              <div className='flex  justify-center items-center  mt-6'>
+                <div className='flex '>
+                  <img className='w-13' src="Computers.svg" alt="" />
+                </div>
+              </div>
+              <div className='flex justify-center' >
+                <p>Computers</p>
+              </div>
+            </div>
+
+
+            <div className=' w-[135px] h-[128px] rounded-2xl  bg-gray-200 lg:ml-10'>
+              <div className='flex  justify-center items-center  mt-6'>
+                <div className='flex '>
+                  <img className='w-13' src="Gaming.svg" alt="" />
+                </div>
+              </div>
+              <div className='flex justify-center' >
+                <p>Gaming </p>
+              </div>
+            </div>
+
+
+
+
+          </div>
+
+        </div>
+
+
+
         <div className=''>
           <div className=' mt-10 grid grid-cols-2 gap-4' >
             {products.length > 0 ? (
