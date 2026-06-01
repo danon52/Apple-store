@@ -18,6 +18,13 @@ export default function Page() {
 
 
 
+  const [element, setElement] = useState([])
+
+  useEffect(() => {
+    async function GetElement() {
+
+    }
+  })
 
   useEffect(() => {
     async function GetProducts() {
@@ -414,7 +421,7 @@ export default function Page() {
         </div>
 
         <div className='hidden lg:block '>
-          <div className='lg:flex justify-center  mt-20'>
+          <div className='lg:flex justify-center  mt-20sqc'>
 
             <div className=' w-[135px] h-[128px] rounded-2xl  bg-gray-200'>
               <div className='flex  justify-center items-center  mt-6'>
@@ -493,8 +500,8 @@ export default function Page() {
 
 
 
-        <div className=''>
-          <div className=' mt-10 grid grid-cols-2 gap-4' >
+        <div className='block lg:hidden'>
+          <div className=' mt-10 grid grid-cols-2 gap-4 lg:grid grid-cols- gap-4' >
             {products.length > 0 ? (
               products.map(prod => (
                 <div className=' rounded-2xl '
@@ -530,7 +537,47 @@ export default function Page() {
             }
           </div>
         </div>
-        <div className='mt-5 bg-[#F9F9F9]'>
+
+
+        <div className='hidden lg:block mt-20'>
+          <div className=' lg:grid grid-cols-4 gap-5 px-5 ' >
+            {products.length > 0 ? (
+              products.map(prod => (
+                <div className='lg:rounded-2xl  bg-gray-100'
+                  key={prod.id}>
+                  <div className='lg:flex justify-end mr-10'>
+                    <button onClick={() => AddToFavorits(prod)} className='lg:cursor-pointer '>
+                      <img className='lg:w-5 ' src="Favorites.svg" alt="" />
+                    </button>
+                  </div>
+                  <Link href={`products/${prod.id}`}>
+                    <div className='lg:text-center '>
+                      <div className=''>
+                        <div className='lg:flex justify-center '>
+                          <img className='  bg-gray-200 w-70 lg:w-60' src={`http://localhost:1452/${prod.images[0]}`} alt="" />
+
+                        </div>
+                        <p className='text-xl'>{prod.brand}</p>
+                        <p className='text-xl'>{prod.name}</p>
+                        <div>
+                          <p className='text-xl'> {prod.price} ₽</p>
+                        </div>
+                        <div>
+                          {/* добовление в корзину  */}
+                        </div>
+                      </ div>
+                    </div>
+                  </Link>
+                  <div className='lg:flex justify-center'>
+                    <button onClick={() => AddToCart(prod)} className=' cursor-pointer w-40 h-10 text-lg  rounded-xl  bg-black text-white'>Buy Now </button>
+                  </div>
+                </div>
+              ))
+            ) : <p> Загрузка данных </p>
+            }
+          </div>
+        </div>
+        <div className='mt-5 bg-[#F9F9F9] block lg:hidden '>
           <div className='flex justify-end'>
             <img src="Ipad.svg" alt="" />
           </div>
@@ -548,8 +595,29 @@ export default function Page() {
             </div>
           </div>
         </div>
-        <div>
 
+
+        {/* товары   */}
+        <div className='lg:mt-5 bg-[#F9F9F9] '>
+          <div className='lg:flex justify-center'>
+            <img src="Ipad.svg" alt="" />
+          </div>
+          <div>
+            <div className='flex justify-center'>
+              <p className='text-5xl'>Ipad Pro </p>
+            </div>
+            <div className='text-center  mt-5 text-gray-400'>
+              <p className=''>iPad combines a magnificent 10.2-inch Retina display,
+              </p>
+              <p>  incredible performance, multitasking and ease of use.</p>
+            </div>
+            <div className='flex justify-center mt-5'>
+              <button className='w-50 h-15 bg-none border rounded-xl text-black'>Shop Now </button>
+            </div>
+          </div>
+        </div>
+
+        <div>
           <div className='mt-10'>
             <p className='text-2xl'> Discounts up to -50%</p>
           </div>
@@ -568,7 +636,7 @@ export default function Page() {
                         </div>
                       </Link>
                     </div>
-                    <button onClick={() => AddToCart(i)} className=' cursor-pointer w-40 h-10 text-lg  rounded-xl  bg-black text-white'>Buy Now </button>mz
+                    <button onClick={() => AddToCart(i)} className=' cursor-pointer w-40 h-10 text-lg  rounded-xl  bg-black text-white'>Buy Now </button>
                   </div>
 
                 ))
