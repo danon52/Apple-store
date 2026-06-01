@@ -2,7 +2,9 @@ import Link from 'next/link'
 import React from 'react'
 
 
+
 export default function HeaderComp() {
+  // сделать активный поиск 
   return (
     <div >
       <div>

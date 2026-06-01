@@ -36,7 +36,7 @@ export default function MainPage() {
 
   const { AddToFavorits } = useContext(FavoritsContext)
   const { AddToCart } = useContext(Cartcontext)
-
+  const [retIsOpen, serRetIsOpen] = useState(false)
 
   const [stateBox, setStateBox] = useState([])
   const [ValueFilter, setValueFilter] = useState([])
@@ -218,9 +218,9 @@ export default function MainPage() {
       <Collapsible
         open={isOpen}
         onOpenChange={setIsOpen}
-        className="flex w-[350px] flex-col gap-2">
+        className="flex mt-10 w-[350px] flex-col gap-2">
         <div className="flex items-center justify-between gap-4 px-4">
-          <h4 className="text-sm font-semibold">iPhone</h4>
+          <h4 className="text-3xl font-semibold">Type</h4>
           <CollapsibleTrigger asChild>
             <Button variant="ghost" size="icon" className="size-8">
               <ChevronsUpDown />
@@ -235,57 +235,108 @@ export default function MainPage() {
               checked={stateBox.includes('iPhone')} data-category='iPhone' type="checkbox" />
             <label htmlFor="iPhone">iPhone</label>
           </div>
+
+          <div className='ml-10'>
+
+            <div>
+
+              <input id='MacBook' onChange={() => setStateBox('MacBook Pro')}
+                checked={stateBox === ('MacBook')} data-category='MacBook Pro' type="checkbox" />
+              <label htmlFor="MacBook">MacBook</label>
+            </div>
+
+            <div>
+              <input id='AirPods Max' onChange={() => setStateBox('AirPods Max')}
+                checked={stateBox === 'AirPods Max'} data-category='AirPods Max' type="checkbox" />
+              <label htmlFor="AirPods Max">AirPods Max</label>
+            </div>
+            <div>
+
+              <input id='AirPdos Pro' onChange={() => setStateBox('AirPods Pro')}
+                checked={stateBox === 'AirPods Pro'} data-category='AirPods Pro' type="checkbox" />
+              <label htmlFor="AirPods Pro">AirPods Pro</label>
+            </div>
+            {/* AirPods */}
+
+            <div>
+
+              <input id='AirPods' onChange={() => setStateBox('AirPods')}
+                checked={stateBox === 'AirPods'} data-category='AirPods' type="checkbox" />
+              <label htmlFor="AirPods">AirPods</label>
+            </div>
+            <div>
+
+              <input id='iMac' onChange={() => setStateBox('iMac')}
+                checked={stateBox === 'iMac'} data-category='iMac' type="checkbox" />
+              <label htmlFor="iMac">iMac</label>
+            </div>
+            <div>
+
+              <input id='iPad Air'
+                onChange={() => setStateBox('iPad Air')}
+                checked={stateBox === 'iPad Air'} data-category='iPad Air' type="checkbox" />
+              <label htmlFor="iPad Air">iPad Air</label>
+            </div>
+
+            <input id='iPad Pro' onChange={() => setStateBox('iPad Pro')}
+              checked={stateBox === 'iPad Pro'} data-category='iPad Pro' type="checkbox" />
+            <label htmlFor="iPad Pro">iPad Pro</label>
+          </div>
+
         </CollapsibleContent>
       </Collapsible>
-      <p>{newFindElemet.length}</p>
-      <div className='ml-10'>
-
-        <div>
-
-          <input id='MacBook' onChange={() => setStateBox('MacBook Pro')}
-            checked={stateBox === ('MacBook')} data-category='MacBook Pro' type="checkbox" />
-          <label htmlFor="MacBook">MacBook</label>
+      <Collapsible
+        open={retIsOpen}
+        onOpenChange={serRetIsOpen}
+        className="flex mt-10 w-[350px] flex-col gap-2">
+        <div className="flex items-center justify-between gap-4 px-4">
+          <h4 className="text-3xl font-semibold"> Reting </h4>
+          <CollapsibleTrigger asChild>
+            <Button variant="ghost" size="icon" className="size-8">
+              <ChevronsUpDown />
+            </Button>
+          </CollapsibleTrigger>
         </div>
+        {/* 
+        <CollapsibleContent className="flex flex-col gap-2">
+          <div>
+            <div>
 
-        <div>
-          <input id='AirPods Max' onChange={() => setStateBox('AirPods Max')}
-            checked={stateBox === 'AirPods Max'} data-category='AirPods Max' type="checkbox" />
-          <label htmlFor="AirPods Max">AirPods Max</label>
-        </div>
-        <div>
+              <input checked={setStateBox === '1'} onChange={() => setStateBox(1)} type="checkbox" /> <label htmlFor="512">
+                <Rating name="no-value" value={null} />
+              </label>
+            </div>
+            <div>
 
-          <input id='AirPdos Pro' onChange={() => setStateBox('AirPods Pro')}
-            checked={stateBox === 'AirPods Pro'} data-category='AirPods Pro' type="checkbox" />
-          <label htmlFor="AirPods Pro">AirPods Pro</label>
-        </div>
-        {/* AirPods */}
+              <input checked={setStateBox === '1'} onChange={() => setStateBox(2)} type="checkbox" /> <label htmlFor="512">
+                <Rating name="no-value" value={null} />
 
-        <div>
+              </label>
+            </div>
+            <div>
 
-          <input id='AirPods' onChange={() => setStateBox('AirPods')}
-            checked={stateBox === 'AirPods'} data-category='AirPods' type="checkbox" />
-          <label htmlFor="AirPods">AirPods</label>
-        </div>
-        <div>
+              <input checked={setStateBox === '1'} onChange={() => setStateBox(3)} type="checkbox" /> <label htmlFor="512">
+                <Rating name="no-value" value={ } />
 
-          <input id='iMac' onChange={() => setStateBox('iMac')}
-            checked={stateBox === 'iMac'} data-category='iMac' type="checkbox" />
-          <label htmlFor="iMac">iMac</label>
-        </div>
-        <div>
+              </label>
+            </div>
+            <div>
 
-          <input id='iPad Air'
-            onChange={() => setStateBox('iPad Air')}
-            checked={stateBox === 'iPad Air'} data-category='iPad Air' type="checkbox" />
-          <label htmlFor="iPad Air">iPad Air</label>
-        </div>
+              <input checked={setStateBox === '1'} onChange={() => setStateBox(4)} type="checkbox" /> <label htmlFor="512">
+                <Rating name="no-value" value={null} />
 
-        <input id='iPad Pro' onChange={() => setStateBox('iPad Pro')}
-          checked={stateBox === 'iPad Pro'} data-category='iPad Pro' type="checkbox" />
-        <label htmlFor="iPad Pro">iPad Pro</label>
-      </div>
+              </label>
+            </div>
+            <div>
+              <input checked={setStateBox === '1'} onChange={() => setStateBox(5)} type="checkbox" /> <label htmlFor="512">
+                <Rating name="no-value" value={null} />
 
-      <div className='py-4 ml-5   flex'>
+              </label>
+            </div>
+          </div>
+        </CollapsibleContent> */}
+      </Collapsible>
+      <div className='py-4 ml-5  my-10  flex'>
         <p className='text-2xl'>Products result:</p>
         <p className='text-2xl'>{newFindElemet.length}</p>
       </div>
