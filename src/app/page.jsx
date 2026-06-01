@@ -92,10 +92,10 @@ export default function Page() {
 
           <div>
 
-            <div className='lg:flex'>
-              <div className=' hidden lg:block w-240 '>
+            <div className='lg:flex bg-amber-200 w-full'>
+              <div className=' hidden lg:block w-220 '>
                 <div className='  lg:flex  justify-items-center bg-white'>
-                  <div className=' w-full  h-120  lg:flex  bg-amber-400 justify-items-center '>
+                  <div className=' w-full  h-120  lg:flex   justify-items-center '>
                     <div className='lg:flex'>
                       <img className='w-100 lg:hidden' src="SizePlay.svg" alt="" />
                       <img className='hidden lg:block w-100' src="PlayStation.svg" alt="" />
@@ -118,15 +118,76 @@ export default function Page() {
                     </div>
                   </div>
                 </div>
+                <div className='hidden lg:flex block w-220   py-0 mt-0'>
+                  {/* Max  */}
+                  <div className='lg:w-full'>
+                    <div className='lg:flex'>
+                      <div className='w-full h-110  lg:flex justify-items-center bg-[#EDEDED]  '>
+                        <div className='lg:flex'>
+                          <img className=' w-70 lg:hidden ' src="SizeMax.svg" alt="" />
+                          <img className='hidden lg:block w-30' src="max.svg" alt="" />
+                        </div>
+                        <div className='text-center '>
+                          <div className='text-center'>
+                            <div className='flex justify-center mt-3 lg:block text-center '>
+                              <p className='text-5xl block textce lg:hidden'> Apple AirPods Max  </p>
+                              <div className='lg:text-start text-4xl ml-20 mt-15'>
+                                <div>
+                                  <p>Apple</p>
+                                </div>
+                                <div>
+                                  <p className='py-4'>AirPods</p>
+                                </div>
+                                <p>Max</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div className='mt-4  flex justify-center'>
+                            <p className='text-gray-400 text-2xl  lg:hidden  ' >
+                              Computational audio. Listen, it's powerful
+                            </p>
+                            <p className='text-gray-400 text-xl  hidden lg:block px-20 text-lg ' >
+                              Computational audio. <br />Listen, it's powerful
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className=' lg:block w-full'>
+                    <div className=' w-full h-110   lg:flex justify-items-center bg-[#353535]  '>
+                      <div className=' py-15 lg:flex'>
+                        <img className='w-100 lg:hidden ' src="SizeVision.svg" alt="" />
+                        <img className='hidden  lg:block w-70' src="vision.svg" alt="" />
+                      </div>
+                      <div className=' text-center lg:mt-25'>
+                        <div className='text-center'>
+                          <div className=' flex justify-center lg:block'>
+                            <p className='text-5xl  text-white lg:hidden'> Apple Vision Pro </p>
+                            <div className='hidden lg:block ml-10 mt-10'>
+                              <p className='text-5xl  hidden text-white lg:block text-start text-3xl'> Apple  </p>
+                              <p className='text-5xl  hidden text-white lg:block text-start mt-2 text-3xl'> Vision Pro</p>
+                            </div>
+
+                          </div>
+                        </div>
+                        <div className=' mt-5 text-center '>
+                          <p className='text-gray-400 text-2xl' >
+                            Computational audio. Listen, it's powerful
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
               </div>
               <div>
-
-
-                <div className='hidden lg:block bg-amber-200'>
-                  <div className=' w-187 h-150  lg:flex justify-end bg-[#EDEDED]   '>
+                <div className='hidden lg:block '>
+                  <div className=' w-full  h-150  lg:flex h-230 justify-end  bg-[#EDEDED]   '>
                     <div className=' py-15 lg:flex'>
-                      <img className='w-210 lg:hidden' src="MacBookPro14.svg" alt="" />
+                      <img className='w-210 lg:hidden ' src="MacBookPro14.svg" alt="" />
                       <div className=' text-center *:lg:mt-25'>
                         <div className='text-center'>
                           <div className=' flex justify-center'>
@@ -158,69 +219,6 @@ export default function Page() {
 
             </div>
 
-          </div>
-          <div className='hidden lg:flex block  py-0 mt-0 bg-amber-500'>
-            {/* Max  */}
-            <div className='lg:w-125'>
-              <div className='lg:flex'>
-                <div className='w-full h-120  lg:flex justify-items-center bg-[#EDEDED]  '>
-                  <div className='lg:flex'>
-                    <img className=' w-70 lg:hidden ' src="SizeMax.svg" alt="" />
-                    <img className='hidden lg:block w-30' src="max.svg" alt="" />
-                  </div>
-                  <div className='text-center '>
-                    <div className='text-center'>
-                      <div className='flex justify-center mt-3 lg:block text-center '>
-                        <p className='text-5xl block textce lg:hidden'> Apple AirPods Max  </p>
-                        <div className='lg:text-start text-4xl ml-20 mt-15'>
-                          <div>
-                            <p>Apple</p>
-                          </div>
-                          <div>
-                            <p className='py-4'>AirPods</p>
-                          </div>
-                          <p>Max</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className='mt-4  flex justify-center'>
-                      <p className='text-gray-400 text-2xl  lg:hidden  ' >
-                        Computational audio. Listen, it's powerful
-                      </p>
-                      <p className='text-gray-400 text-xl  hidden lg:block px-20 text-lg ' >
-                        Computational audio. <br />Listen, it's powerful
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className=' lg:block w-112'>
-              <div className=' w-full h-120   lg:flex justify-items-center bg-[#353535]  '>
-                <div className=' py-15 lg:flex'>
-                  <img className='w-100 lg:hidden ' src="SizeVision.svg" alt="" />
-                  <img className='hidden  lg:block w-70' src="vision.svg" alt="" />
-                </div>
-                <div className=' text-center lg:mt-25'>
-                  <div className='text-center'>
-                    <div className=' flex justify-center lg:block'>
-                      <p className='text-5xl  text-white lg:hidden'> Apple Vision Pro </p>
-                      <div className='hidden lg:block ml-10 mt-10'>
-                        <p className='text-5xl  hidden text-white lg:block text-start text-3xl'> Apple  </p>
-                        <p className='text-5xl  hidden text-white lg:block text-start mt-2 text-3xl'> Vision Pro</p>
-                      </div>
-
-                    </div>
-                  </div>
-                  <div className=' mt-5 text-center '>
-                    <p className='text-gray-400 text-2xl' >
-                      Computational audio. Listen, it's powerful
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
 
 
