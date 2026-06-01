@@ -45,7 +45,7 @@ export default function MainPage() {
 
 
   const newFilter = stateBox
-  const newFindElemet = products.filter(item => item.name == newFilter)
+  const newFindElemet = products.filter(item => item.name.startsWith(newFilter))
 
   console.log(newFilter)
   console.log(newFindElemet)
@@ -231,21 +231,10 @@ export default function MainPage() {
 
         <CollapsibleContent className="flex flex-col gap-2">
           <div className='hidden lg:block'>
-            <input id='iPhone 15 Pro' onChange={() => setStateBox('iPhone 15 Pro')}
-              checked={stateBox.includes('iPhone 15 Pro')} data-category='iPhone 15 Pro' type="checkbox" />
-            <label htmlFor="iPhone 15 Pro">iPhone 15 Pro</label>
+            <input id='iPhone' onChange={() => setStateBox('iPhone')}
+              checked={stateBox.includes('iPhone')} data-category='iPhone' type="checkbox" />
+            <label htmlFor="iPhone">iPhone</label>
           </div>
-          <div className='hidden lg:block'>
-            <input id='iPhone SE 2022' onChange={() => setStateBox('iPhone SE 2022')}
-              checked={stateBox.includes('iPhone SE 2022')} data-category='iPhone SE 2022' type="checkbox" />
-            <label htmlFor="iPhone SE 2022">iPhone</label>
-          </div>
-          <div className='hidden lg:block'>
-            <input id='iPhone 11' onChange={() => setStateBox('iPhone 11')}
-              checked={stateBox.includes('iPhone 11')} data-category='iPhone 11' type="checkbox" />
-            <label htmlFor="iPhone 11">iPhone 11 </label>
-          </div>
-
         </CollapsibleContent>
       </Collapsible>
       <p>{newFindElemet.length}</p>
