@@ -32,8 +32,9 @@ export default function MainPage() {
   const { AddToCart } = useContext(Cartcontext)
 
 
-  const [stateBox, setStateBox] = useState([])
+  const [stateBox, setStateBox] = useState()
 
+  //filter 
 
 
 
@@ -47,15 +48,19 @@ export default function MainPage() {
     GetAllProd()
   }, [])
 
+  const newFilter = stateBox
+  console.log(newFilter)
+
+
+
 
 
 
 
 
   return (
-    <div>
+    <div >
       <div className='flex justify-between px-5'>
-
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button className='w-40 h-10' variant="outline">Filtres</Button>
@@ -73,20 +78,20 @@ export default function MainPage() {
                           <input
                             id='Iphone'
                             onChange={() => setStateBox('Iphone')}
-                            checked={stateBox.includes('Iphone')}
+                            checked={stateBox === 'Iphone'}
                             data-category='Iphone'
                             type="checkbox" />
                           <label htmlFor="iphone">Iphone</label></DropdownMenuItem>
                         <DropdownMenuItem><input id='Macbook' onChange={() => setStateBox('MacBook')}
-                          checked={stateBox.includes('MacBook')} data-category='MacBook' type="checkbox" />
-                          <label htmlFor="macbook">MacBook</label> </DropdownMenuItem>
+                          checked={stateBox === 'MacBook'} data-category='MacBook' type="checkbox" />
+                          <label htmlFor="macbook">MacBook</label></DropdownMenuItem>
 
                         <DropdownMenuItem><input id='AirPods Max' onChange={() => setStateBox('AirPods Max')}
-                          checked={stateBox.includes('Max')} data-category='AirPods Max' type="checkbox" />
+                          checked={stateBox === 'AirPods Max'} data-category='AirPods Max' type="checkbox" />
                           <label htmlFor="air-pods-max">AirPods Max</label></DropdownMenuItem>
 
                         <DropdownMenuItem><input id='AirPdos Pro' onChange={() => setStateBox('AirPods Pro')}
-                          checked={stateBox.includes('Pro')} data-category='AirPods Pro' type="checkbox" />
+                          checked={stateBox === 'AirPods Pro'} data-category='AirPods Pro' type="checkbox" />
                           <label htmlFor="air-pods-pro">AirPods Pro</label>
                         </DropdownMenuItem>
 
@@ -96,17 +101,17 @@ export default function MainPage() {
                         </DropdownMenuItem>
 
                         <DropdownMenuItem><input id='iMac' onChange={() => setStateBox('iMac')}
-                          checked={stateBox.includes('iMac')} data-category='iMac' type="checkbox" />
+                          checked={stateBox === 'iMac'} data-category='iMac' type="checkbox" />
                           <label htmlFor="imac">iMac</label></DropdownMenuItem>
 
                         <DropdownMenuItem>
                           <input id='iPad Air'
                             onChange={() => setStateBox('iPad Air')}
-                            checked={stateBox.includes('iPad Air')} data-category='iPad Air' type="checkbox" />
+                            checked={stateBox === 'iPad Air'} data-category='iPad Air' type="checkbox" />
                           <label htmlFor="ipad-air">iPad Air</label></DropdownMenuItem>
 
                         <DropdownMenuItem><input id='iPad Pro' onChange={() => setStateBox('iPad Pro')}
-                          checked={stateBox.includes('iPad Pro')} data-category='iPad Pro' type="checkbox" />
+                          checked={stateBox === 'iPad Pro'} data-category='iPad Pro' type="checkbox" />
                           <label htmlFor="ipad-pro">iPad Pro</label></DropdownMenuItem>
 
                         <DropdownMenuSeparator />
@@ -121,14 +126,14 @@ export default function MainPage() {
               <DropdownMenuPortal>
                 <form action="">
                   <DropdownMenuSubContent>
-                    <DropdownMenuItem><input type="checkbox" /> <label htmlFor=""> 8 Gb</label></DropdownMenuItem>
-                    <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">16 Gb</label></DropdownMenuItem>
-                    <DropdownMenuItem><input type="checkbox" /> <label htmlFor=""> 24 Gb</label></DropdownMenuItem>
-                    <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">32  Gb</label></DropdownMenuItem>
-                    <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">64 Gb</label></DropdownMenuItem>
-                    <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">256 Gb</label></DropdownMenuItem>
-                    <DropdownMenuItem><input type="checkbox" /> <label htmlFor="">512 Gb</label></DropdownMenuItem>
-                    <DropdownMenuItem><input type="checkbox" /> <label htmlFor=""> 1 Tb </label></DropdownMenuItem>
+                    <DropdownMenuItem><input checked={setStateBox === '8'} onChange={() => setStateBox('8')} type="checkbox" /> <label htmlFor="8"> 8 Gb</label></DropdownMenuItem>
+                    <DropdownMenuItem><input checked={setStateBox === '16'} onChange={() => setStateBox('16')} type="checkbox" /> <label htmlFor="16">16 Gb</label></DropdownMenuItem>
+                    <DropdownMenuItem><input checked={setStateBox === '24'} onChange={() => setStateBox('24')} type="checkbox" /> <label htmlFor="24"> 24 Gb</label></DropdownMenuItem>
+                    <DropdownMenuItem><input checked={setStateBox === '32'} onChange={() => setStateBox('32')} type="checkbox" /> <label htmlFor="32">32  Gb</label></DropdownMenuItem>
+                    <DropdownMenuItem><input checked={setStateBox === '64'} onChange={() => setStateBox('64')} type="checkbox" /> <label htmlFor="64">64 Gb</label></DropdownMenuItem>
+                    <DropdownMenuItem><input checked={setStateBox === '256'} onChange={() => setStateBox('256')} type="checkbox" /> <label htmlFor="236">256 Gb</label></DropdownMenuItem>
+                    <DropdownMenuItem><input checked={setStateBox === '512'} onChange={() => setStateBox('512')} type="checkbox" /> <label htmlFor="512">512 Gb</label></DropdownMenuItem>
+                    <DropdownMenuItem><input checked={setStateBox === '1'} onChange={() => setStateBox('1')} type="checkbox" /> <label htmlFor="512">1 Tb</label></DropdownMenuItem>
                     <DropdownMenuSeparator />
                   </DropdownMenuSubContent>
                 </form>
@@ -198,7 +203,7 @@ export default function MainPage() {
         <p className='text-2xl'>{products.length}</p>
       </div>
 
-      <div className='bg- grid grid-cols-2 gap-10 '>
+      <div className='block grid grid-cols-2 gap-10 lg:hidden'>
         {products.map((item) => (
           <div className='' key={item.id}>
 
@@ -235,6 +240,42 @@ export default function MainPage() {
         }
       </div>
 
+
+      <div className='lg:grid grid-cols-4 gap-10 ml-30'>
+        {products.map((item) => (
+          <div className='' key={item.id}>
+            <div className=''>
+              <div className=''>
+                <div className=''>
+                  <div className='bg-gray-200 rounded-lg w-70 h-100 '>
+                    <div className='flex justify-end'>
+                      <button onClick={() => AddToFavorits()} className='absolute  '>
+                        <img src="Favorites.svg" alt="" />
+                      </button>
+                    </div>
+                    <div>
+                      <Link href={`/products/${item.id}`}>
+                        <div className=''>
+                          <img className='w-50 lg:w-60 py-6 ml-4' src={`http://localhost:1452/${item.images[0]}`} alt="" />
+                        </div>
+                        <div className='lg:text-center'>
+                          <p>{item.name}</p>
+                          <p>{item.price} ₽ </p>
+                        </div>
+                      </Link>
+                    </div>
+                    <div className='lg:flex justify-center'>
+                      <button onClick={() => AddToCart()} className='bg-black w-40 h-13 text-white rounded-lg'> By  Now</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        ))
+        }
+      </div>
 
 
 
