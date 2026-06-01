@@ -5,6 +5,12 @@ import { FavoritsContext } from '@/favorits';
 import { Cartcontext } from '@/store';
 import Link from 'next/link';
 import { Button } from "@/components/ui/button"
+import { ChevronsUpDown } from "lucide-react"
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
 
 import {
   DropdownMenu,
@@ -32,9 +38,20 @@ export default function MainPage() {
   const { AddToCart } = useContext(Cartcontext)
 
 
-  const [stateBox, setStateBox] = useState()
+  const [stateBox, setStateBox] = useState([])
+  const [ValueFilter, setValueFilter] = useState([])
 
   //filter 
+
+
+  const newFilter = stateBox
+  const newFindElemet = products.filter(item => item.name == newFilter)
+
+  console.log(newFilter)
+  console.log(newFindElemet)
+
+
+
 
 
 
@@ -43,14 +60,12 @@ export default function MainPage() {
       const resp = await fetch('http://localhost:1452/api/products')
       const data = await resp.json()
       setProducst(data)
-
     }
     GetAllProd()
   }, [])
 
-  const newFilter = stateBox
-  console.log(newFilter)
 
+  const [isOpen, setIsOpen] = useState(false)
 
 
 
@@ -59,8 +74,10 @@ export default function MainPage() {
 
 
   return (
-    <div >
-      <div className='flex justify-between px-5'>
+    <div>
+      <div className='block flex justify-between px-5 lg:hidden'>
+
+
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button className='w-40 h-10' variant="outline">Filtres</Button>
@@ -72,51 +89,51 @@ export default function MainPage() {
                 <DropdownMenuSubTrigger>Type</DropdownMenuSubTrigger>
                 <DropdownMenuPortal>
                   <DropdownMenuSubContent >
-                    <form action=''>
-                      <div>
-                        <DropdownMenuItem>
-                          <input
-                            id='Iphone'
-                            onChange={() => setStateBox('Iphone')}
-                            checked={stateBox === 'Iphone'}
-                            data-category='Iphone'
-                            type="checkbox" />
-                          <label htmlFor="iphone">Iphone</label></DropdownMenuItem>
-                        <DropdownMenuItem><input id='Macbook' onChange={() => setStateBox('MacBook')}
-                          checked={stateBox === 'MacBook'} data-category='MacBook' type="checkbox" />
-                          <label htmlFor="macbook">MacBook</label></DropdownMenuItem>
+                    <div>
+                      <DropdownMenuItem>
+                        <input id='iPhone' onChange={() => setStateBox('iPhone SE 2022')}
+                          checked={stateBox == 'iPhone SE 2022'} data-category='iPhone SE 2022' type="checkbox" />
+                        <label htmlFor="iPhone SE 2022">iPhone</label>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem>
+                        <input id='MacBook' onChange={() => setStateBox('MacBook Pro')}
+                          checked={stateBox === ('MacBook')} data-category='MacBook Pro' type="checkbox" />
+                        <label htmlFor="MacBook">MacBook</label></DropdownMenuItem>
 
-                        <DropdownMenuItem><input id='AirPods Max' onChange={() => setStateBox('AirPods Max')}
+
+                      <DropdownMenuItem>
+                        <input id='AirPods Max' onChange={() => setStateBox('AirPods Max')}
                           checked={stateBox === 'AirPods Max'} data-category='AirPods Max' type="checkbox" />
-                          <label htmlFor="air-pods-max">AirPods Max</label></DropdownMenuItem>
+                        <label htmlFor="AirPods Max">AirPods Max</label>
+                      </DropdownMenuItem>
 
-                        <DropdownMenuItem><input id='AirPdos Pro' onChange={() => setStateBox('AirPods Pro')}
+                      <DropdownMenuItem>
+                        <input id='AirPdos Pro' onChange={() => setStateBox('AirPods Pro')}
                           checked={stateBox === 'AirPods Pro'} data-category='AirPods Pro' type="checkbox" />
-                          <label htmlFor="air-pods-pro">AirPods Pro</label>
-                        </DropdownMenuItem>
+                        <label htmlFor="AirPods Pro">AirPods Pro</label>
+                      </DropdownMenuItem>
+                      {/* AirPods */}
 
-                        <DropdownMenuItem><input id='AirPods' onChange={() => setStateBox('AirPods')}
-                          checked={stateBox === 'AirPods'} data-category='AirPods' type="checkbox" />
-                          <label htmlFor="air-pods">AirPods</label>
-                        </DropdownMenuItem>
+                      <DropdownMenuItem><input id='AirPods' onChange={() => setStateBox('AirPods')}
+                        checked={stateBox === 'AirPods'} data-category='AirPods' type="checkbox" />
+                        <label htmlFor="AirPods">AirPods</label>
+                      </DropdownMenuItem>
 
-                        <DropdownMenuItem><input id='iMac' onChange={() => setStateBox('iMac')}
+                      <DropdownMenuItem>
+                        <input id='iMac' onChange={() => setStateBox('iMac')}
                           checked={stateBox === 'iMac'} data-category='iMac' type="checkbox" />
-                          <label htmlFor="imac">iMac</label></DropdownMenuItem>
+                        <label htmlFor="iMac">iMac</label></DropdownMenuItem>
+                      <DropdownMenuItem>
+                        <input id='iPad Air'
+                          onChange={() => setStateBox('iPad Air')}
+                          checked={stateBox === 'iPad Air'} data-category='iPad Air' type="checkbox" />
+                        <label htmlFor="iPad Air">iPad Air</label></DropdownMenuItem>
 
-                        <DropdownMenuItem>
-                          <input id='iPad Air'
-                            onChange={() => setStateBox('iPad Air')}
-                            checked={stateBox === 'iPad Air'} data-category='iPad Air' type="checkbox" />
-                          <label htmlFor="ipad-air">iPad Air</label></DropdownMenuItem>
-
-                        <DropdownMenuItem><input id='iPad Pro' onChange={() => setStateBox('iPad Pro')}
-                          checked={stateBox === 'iPad Pro'} data-category='iPad Pro' type="checkbox" />
-                          <label htmlFor="ipad-pro">iPad Pro</label></DropdownMenuItem>
-
-                        <DropdownMenuSeparator />
-                      </div>
-                    </form>
+                      <DropdownMenuItem><input id='iPad Pro' onChange={() => setStateBox('iPad Pro')}
+                        checked={stateBox === 'iPad Pro'} data-category='iPad Pro' type="checkbox" />
+                        <label htmlFor="iPad Pro">iPad Pro</label></DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                    </div>
                   </DropdownMenuSubContent>
                 </DropdownMenuPortal>
               </DropdownMenuSub>
@@ -124,19 +141,17 @@ export default function MainPage() {
             <DropdownMenuSub>
               <DropdownMenuSubTrigger>Built-in memory </DropdownMenuSubTrigger>
               <DropdownMenuPortal>
-                <form action="">
-                  <DropdownMenuSubContent>
-                    <DropdownMenuItem><input checked={setStateBox === '8'} onChange={() => setStateBox('8')} type="checkbox" /> <label htmlFor="8"> 8 Gb</label></DropdownMenuItem>
-                    <DropdownMenuItem><input checked={setStateBox === '16'} onChange={() => setStateBox('16')} type="checkbox" /> <label htmlFor="16">16 Gb</label></DropdownMenuItem>
-                    <DropdownMenuItem><input checked={setStateBox === '24'} onChange={() => setStateBox('24')} type="checkbox" /> <label htmlFor="24"> 24 Gb</label></DropdownMenuItem>
-                    <DropdownMenuItem><input checked={setStateBox === '32'} onChange={() => setStateBox('32')} type="checkbox" /> <label htmlFor="32">32  Gb</label></DropdownMenuItem>
-                    <DropdownMenuItem><input checked={setStateBox === '64'} onChange={() => setStateBox('64')} type="checkbox" /> <label htmlFor="64">64 Gb</label></DropdownMenuItem>
-                    <DropdownMenuItem><input checked={setStateBox === '256'} onChange={() => setStateBox('256')} type="checkbox" /> <label htmlFor="236">256 Gb</label></DropdownMenuItem>
-                    <DropdownMenuItem><input checked={setStateBox === '512'} onChange={() => setStateBox('512')} type="checkbox" /> <label htmlFor="512">512 Gb</label></DropdownMenuItem>
-                    <DropdownMenuItem><input checked={setStateBox === '1'} onChange={() => setStateBox('1')} type="checkbox" /> <label htmlFor="512">1 Tb</label></DropdownMenuItem>
-                    <DropdownMenuSeparator />
-                  </DropdownMenuSubContent>
-                </form>
+                <DropdownMenuSubContent>
+                  <DropdownMenuItem><input checked={setStateBox === '8'} onChange={() => setStateBox('8')} type="checkbox" /> <label htmlFor="8"> 8 Gb</label></DropdownMenuItem>
+                  <DropdownMenuItem><input checked={setStateBox === '16'} onChange={() => setStateBox('16')} type="checkbox" /> <label htmlFor="16">16 Gb</label></DropdownMenuItem>
+                  <DropdownMenuItem><input checked={setStateBox === '24'} onChange={() => setStateBox('24')} type="checkbox" /> <label htmlFor="24"> 24 Gb</label></DropdownMenuItem>
+                  <DropdownMenuItem><input checked={setStateBox === '32'} onChange={() => setStateBox('32')} type="checkbox" /> <label htmlFor="32">32  Gb</label></DropdownMenuItem>
+                  <DropdownMenuItem><input checked={setStateBox === '64'} onChange={() => setStateBox('64')} type="checkbox" /> <label htmlFor="64">64 Gb</label></DropdownMenuItem>
+                  <DropdownMenuItem><input checked={setStateBox === '256'} onChange={() => setStateBox('256')} type="checkbox" /> <label htmlFor="236">256 Gb</label></DropdownMenuItem>
+                  <DropdownMenuItem><input checked={setStateBox === '512'} onChange={() => setStateBox('512')} type="checkbox" /> <label htmlFor="512">512 Gb</label></DropdownMenuItem>
+                  <DropdownMenuItem><input checked={setStateBox === '1'} onChange={() => setStateBox('1')} type="checkbox" /> <label htmlFor="512">1 Tb</label></DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                </DropdownMenuSubContent>
               </DropdownMenuPortal>
             </DropdownMenuSub>
           </DropdownMenuContent>
@@ -198,13 +213,97 @@ export default function MainPage() {
         </div>
       </div> */}
 
+
+
+      <Collapsible
+        open={isOpen}
+        onOpenChange={setIsOpen}
+        className="flex w-[350px] flex-col gap-2">
+        <div className="flex items-center justify-between gap-4 px-4">
+          <h4 className="text-sm font-semibold">iPhone</h4>
+          <CollapsibleTrigger asChild>
+            <Button variant="ghost" size="icon" className="size-8">
+              <ChevronsUpDown />
+              <span className="sr-only">Toggle details</span>
+            </Button>
+          </CollapsibleTrigger>
+        </div>
+
+        <CollapsibleContent className="flex flex-col gap-2">
+          <div className='hidden lg:block'>
+            <input id='iPhone 15 Pro' onChange={() => setStateBox('iPhone 15 Pro')}
+              checked={stateBox.includes('iPhone 15 Pro')} data-category='iPhone 15 Pro' type="checkbox" />
+            <label htmlFor="iPhone 15 Pro">iPhone 15 Pro</label>
+          </div>
+          <div className='hidden lg:block'>
+            <input id='iPhone SE 2022' onChange={() => setStateBox('iPhone SE 2022')}
+              checked={stateBox.includes('iPhone SE 2022')} data-category='iPhone SE 2022' type="checkbox" />
+            <label htmlFor="iPhone SE 2022">iPhone</label>
+          </div>
+          <div className='hidden lg:block'>
+            <input id='iPhone 11' onChange={() => setStateBox('iPhone 11')}
+              checked={stateBox.includes('iPhone 11')} data-category='iPhone 11' type="checkbox" />
+            <label htmlFor="iPhone 11">iPhone 11 </label>
+          </div>
+
+        </CollapsibleContent>
+      </Collapsible>
+      <p>{newFindElemet.length}</p>
+      <div className='ml-10'>
+
+        <div>
+
+          <input id='MacBook' onChange={() => setStateBox('MacBook Pro')}
+            checked={stateBox === ('MacBook')} data-category='MacBook Pro' type="checkbox" />
+          <label htmlFor="MacBook">MacBook</label>
+        </div>
+
+        <div>
+          <input id='AirPods Max' onChange={() => setStateBox('AirPods Max')}
+            checked={stateBox === 'AirPods Max'} data-category='AirPods Max' type="checkbox" />
+          <label htmlFor="AirPods Max">AirPods Max</label>
+        </div>
+        <div>
+
+          <input id='AirPdos Pro' onChange={() => setStateBox('AirPods Pro')}
+            checked={stateBox === 'AirPods Pro'} data-category='AirPods Pro' type="checkbox" />
+          <label htmlFor="AirPods Pro">AirPods Pro</label>
+        </div>
+        {/* AirPods */}
+
+        <div>
+
+          <input id='AirPods' onChange={() => setStateBox('AirPods')}
+            checked={stateBox === 'AirPods'} data-category='AirPods' type="checkbox" />
+          <label htmlFor="AirPods">AirPods</label>
+        </div>
+        <div>
+
+          <input id='iMac' onChange={() => setStateBox('iMac')}
+            checked={stateBox === 'iMac'} data-category='iMac' type="checkbox" />
+          <label htmlFor="iMac">iMac</label>
+        </div>
+        <div>
+
+          <input id='iPad Air'
+            onChange={() => setStateBox('iPad Air')}
+            checked={stateBox === 'iPad Air'} data-category='iPad Air' type="checkbox" />
+          <label htmlFor="iPad Air">iPad Air</label>
+        </div>
+
+        <input id='iPad Pro' onChange={() => setStateBox('iPad Pro')}
+          checked={stateBox === 'iPad Pro'} data-category='iPad Pro' type="checkbox" />
+        <label htmlFor="iPad Pro">iPad Pro</label>
+      </div>
+
       <div className='py-4 ml-5   flex'>
         <p className='text-2xl'>Products result:</p>
-        <p className='text-2xl'>{products.length}</p>
+        <p className='text-2xl'>{newFindElemet.length}</p>
       </div>
 
       <div className='block grid grid-cols-2 gap-10 lg:hidden'>
-        {products.map((item) => (
+
+        {newFindElemet.map((item) => (
           <div className='' key={item.id}>
 
             <div className=''>
@@ -241,8 +340,8 @@ export default function MainPage() {
       </div>
 
 
-      <div className='lg:grid grid-cols-4 gap-10 ml-30'>
-        {products.map((item) => (
+      <div className='hidden lg:grid block grid-cols-4 gap-10 ml-30'>
+        {newFindElemet.map((item) => (
           <div className='' key={item.id}>
             <div className=''>
               <div className=''>
@@ -288,6 +387,7 @@ export default function MainPage() {
       <div>
         {/* <FooterComp/> */}
       </div>
+
     </div>
   )
 
