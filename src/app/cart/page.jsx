@@ -86,9 +86,8 @@ export default function CartPage() {
                           <button onClick={() => delProducts(item.id)} className="text-2xl">X</button>
                         </div>
                       </div>
-
-
                     </div>
+
 
                   </div>
                   <div className="flex justify-center" >
@@ -98,15 +97,11 @@ export default function CartPage() {
               </div>
             </div>
           ))
-        ) : <div className="flex mt-10">
-          <Skeleton className=" ml-3 w-40 h-30  " />
-          <div>
-            <Skeleton className="mt-2 ml-5 h-5 w-50" />
-            <Skeleton className="mt-5 ml-5 h-5 w-50" />
-            <Skeleton className="mt-5 ml-5 h-5 w-50" />
-          </div>
-        </div>
 
+        ) :
+          <div className="  hidden lg:block text-9xl text-center">
+            <p className=" hidden lg:block">Корзина пуста </p>
+          </div>
         }
 
       </div>
@@ -145,7 +140,6 @@ export default function CartPage() {
             <div className="flex justify-between">
               <p className=" text-xl ml-3">SubTotal </p>
               <p className=" mr-5 text-xl">  {sum.toFixed(2.)} ₽</p>
-
             </div>
             <div className="flex justify-between">
               <p className=" ml-3">Estimated Tax</p>

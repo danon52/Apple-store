@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import Link from 'next/link';
 import { Cartcontext } from '@/store';
 import { FavoritsContext } from '@/favorits';
+import { Skeleton } from "@/components/ui/skeleton"
 export default function Page() {
 
 
@@ -597,25 +598,153 @@ export default function Page() {
 
 
 
-        <div className='lg:py-20'>
-          <div className='hidden lg:flex justify-center block  '>
+        <div className='lg:py-20 '>
+          <div className='hidden lg:flex bg justify-center block  '>
             {element.length > 0 ? (
               element.map(item => (
-                <div className='hidden lg:block' key={item.id}>
+                <div className=' hidden lg:block  ' key={item.id}>
                   <div className='lg:'>
-                    <div className=''>
-                      <div className='lg:px-10'>
-                        <img className='lg:w-80' src={`http://localhost:1452/${item.images[0]}`} alt="" />
-                      </div>
-                      <div className='lg:text-center mt-10'>
-                        <p className='lg:text-3xl'>{item.name}</p>
-                        <p className='lg:text-3xl'>{item.price}  ₽</p>
-                      </div>
+                    <div className='lg:'>
+                      <Link className='' href={`products/${item.id}`}>
+                        <div className='bg'>
+                          <div className='lg:px-20'>
+                            <img className='lg:w-70 py-5 ' src={`http://localhost:1452/${item.images[0]}`} alt="" />
+                          </div>
+                          <div className='lg:text-center mt-5'>
+                            <p className='lg:text-3xl'>{item.name}</p>
+                          </div>
+                        </div>
+                      </Link>
+                    </div>
+                    <div className='lg:flex justify-center mt-10'>
+                      <p className=''>
+                        iPad combines a magnificent
+                        10.2-inch <br /> Retina display, incredible performance, <br /> multitasking and ease of use.
+                      </p>
+                    </div>
+                    <div className='mt-5 flex justify-center'>
+                      <button className='w-50 border rounded-md h-12'>Shop Now </button>
+                    </div>
+                  </div>
+
+                </div>
+              ))
+            ) : <div>
+              <div className='lg:grid grid-cols-4 gap-7'>
+                <div  >
+                  <div>
+                    <Skeleton className="lg:w-60 h-50" />
+                  </div>
+                  <div className=''>
+                    <Skeleton className="lg:h-6 w-60 mt-3" />
+                    <div className='lg: flex justify-center'>
+                      <Skeleton className="lg:h-5 w-30 mt-4 " />
+                    </div>
+                    <div className='lg:flex justify-center'>
+                      <Skeleton className="lg:h-6 w-40 mt-7" />
                     </div>
                   </div>
                 </div>
-              ))
-            ) : <p></p>
+                <div>
+                  <div>
+                    <Skeleton className="lg:w-60 h-50" />
+                  </div>
+                  <div className=''>
+                    <Skeleton className="lg:h-6 w-60 mt-3" />
+                    <div className='lg: flex justify-center'>
+                      <Skeleton className="lg:h-5 w-30 mt-4 " />
+                    </div>
+                    <div className='lg:flex justify-center'>
+                      <Skeleton className="lg:h-6 w-40 mt-7" />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <Skeleton className="lg:w-60 h-50" />
+                  </div>
+                  <div className=''>
+                    <Skeleton className="lg:h-6 w-60 mt-3" />
+                    <div className='lg: flex justify-center'>
+                      <Skeleton className="lg:h-5 w-30 mt-4 " />
+                    </div>
+                    <div className='lg:flex justify-center'>
+                      <Skeleton className="lg:h-6 w-40 mt-7" />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <Skeleton className="lg:w-60 h-50" />
+                  </div>
+                  <div className=''>
+                    <Skeleton className="lg:h-6 w-60 mt-3" />
+                    <div className='lg: flex justify-center'>
+                      <Skeleton className="lg:h-5 w-30 mt-4 " />
+                    </div>
+                    <div className='lg:flex justify-center'>
+                      <Skeleton className="lg:h-6 w-40 mt-7" />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <Skeleton className="lg:w-60 h-50" />
+                  </div>
+                  <div className=''>
+                    <Skeleton className="lg:h-6 w-60 mt-3" />
+                    <div className='lg: flex justify-center'>
+                      <Skeleton className="lg:h-5 w-30 mt-4 " />
+                    </div>
+                    <div className='lg:flex justify-center'>
+                      <Skeleton className="lg:h-6 w-40 mt-7" />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <Skeleton className="lg:w-60 h-50" />
+                  </div>
+                  <div className=''>
+                    <Skeleton className="lg:h-6 w-60 mt-3" />
+                    <div className='lg: flex justify-center'>
+                      <Skeleton className="lg:h-5 w-30 mt-4 " />
+                    </div>
+                    <div className='lg:flex justify-center'>
+                      <Skeleton className="lg:h-6 w-40 mt-7" />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <Skeleton className="lg:w-60 h-50" />
+                  </div>
+                  <div className=''>
+                    <Skeleton className="lg:h-6 w-60 mt-3" />
+                    <div className='lg: flex justify-center'>
+                      <Skeleton className="lg:h-5 w-30 mt-4 " />
+                    </div>
+                    <div className='lg:flex justify-center'>
+                      <Skeleton className="lg:h-6 w-40 mt-7" />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <Skeleton className="lg:w-60 h-50" />
+                  </div>
+                  <div className=''>
+                    <Skeleton className="lg:h-6 w-60 mt-3" />
+                    <div className='lg: flex justify-center'>
+                      <Skeleton className="lg:h-5 w-30 mt-4 " />
+                    </div>
+                    <div className='lg:flex justify-center'>
+                      <Skeleton className="lg:h-6 w-40 mt-7" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             }
           </div>
         </div>
@@ -624,8 +753,6 @@ export default function Page() {
 
 
         {/* товары   */}
-
-
         <div className='hidden lg:mt-5 bg-[#F9F9F9] '>
           <div className='lg:flex justify-center'>
             <img src="Ipad.svg" alt="" />
@@ -637,7 +764,7 @@ export default function Page() {
             <div className='text-center  mt-5 text-gray-400'>
               <p className=''>iPad combines a magnificent 10.2-inch Retina display,
               </p>
-              <p>  incredible performance, multitasking and ease of use.</p>
+              <p>incredible performance, multitasking and ease of use.</p>
             </div>
             <div className='flex justify-center mt-5'>
               <button className='w-50 h-15 bg-none border rounded-xl text-black'>Shop Now </button>
@@ -645,14 +772,15 @@ export default function Page() {
           </div>
         </div>
 
+
+
+
+        {/*  dicsont  */}
         <div>
           <div className='mt-10'>
             <p className='text-2xl'> Discounts up to -50%</p>
           </div>
-
-
-
-          <div className='hidden lg:block py-50'>
+          <div className='hidden lg:block mt-20'>
             <div className='lg:flex justify-center '>
               {items.length > 0 ? (
                 items.map(i => (
@@ -671,9 +799,70 @@ export default function Page() {
                     </div>
                   </div>
                 ))
-              ) : <p>Загрузка данных</p>
+              ) :
+                <div className='lg:flex'>
+                  <div className='lg:flex '>
+                    <div>
+                      <div>
+                        <Skeleton className="lg:w-60 h-50" />
+                      </div>
+                      <div className=''>
+                        <Skeleton className="lg:h-6 w-60 mt-3" />
+                        <div className='lg: flex justify-center'>
+                          <Skeleton className="lg:h-5 w-30 mt-4 " />
+                        </div>
+                        <div className='lg:flex justify-center'>
+                          <Skeleton className="lg:h-6 w-40 mt-7" />
+                        </div>
+                      </div>
+                    </div>
+                    <div className='ml-10'>
+                      <div>
+                        <Skeleton className="lg:w-60 h-50" />
+                      </div>
+                      <div className=''>
+                        <Skeleton className="lg:h-6 w-60 mt-3" />
+                        <div className='lg: flex justify-center'>
+                          <Skeleton className="lg:h-5 w-30 mt-4 " />
+                        </div>
+                        <div className='lg:flex justify-center'>
+                          <Skeleton className="lg:h-6 w-40 mt-7" />
+                        </div>
+                      </div>
+                    </div>
+                    <div className='ml-10'>
+                      <div>
+                        <Skeleton className="lg:w-60 h-50" />
+                      </div>
+                      <div className=''>
+                        <Skeleton className="lg:h-6 w-60 mt-3" />
+                        <div className='lg: flex justify-center'>
+                          <Skeleton className="lg:h-5 w-30 mt-4 " />
+                        </div>
+                        <div className='lg:flex justify-center'>
+                          <Skeleton className="lg:h-6 w-40 mt-7" />
+                        </div>
+                      </div>
+                    </div>
+                    <div className='ml-10'>
+                      <div>
+                        <Skeleton className="lg:w-60 h-50" />
+                      </div>
+                      <div className=''>
+                        <Skeleton className="lg:h-6 w-60 mt-3" />
+                        <div className='lg: flex justify-center'>
+                          <Skeleton className="lg:h-5 w-30 mt-4 " />
+                        </div>
+                        <div className='lg:flex justify-center'>
+                          <Skeleton className="lg:h-6 w-40 mt-7" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-                // 
+                </div>
+
+
               }
             </div>
           </div>
