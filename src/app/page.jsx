@@ -16,16 +16,19 @@ export default function Page() {
   const [products, setProducts] = useState([])
 
 
-
-
   const [element, setElement] = useState([])
 
   useEffect(() => {
     async function GetElement() {
-
+      const finditem = [100, 109, 76, 95]
+      const getItem = finditem.map(id => fetch(`http://localhost:1452/api/products/${id}`).then(response => response.json())
+      )
+      const result = await Promise.all(getItem)
+      setElement(result)
     }
-  })
+    GetElement()
 
+  }, [])
   useEffect(() => {
     async function GetProducts() {
       const idProd = [1, 130, 90, 8, 98, 95, 110, 121]
@@ -595,10 +598,33 @@ export default function Page() {
             </div>
           </div>
         </div>
+        <div className='hidden lg:block'>
+          {element.length > 0 ? (
+            element.map(item => (
+              <div className='hidden lg:block flex' key={item.id}>
+                <div className='lg:'>
+                  <div>
+                    <div>
+                      <img src={`http://localhost:1452/${item.images[0]}`} alt="" />
+                    </div>
+                    <div>
+                      <p>{item.price}</p>
+                      <p>{item.names}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))
+          ) : <p></p>
+          }
+        </div>
+
 
 
         {/* товары   */}
-        <div className='lg:mt-5 bg-[#F9F9F9] '>
+
+
+        <div className='hidden lg:mt-5 bg-[#F9F9F9] '>
           <div className='lg:flex justify-center'>
             <img src="Ipad.svg" alt="" />
           </div>
