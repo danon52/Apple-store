@@ -20,7 +20,7 @@ export default function Page() {
 
   useEffect(() => {
     async function GetElement() {
-      const finditem = [100, 109, 76, 95]
+      const finditem = [100, 76, 109, 50]
       const getItem = finditem.map(id => fetch(`http://localhost:1452/api/products/${id}`).then(response => response.json())
       )
       const result = await Promise.all(getItem)
@@ -285,9 +285,6 @@ export default function Page() {
             </div>
           </div>
 
-
-
-
           {/* ps 5  */}
           <div className=' '>
             <div className='  lg:flex justify-items-cente bg-white'>
@@ -343,8 +340,6 @@ export default function Page() {
           </div>
         </div>
       </div>
-
-
       {/* --------------------------- */}
       <div className='mt-5'>
         <p className='text-2xl ml-10 mb-7'>Browse By Category</p>
@@ -598,26 +593,33 @@ export default function Page() {
             </div>
           </div>
         </div>
-        <div className='hidden lg:block'>
-          {element.length > 0 ? (
-            element.map(item => (
-              <div className='hidden lg:block flex' key={item.id}>
-                <div className='lg:'>
-                  <div>
-                    <div>
-                      <img src={`http://localhost:1452/${item.images[0]}`} alt="" />
-                    </div>
-                    <div>
-                      <p>{item.price}</p>
-                      <p>{item.names}</p>
+
+
+
+
+        <div className='lg:py-20'>
+          <div className='hidden lg:flex justify-center block  '>
+            {element.length > 0 ? (
+              element.map(item => (
+                <div className='hidden lg:block' key={item.id}>
+                  <div className='lg:'>
+                    <div className=''>
+                      <div className='lg:px-10'>
+                        <img className='lg:w-80' src={`http://localhost:1452/${item.images[0]}`} alt="" />
+                      </div>
+                      <div className='lg:text-center mt-10'>
+                        <p className='lg:text-3xl'>{item.name}</p>
+                        <p className='lg:text-3xl'>{item.price}  ₽</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))
-          ) : <p></p>
-          }
+              ))
+            ) : <p></p>
+            }
+          </div>
         </div>
+
 
 
 
@@ -648,7 +650,34 @@ export default function Page() {
             <p className='text-2xl'> Discounts up to -50%</p>
           </div>
 
-          <div>
+
+
+          <div className='hidden lg:block py-50'>
+            <div className='lg:flex justify-center '>
+              {items.length > 0 ? (
+                items.map(i => (
+                  <div key={i.id}>
+                    <div className='lg:px-15' >
+                      <Link href={`/products/${i.id}`}>
+                        <img className='w-70' src={`http://localhost:1452/${i.images[0]}`} alt="" />
+                        <div className='lg:mt-3 text-center'>
+                          <p className='text-3xl'>{i.name}</p>
+                          <p className='text-xl'> цена по скидке :<br />{i.discount_price}</p>
+                        </div>
+                      </Link>
+                    </div>
+                    <div className='lg:flex justify-center'>
+                      <button onClick={() => AddToCart(i)} className=' cursor-pointer w-40 h-10 text-lg  rounded-xl  bg-black text-white'>Buy Now </button>
+                    </div>
+                  </div>
+                ))
+              ) : <p>Загрузка данных</p>
+
+                // 
+              }
+            </div>
+          </div>
+          <div className='block lg:hidden'>
             <div className='grid grid-cols-2 gap-4 text-center mt-10'>
               {items.length > 0 ? (
                 items.map(i => (
@@ -671,7 +700,7 @@ export default function Page() {
             </div>
           </div>
         </div>
-      </div>
+      </div >
     </div >
 
   )

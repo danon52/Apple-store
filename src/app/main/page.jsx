@@ -91,7 +91,7 @@ export default function MainPage() {
                         </DropdownMenuItem>
 
                         <DropdownMenuItem><input id='AirPods' onChange={() => setStateBox('AirPods')}
-                          checked={stateBox.includes('AirPods')} data-category='AirPods' type="checkbox" />
+                          checked={stateBox === 'AirPods'} data-category='AirPods' type="checkbox" />
                           <label htmlFor="air-pods">AirPods</label>
                         </DropdownMenuItem>
 
