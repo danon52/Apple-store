@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Cartcontext } from '@/store';
 import { FavoritsContext } from '@/favorits';
 import { Skeleton } from "@/components/ui/skeleton"
+import FooterComp from '../components/FooterComp';
 export default function Page() {
 
 
@@ -28,7 +29,6 @@ export default function Page() {
       setElement(result)
     }
     GetElement()
-
   }, [])
   useEffect(() => {
     async function GetProducts() {
@@ -510,16 +510,16 @@ export default function Page() {
               products.map(prod => (
                 <div className=' rounded-2xl '
                   key={prod.id}>
-                  <div className='flex justify-end'>
+                  <div className='flex justify-end hover:bg-red-600'>
                     <button onClick={() => AddToFavorits(prod)} className='cursor-pointer'>
-                      <img src="Favorites.svg" alt="" />
+                      <img className='' src="Favorites.svg" alt="" />
                     </button>
                   </div>
                   <Link href={`products/${prod.id}`}>
-                    <div className=' text-center '>
+                    <div className=' text-center py-10 '>
                       <div className=''>
                         <div className=''>
-                          <img className=' bg-gray-200 w-70' src={`http://localhost:1452/${prod.images[0]}`} alt="" />
+                          <img className=' bg-gray-100 w-70' src={`http://localhost:1452/${prod.images[0]}`} alt="" />
                         </div>
                         <p className='text-xl'>{prod.brand}</p>
                         <p className='text-xl'>{prod.name}</p>
@@ -534,8 +534,16 @@ export default function Page() {
                       </ div>
                     </div>
                   </Link>
-                  <button onClick={() => AddToCart(prod)} className=' cursor-pointer w-40 h-10 text-lg  rounded-xl  bg-black text-white'>Buy Now </button>
-                </div>
+                  <div>
+
+                  </div>
+                  <div className="mt-auto pt-4 flex justify-center">
+                    <button
+                      onClick={() => AddToCart(prod)}
+                      className='cursor-pointer w-40 h-10 text-lg rounded-xl bg-black text-white'>
+                      Buy Now
+                    </button>
+                  </div>                </div>
               ))
             ) : <p> Загрузка данных </p>
             }
@@ -551,11 +559,11 @@ export default function Page() {
                   key={prod.id}>
                   <div className='lg:flex justify-end mr-10'>
                     <button onClick={() => AddToFavorits(prod)} className='lg:cursor-pointer '>
-                      <img className='lg:w-5 ' src="Favorites.svg" alt="" />
+                      <img className='lg:w-9 ' src="Favorites.svg" alt="" />
                     </button>
                   </div>
                   <Link href={`products/${prod.id}`}>
-                    <div className='lg:text-center '>
+                    <div className='py-10 lg:text-center '>
                       <div className=''>
                         <div className='lg:flex justify-center '>
                           <img className='  bg-gray-200 w-70 lg:w-60' src={`http://localhost:1452/${prod.images[0]}`} alt="" />
@@ -567,12 +575,12 @@ export default function Page() {
                           <p className='text-xl'> {prod.price} ₽</p>
                         </div>
                         <div>
-                          {/* добовление в корзину  */}
+
                         </div>
                       </ div>
                     </div>
                   </Link>
-                  <div className='lg:flex justify-center'>
+                  <div className='  lg:flex justify-center py-5'>
                     <button onClick={() => AddToCart(prod)} className=' cursor-pointer w-40 h-10 text-lg  rounded-xl  bg-black text-white'>Buy Now </button>
                   </div>
                 </div>
@@ -631,7 +639,6 @@ export default function Page() {
                       <button className='w-50 border rounded-md h-12'>Shop Now </button>
                     </div>
                   </div>
-
                 </div>
               ))
             ) : <div>
@@ -795,7 +802,7 @@ export default function Page() {
                         <img className='w-70' src={`http://localhost:1452/${i.images[0]}`} alt="" />
                         <div className='lg:mt-3 text-center'>
                           <p className='text-3xl'>{i.name}</p>
-                          <p className='text-xl'> цена по скидке :<br />{i.discount_price}</p>
+                          <p className='text-xl'> цена по скидке :<br />{i.discount_price} ₽</p>
                         </div>
                       </Link>
                     </div>
@@ -881,7 +888,7 @@ export default function Page() {
                         <img className='w-70' src={`http://localhost:1452/${i.images[0]}`} alt="" />
                         <div className='mt-3'>
                           <p className='text-3xl'>{i.name}</p>
-                          <p className='text-xl'> цена по скидке :<br />{i.discount_price}</p>
+                          <p className='text-xl'> цена по скидке :<br />{i.discount_price} ₽</p>
                         </div>
                       </Link>
                     </div>
@@ -895,6 +902,10 @@ export default function Page() {
           </div>
         </div>
       </div >
+
+      <div className='mt-20'>
+        <FooterComp />
+      </div>
     </div >
 
   )

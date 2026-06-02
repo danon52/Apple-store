@@ -5,13 +5,11 @@ import Rating from '@mui/material/Rating';
 import { useContext, useEffect, useState } from "react";
 import { Cartcontext } from '@/store';
 import { FavoritsContext } from '@/favorits';
-
+import { Skeleton } from "@/components/ui/skeleton"
 
 export default function ProductPage({ params }) {
     const [data, setData] = useState(null)
-
     const { AddToFavorits } = useContext(FavoritsContext)
-
     const { AddToCart } = useContext(Cartcontext)
 
     useEffect(() => {
@@ -36,18 +34,27 @@ export default function ProductPage({ params }) {
                     <div className="lg:">
                         <div className="lg:flex ">
                             <div className="lg:flex ">
+
+                                {/* Изображение с сохранением пропорций */}
                                 <div className='flex justify-center lg:mt-10 lg:justify-start'>
-                                    <img className='w-85 lg:w-170' src={`http://localhost:1452/${data.images?.[0]}`} alt="" />
+                                    <img
+                                        className='w-60 object-contain lg:w-170 ml-10'
+                                        src={`http://localhost:1452/${data.images?.[0]}`}
+                                        alt={data.name}
+                                    />
                                 </div>
+
                                 <div>
-                                    <div className='flex lg:mt-15' >
+                                    <div className='flex justify-center ml-5 lg:mt-15' >
                                         <p className='text-3xl '>{data.brand}</p>
-                                        <p className='text-3xl ml-2'>{data.name}</p>
+                                        <p className='text-3xl '>{data.name}</p>
+                                    </div>
+                                    <div className="text-center mt-2">
+                                        <p className='text-3xl'>{data.price}₽</p>
                                     </div>
                                     <div className="lg:flex mt-2">
                                         <div className="hidden lg:block w-35 h-17">
                                             <div className="lg:flex ">
-                                                <p className='text-3xl '>{data.price}₽</p>
                                                 <div className="lg:flex w-40 ml-10">
                                                     <p className="text-3xl">Discoutn:</p>
                                                     <p className='text-2xl lg:ml-10 mt-1 text-gray-400 line-through'>{data.discount_price}₽</p>
@@ -55,13 +62,13 @@ export default function ProductPage({ params }) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='hidden grid grid-cols-2 gap-4 mt-10 ml-3 lg:grid-cols-4'>
+                                    <div className='grid grid-cols-2 gap-4 ml-3 lg:grid-cols-4'>
                                         {data.characteristics?.map((item, prod) => (
                                             <div className='bg-gray-100 w-full rounded-2xl py-5 text-center flex flex-col justify-center h-full min-h-[100px]' key={prod}>
-                                                <span className='text-lg font-medium'>{item.characteristic}</span>
-                                                <span className='text-lg font-bold text-gray-800 mt-1'>{item.value}</span>
+                                                <p className='text-lg font-medium'>{item.characteristic}</p>
+                                                <p className='text-lg font-bold text-gray-800 mt-1'>{item.value}</p>
                                                 {item.unit_type && (
-                                                    <span className='text-sm text-gray-500 mt-1'>{item.unit_type}</span>
+                                                    <p className='text-sm text-gray-500 mt-1'>{item.unit_type}</p>
                                                 )}
                                             </div>
                                         ))}
@@ -75,8 +82,8 @@ export default function ProductPage({ params }) {
                                         </p>
                                         <div className="hidden lg:block mt-3">
                                             <div className="lg:mt-3">
-                                                <button onClick={() => AddToFavorits(data)} className="w-90 h-15 border text-xl rounded-2xl">Add to Wishlist</button>
-                                                <button onClick={() => AddToCart(data)} className="w-90 h-15 border bg-black text-white text-xl rounded-xl lg:ml-10">Add to Card Add</button>
+                                                <button onClick={() => AddToFavorits(data.id)} className="w-90 h-15 border text-xl rounded-2xl">Add to Wishlist</button>
+                                                <button onClick={() => AddToCart(data.id)} className="w-90 h-15 border bg-black text-white text-xl rounded-xl lg:ml-10">Add to Card Add</button>
                                             </div>
                                         </div>
                                         <div className="mt-2">
@@ -129,43 +136,12 @@ export default function ProductPage({ params }) {
                             </div>
                         </div>
 
-                        <div>
-                            <div className="hidden lg:block mt-10">
-                                {data.characteristics?.map((item, prod) => (
-                                    <div key={prod}>
-                                        <hr className="bg-black w-full" />
-                                        <div className='lg:flex justify-between ml-20 mr-20'>
-                                            <p className='lg:text-xls font-medium'>{item.characteristic}</p>
-                                            <p className='lg:text-xl font-bold text-gray-800 mt-1'>{item.value}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
                         <div className="lg:w-40 h-30 bg-gray-100 rounded-2xl ml-10 mt-20">
                             <p className="lg:text-5xl ml-10 py-3">{data.rating}</p>
                             <div className="lg:ml-3">
                                 <Rating name="no-value" value={data.rating} />
                             </div>
                         </div>
-                    </div>
-
-                    <div className='block mt-5 flex lg:hidden'>
-                        <div>
-                            <p className='text-3xl ml-5'>${data.price}</p>
-                        </div>
-                        <div>
-                            <p className='text-3xl'>${data.discount_price}</p>
-                        </div>
-                    </div>
-
-                    <div className='block grid grid-cols-2 gap-4 mt-10 ml-3 lg:hidden'>
-                        {data.characteristics?.map((item, prod) => (
-                            <div className='bg-gray-200 w-45 h-auto rounded-2xl py-5 text-center' key={prod}>
-                                <span className='text-lg'>{item.characteristic}</span>
-                                <span className='text-lg'>{item.value}</span>
-                            </div>
-                        ))}
                     </div>
 
                     <div className='block mt-10 ml-8 lg:hidden'>
@@ -185,10 +161,10 @@ export default function ProductPage({ params }) {
                             <Rating name="no-value" value={data.rating} />
                         </div>
                         <div className="flex justify-center mt-5">
-                            <button className="w-90 h-15 border text-xl rounded-2xl">Add to Wishlist</button>
+                            <button onClick={() => AddToFavorits(data)} className="w-90 h-15 border text-xl rounded-2xl">Add to Wishlist</button>
                         </div>
                         <div className="flex justify-center mt-5">
-                            <button className="w-90 h-15 border bg-black text-white text-xl rounded-xl">Add to Card Add</button>
+                            <button onClick={() => AddToCart(data)} className="w-90 h-15 border bg-black text-white text-xl rounded-xl">Add to Card Add</button>
                         </div>
                     </div>
                 </div>

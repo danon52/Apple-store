@@ -36,9 +36,9 @@ export function CartProvider({ children }) {
             } else {
                 return [...prevCart, { ...newrod, quantity: 1 }]
             }
-
         })
     }
+
 
 
 
