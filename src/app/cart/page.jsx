@@ -1,6 +1,6 @@
 'use client'
-import { useContext, useEffect, useState } from "react"
 
+import { useContext, useEffect, useState } from "react"
 import { Cartcontext } from '@/store';
 import Link from "next/link";
 import FooterComp from "../../components/FooterComp";
@@ -41,13 +41,13 @@ export default function CartPage() {
   // добавить загрузку скелетона 
   // верстка,адаптация 
   return (
-    <div>
-      <div>
+    <div >
+      <div className="block lg:hidden">
         <hr className="text-gray-400" />
         <p className=" mt-10 text-4xl font-bold">Shoping Cart </p>
         {cart && cart.length > 0 ? (
           cart.map((item) => (
-            <div key={item}>
+            <div key={item.id}>
               <div className="">
                 <div className=" ">
                   <div className="ml-3 flex mt-10">
@@ -105,10 +105,125 @@ export default function CartPage() {
         }
 
       </div>
+      <div>
+
+
+        <div className="hidden lg:block w-auto  ml-70  grid grid-cols-2 gap-4">
+
+          <div className="hidden lg:grid grid-cols-2 gap-4 w-auto">
+            <div>
+              <p className="mt-10 text-4xl font-bold">Shopping Cart</p>
+              {cart && cart.length > 0 ? (
+                cart.map((item) => (
+                  <div key={item.id}>
+                    <div className="ml-3 flex mt-10">
+                      <Link href={`products/${item.id}`}>
+                        {item.images && (
+                          <img className="w-50 mb-10" src={`http://localhost:1452/${item.images[0]}`} alt="" />
+                        )}
+                      </Link>
+                      <hr className="lg:text-gray-400" />
+                      <div className="w-full h-20 ml-3">
+                        <div className="lg:flex">
+                          <div className="lg:mt-10">
+                            <p className="text-2xl">{item.name}</p>
+                            <p>id: #{item.id}</p>
+                          </div>
+                          <div className="lg:mt-10">
+                            <div className="lg:flex">
+                              <Link href={`products/${item.id}`}></Link>
+                              <div className="lg:flex ml-7 text-center">
+                                <button onClick={() => Decrement(item.id)} className="ml-2">-</button>
+                                <p className="text-xl bg-white w-5 h-7">{item.quantity}</p>
+                                <button onClick={() => Increment(item.id)} className="mr-2">+</button>
+                              </div>
+                              <div className="flex justify-start">
+                                <p className="text-xl">{item.price} ₽</p>
+                              </div>
+                              <div className="lg:ml-10">
+                                <button onClick={() => delProducts(item.id)} className="text-2xl">X</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex">
+                      <hr className="py-5 w-200 text-gray-400" />
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="hidden lg:block text-9xl text-center">
+                  <p className="hidden lg:block">Корзина пуста</p>
+                </div>
+              )}
+            </div>
+
+            <div>
+              <form className="hidden mt-5 border w-90 ml-5 h-140 rounded-2xl border-gray-400 lg:block mt-50" action="">
+                <div className="mt-10 ml-12">
+                  <p className="text-xl font-bold">Order Summary</p>
+                </div>
+                <div>
+                  <div>
+                    <div>
+                      <div className="flex ml-12 py-2">
+                        <p className="text-gray-400">Discount code</p>
+                        <p className="text-gray-400">/</p>
+                        <p className="text-gray-400">Promo code</p>
+                      </div>
+                      <div className="flex justify-center">
+                        <input className="w-75 h-15 border border-gray-400 text-gray-400 px-5 rounded-2xl" placeholder="Code" type="" name="" id="" />
+                      </div>
+                    </div>
+                    <div className="ml-12 mt-3">
+                      <p className="text-gray-400">Your bonus card number</p>
+                    </div>
+                    <div>
+                      <div className="flex justify-center">
+                        <input className="px-5 absolute w-75 h-15 rounded-2xl mt-2 border border-gray-400 text-gray-400" placeholder="Enter Card Number" type="text" />
+                      </div>
+                      <div className="flex justify-end mt-5 mr-15">
+                        <button className="relative border w-20 h-10 rounded-2xl text-center">Apply</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-20">
+                    <div className="flex justify-between">
+                      <p className="text-xl ml-3">SubTotal</p>
+                      <p className="mr-5 text-xl">{sum.toFixed(2)} ₽</p>
+                    </div>
+                    <div className="flex justify-between">
+                      <p className="ml-3">Estimated Tax</p>
+                      <p className="mr-5">250 ₽</p>
+                    </div>
+                    <div className="flex justify-between">
+                      <p className="ml-3">Estimated shipping & Handling</p>
+                      <p className="mr-5">100 ₽</p>
+                    </div>
+                    <div className="flex justify-between">
+                      <p className="ml-3">Total</p>
+                      <p className="mr-5">{sum} ₽</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex justify-center mt-5">
+                  <button className="w-70 h-15 text-2xl rounded-2xl bg-black text-white text-center">Checkout</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
 
 
 
-      <form className="mt-5 border w-90 ml-5 h-140 rounded-2xl border-gray-400 " action="">
+
+
+      <form className="block   mt-5 border w-90 ml-5 h-140 rounded-2xl border-gray-400 lg:hidden" action="">
         <div className=" mt-10 ml-12">
           <p className="text-xl font-bold">Order Summary </p>
         </ div>
@@ -165,7 +280,7 @@ export default function CartPage() {
       <div className="mt-10">
         <FooterComp />
       </div>
-    </div>
+    </div >
 
   )
 }
