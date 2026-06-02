@@ -14,7 +14,6 @@ export default function Page() {
 
 
 
-
   const [products, setProducts] = useState([])
 
 
@@ -56,9 +55,9 @@ export default function Page() {
     }
     getIttem()
   }, [])
-
-
   const { AddToCart } = useContext(Cartcontext)
+
+
 
 
   const { AddToFavorits } = useContext(FavoritsContext)

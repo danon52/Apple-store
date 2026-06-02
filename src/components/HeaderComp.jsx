@@ -1,5 +1,7 @@
+
+'use client'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,24 +12,44 @@ import {
 import { Button } from './ui/button'
 
 export default function HeaderComp() {
+
+
+  const [producsts, setProducst] = useState([])
+  const [Searh, setSearh] = useState([])
+
+
+  // const newFilter = stateBox
+  //  const newFindElemet = products.filter(item => item.name.startsWith(newFilter))
+
+
+
+  const ShowProd = setSearh
+  const newFlterName = producsts.filter(item => item.name === ShowProd.name)
+
+
+
+  console.log(typeof (newFlterName))
+  useEffect(() => {
+    async function GetProducst() {
+      const resp = await fetch('http://localhost:1452/api/products/')
+      const data = resp.json()
+      setProducst(data)
+      console.log(data)
+    }
+    GetProducst()
+  }, [])
+
   return (
-    <header className="mt-10 w-full h-20">
+    <header className="mt-10 w-full h-20" >
       <div className="flex items-center justify-between w-full px-4 lg:px-10">
         {/* Logo */}
         <Link href="/">
           <img className="h-10 w-40 lg:w-30" src="/Logo.svg" alt="Logo" />
         </Link>
-
-        {/* Search - Desktop */}
-        <input
-          className="hidden lg:flex bg-gray-200 px-3 py-3 rounded-2xl w-96 h-14 focus:outline-none focus:ring-2 focus:ring-gray-300"
-          type="text"
-          placeholder="Search"
-        />
-
-        {/* Right side icons */}
+        <input className="hidden lg:flex bg-gray-200 px-3 py-3 rounded-2xl w-96 h-14 focus:outline-none focus:ring-2 focus:ring-gray-300"
+          type="text" placeholder="Search"
+          onChange={() => setSearh} />
         <div className="flex items-center gap-4">
-          {/* Mobile Menu Button */}
           <div className="block lg:hidden">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -63,6 +85,6 @@ export default function HeaderComp() {
           </Link>
         </div>
       </div>
-    </header>
+    </header >
   )
 }

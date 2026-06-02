@@ -50,13 +50,15 @@ export default function MainPage() {
   const totalVlue = products.length
   const totalPage = Math.ceil(totalVlue / FixVal)
 
-  const getAllPage = () => {
-    const pages = []
-    for (let i = 1; i <= totalPage; i++) {
-      pages.push(i)
-    }
-    return pages
-  }
+  // const getAllPage = () => {
+  //   const pages = []
+  //   for (let i = 1; i <= totalPage; i++) {
+  //     pages.push(i)
+  //   }
+  //   return pages
+  // }
+
+
 
   const newFilter = stateBox
   const newFindElemet = products.filter(item => item.name.startsWith(newFilter))
