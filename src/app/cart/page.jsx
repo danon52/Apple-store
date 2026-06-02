@@ -47,7 +47,7 @@ export default function CartPage() {
         <p className=" mt-10 text-4xl font-bold">Shoping Cart </p>
         {cart && cart.length > 0 ? (
           cart.map((item) => (
-            <div key={item.id}>
+            <div key={item}>
               <div className="">
                 <div className=" ">
                   <div className="ml-3 flex mt-10">

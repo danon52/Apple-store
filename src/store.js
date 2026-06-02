@@ -42,6 +42,7 @@ export function CartProvider({ children }) {
 
 
 
+
     function Decrement(id) {
         setCart(curent => (
             curent.map(item =>
