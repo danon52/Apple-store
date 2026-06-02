@@ -2,16 +2,14 @@ import Link from 'next/link'
 import React from 'react'
 
 
-
 export default function HeaderComp() {
-  // сделать активный поиск 
   return (
     <div >
       <div>
-        <header className=" w-full lg:w-full  h-20 mt-5 ">
+        <header className=" mt-10  w-full lg:w-full  h-20 mt-5 ">
           <div className="flex items-center justify-between w-full">
             <Link href="/">
-              <img className="h-25 w-40 lg:w-30 ml-40" src="/Logo.svg" alt="Logo" />
+              <img className="h-10 w-40  lg:w-30 ml-10" src="/Logo.svg" alt="Logo" />
             </Link>
             <input
               className="hidden lg:flex bg-gray-200 px-3 mt-5 mr-25 rounded-2xl w-100 h-14"

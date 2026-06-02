@@ -450,7 +450,7 @@ export default function MainPage() {
 
 
       <div>
-        {/* <FooterComp/> */}
+        <FooterComp />
 
       </div>
 

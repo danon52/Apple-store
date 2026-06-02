@@ -4,12 +4,15 @@ import FooterComp from "../../../components/FooterComp";
 import Rating from '@mui/material/Rating';
 import { useContext, useEffect, useState } from "react";
 import { Cartcontext } from '@/store';
+import { FavoritsContext } from '@/favorits';
+
 
 export default function ProductPage({ params }) {
-    const [data, setData] = useState(null);
+    const [data, setData] = useState(null)
+
+    const { AddToFavorits } = useContext(FavoritsContext)
 
     const { AddToCart } = useContext(Cartcontext)
-
 
     useEffect(() => {
         async function getIdElemtnt() {
@@ -72,7 +75,7 @@ export default function ProductPage({ params }) {
                                         </p>
                                         <div className="hidden lg:block mt-3">
                                             <div className="lg:mt-3">
-                                                <button className="w-90 h-15 border text-xl rounded-2xl">Add to Wishlist</button>
+                                                <button onClick={() => AddToFavorits(data)} className="w-90 h-15 border text-xl rounded-2xl">Add to Wishlist</button>
                                                 <button onClick={() => AddToCart(data)} className="w-90 h-15 border bg-black text-white text-xl rounded-xl lg:ml-10">Add to Card Add</button>
                                             </div>
                                         </div>
