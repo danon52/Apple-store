@@ -91,9 +91,11 @@ export default function Page() {
                 </p>
               </div>
               <div className="flex justify-center mt-5 lg:justify-start">
-                <button className="text-white w-60 h-20 rounded-2xl border border-white text-2xl">
-                  Shop Now
-                </button>
+                <Link href={'/main'}>
+                  <button className="text-white w-60 h-20 rounded-2xl border border-white text-2xl">
+                    Shop Now
+                  </button>
+                </Link>
               </div>
             </div>
             <div className="w-full lg:w-1/2 flex justify-center lg:justify-end items-end min-w-0 mt-8 lg:mt-0">

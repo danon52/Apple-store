@@ -17,7 +17,7 @@ export default function CartPage() {
   const { Decrement } = useContext(Cartcontext)
   const { Increment } = useContext(Cartcontext)
 
-
+  const { newsum } = useContext(Cartcontext)
 
 
 
@@ -27,7 +27,7 @@ export default function CartPage() {
 
 
 
-  const [count, setcount] = useState(0)
+  // const [count, setcount] = useState(0)
 
 
 
@@ -134,10 +134,10 @@ export default function CartPage() {
                               <div className="lg:flex ml-7 text-center">
                                 <button onClick={() => Decrement(item.id)} className="ml-2">-</button>
                                 <p className="text-xl bg-white w-5 h-7">{item.quantity}</p>
-                                <button onClick={() => Increment()} className="mr-2">+</button>
+                                <button onClick={() => Increment(item.id)} className="mr-2">+</button>
                               </div>
                               <div className="flex justify-start">
-                                <p className="text-xl">{item.price} ₽</p>
+                                <p className="text-xl">{item.price * item.quantity} ₽</p>
                               </div>
                               <div className="lg:ml-10">
                                 <button onClick={() => delProducts(item.id)} className="text-2xl">X</button>
@@ -160,14 +160,14 @@ export default function CartPage() {
             </div>
 
             <div>
-              <form className="hidden mt-5 border w-90 ml-5 h-140 rounded-2xl border-gray-400 lg:block mt-50" action="">
+              <form className="hidden mt-5 border w-140 ml-5 h-140 rounded-2xl border-gray-400 lg:block mt-50" action="">
                 <div className="mt-10 ml-12">
                   <p className="text-xl font-bold">Order Summary</p>
                 </div>
                 <div>
                   <div>
                     <div>
-                      <div className="flex ml-12 py-2">
+                      <div className="flex ml-33 py-2">
                         <p className="text-gray-400">Discount code</p>
                         <p className="text-gray-400">/</p>
                         <p className="text-gray-400">Promo code</p>
@@ -176,14 +176,14 @@ export default function CartPage() {
                         <input className="w-75 h-15 border border-gray-400 text-gray-400 px-5 rounded-2xl" placeholder="Code" type="" name="" id="" />
                       </div>
                     </div>
-                    <div className="ml-12 mt-3">
+                    <div className="ml-33 mt-3">
                       <p className="text-gray-400">Your bonus card number</p>
                     </div>
                     <div>
                       <div className="flex justify-center">
                         <input className="px-5 absolute w-75 h-15 rounded-2xl mt-2 border border-gray-400 text-gray-400" placeholder="Enter Card Number" type="text" />
                       </div>
-                      <div className="flex justify-end mt-5 mr-15">
+                      <div className="flex justify-end mt-5 mr-34">
                         <button className="relative border w-20 h-10 rounded-2xl text-center">Apply</button>
                       </div>
                     </div>

@@ -53,17 +53,19 @@ export function CartProvider({ children }) {
             ).filter(item => item.quantity > 0)
 
         ))
-
     }
 
+    // посчитать сумму при уменьшении и добавлении 
 
-    // Increment
 
-    function Increment() {
+
+
+    function Increment(sum) {
         setCart(incValue => (
-            incValue.map(item => item.id === item.id ?
-                { ...item, quantity: item.quantity + 1 }
-                : item
+            incValue.map(item =>
+                sum === item.id ?
+                    { ...item, quantity: item.quantity + 1 }
+                    : item
             )
         ))
     }
@@ -78,6 +80,11 @@ export function CartProvider({ children }) {
         0)
 
 
+
+    const newsum = cart.reduce(
+        (newsum, item) => newsum + item.quantity * item.price,
+        0
+    )
 
     function delProducts(id) {
         setCart(favor => {
@@ -98,7 +105,8 @@ export function CartProvider({ children }) {
             AddToCart,
             delProducts,
             Decrement,
-            Increment
+            Increment,
+            newsum
 
         }}>
             {children}

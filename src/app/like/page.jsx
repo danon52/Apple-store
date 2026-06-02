@@ -14,24 +14,32 @@ export default function LikePage() {
 
   console.log(favorits)
   return (
-    <div>
-      {favorits && favorits.length > 0 ? (
-        favorits.map((item) => (
-          <div key={item.id}>
-            <Link href={`products/${item.id}`}>
-              <div>
-                <p>{item.name}</p>
-                <p>{item.price}</p>
-                <p>{item.quantity}</p>
-                <img className='w-70' src={`http://localhost:1452/${item.images[0]}`} alt="" />
-              </div>
-            </Link>
-            <button onClick={() => deleteFromOrder(item.id)} className='w-100 bg-black text-white text-center h-15'>Удалить нахуй </button>
-          </div>
-        ))
-      ) : <p></p>
+    <div className='mt-10'>
+      <div className='mt-10'>
 
-      }
+        {favorits && favorits.length > 0 ? (
+          favorits.map((item) => (
+            <div className='lg:flex justify-center' key={item.id}>
+              <Link href={`products/${item.id}`}>
+                <div>
+                  <img className='lg:w-70 ml-10' src={`http://localhost:1452/${item.images[0]}`} alt="" />
+                  <div className='lg:ml-10'>
+                    <p className='lg:text-2xl'>{item.name}</p>
+                    <p className='lg:text-xl'>{item.price}</p>
+                  </div>
+                  <div className='lg:flex justify-center'>
+                    <hr className='lg:w-100' />
+                  </div>
+                </div>
+              </Link>
+            </div>
+
+          ))
+        ) : <p>asaea</p>
+
+        }
+      </div>
+
     </div>
   )
 }
