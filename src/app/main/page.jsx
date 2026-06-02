@@ -27,12 +27,20 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import Rating from '@mui/material/Rating';
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination"
 
 
 export default function MainPage() {
 
 
-  const [products, setProducst] = useState([])
 
   const { AddToFavorits } = useContext(FavoritsContext)
   const { AddToCart } = useContext(Cartcontext)
@@ -41,7 +49,30 @@ export default function MainPage() {
   const [stateBox, setStateBox] = useState([])
   const [ValueFilter, setValueFilter] = useState([])
 
-  //filter 
+
+  const [products, setProducst] = useState([])
+  const [curPage, setCurPage] = useState(1)
+  const [FixVal] = useState(10)
+
+
+
+  const lasIndexPage = curPage * FixVal
+  const firstIndexPage = lasIndexPage - FixVal
+
+  const currProd = products.slice(firstIndexPage, lasIndexPage)
+
+  const totalVlue = products.length
+  const totalPage = Math.ceil(totalVlue / FixVal)
+
+  const getAllPage = () => {
+    const pages = []
+    for (let i = 1; i <= totalPage; i++) {
+      pages.push(i)
+    }
+    return pages
+  }
+
+
 
 
   const newFilter = stateBox
@@ -51,9 +82,7 @@ export default function MainPage() {
   console.log(newFindElemet)
 
 
-
-
-
+  //пагинация 
 
   useEffect(() => {
     async function GetAllProd() {
@@ -351,7 +380,7 @@ export default function MainPage() {
                 <div className=''>
                   <div className='text-center h-75   '>
                     <div className='flex justify-end'>
-                      <button onClick={() => AddToFavorits()} className='absolute  '>
+                      <button onClick={() => AddToFavorits(item.id)} className='absolute  '>
                         <img src="Favorites.svg" alt="" />
                       </button>
                     </div>
@@ -367,7 +396,7 @@ export default function MainPage() {
                       </Link>
                     </div>
                     <div className='mt-4'>
-                      <button onClick={() => AddToCart()} className='bg-black w-40 h-13 text-white rounded-lg'> By  Now</button>
+                      <button onClick={() => AddToCart(item.id)} className='bg-black w-40 h-13 text-white rounded-lg'> By  Now</button>
                     </div>
                   </div>
                 </div>
@@ -380,13 +409,13 @@ export default function MainPage() {
       </div>
 
 
-      <div className='hidden lg:grid block grid-cols-4 gap-10 ml-30'>
+      <div className='hidden lg:grid block grid-cols-3 gap-10 ml-30'>
         {newFindElemet.map((item) => (
           <div className='' key={item.id}>
             <div className=''>
               <div className=''>
                 <div className=''>
-                  <div className='bg-gray-200 rounded-lg w-70 h-100 '>
+                  <div className='bg-gray-100 rounded-lg w-70 h-100 '>
                     <div className='flex justify-end'>
                       <button onClick={() => AddToFavorits()} className='absolute  '>
                         <img src="Favorites.svg" alt="" />
@@ -420,15 +449,12 @@ export default function MainPage() {
 
 
 
-
-
-
-      {/* ---------------------- */}
       <div>
         {/* <FooterComp/> */}
+
       </div>
 
-    </div>
+    </div >
   )
 
 }
