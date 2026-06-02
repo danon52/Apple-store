@@ -75,8 +75,8 @@ export default function ProductPage({ params }) {
                                         </p>
                                         <div className="hidden lg:block mt-3">
                                             <div className="lg:mt-3">
-                                                <button onClick={() => AddToFavorits(data)} className="w-90 h-15 border text-xl rounded-2xl">Add to Wishlist</button>
-                                                <button onClick={() => AddToCart(data)} className="w-90 h-15 border bg-black text-white text-xl rounded-xl lg:ml-10">Add to Card Add</button>
+                                                <button onClick={() => AddToFavorits(data.id)} className="w-90 h-15 border text-xl rounded-2xl">Add to Wishlist</button>
+                                                <button onClick={() => AddToCart(data.id)} className="w-90 h-15 border bg-black text-white text-xl rounded-xl lg:ml-10">Add to Card Add</button>
                                             </div>
                                         </div>
                                         <div className="mt-2">
