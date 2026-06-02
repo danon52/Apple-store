@@ -12,7 +12,6 @@ export default function CartPage() {
 
 
   const { delProducts } = useContext(Cartcontext)
-
   const { cart } = useContext(Cartcontext)
   const { sum } = useContext(Cartcontext)
   const { Decrement } = useContext(Cartcontext)
@@ -135,7 +134,7 @@ export default function CartPage() {
                               <div className="lg:flex ml-7 text-center">
                                 <button onClick={() => Decrement(item.id)} className="ml-2">-</button>
                                 <p className="text-xl bg-white w-5 h-7">{item.quantity}</p>
-                                <button onClick={() => Increment(item.id)} className="mr-2">+</button>
+                                <button onClick={() => Increment()} className="mr-2">+</button>
                               </div>
                               <div className="flex justify-start">
                                 <p className="text-xl">{item.price} ₽</p>

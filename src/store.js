@@ -43,15 +43,35 @@ export function CartProvider({ children }) {
 
 
 
-    function Decrement(id) {
+
+    function Decrement(prodId) {
         setCart(curent => (
             curent.map(item =>
-                item.id === id
-                    ? { ...item, quantity: item.quantity + 1 }
+                prodId === item.id
+                    ? { ...item, quantity: item.quantity - 1 }
                     : item
-            ).filter(item => item.quantity < 0)
+            ).filter(item => item.quantity > 0)
+
+        ))
+
+    }
+
+
+    // Increment
+
+    function Increment() {
+        setCart(incValue => (
+            incValue.map(item => item.id === item.id ?
+                { ...item, quantity: item.quantity + 1 }
+                : item
+            )
         ))
     }
+
+    // const newsum = cart.reduce(
+    //     (sum, item) => sum + item.quantity * item.price,
+    //     0
+    // )
 
     const sum = cart.reduce(
         (sum, item) => sum + item.price * item.quantity,
@@ -78,10 +98,10 @@ export function CartProvider({ children }) {
             AddToCart,
             delProducts,
             Decrement,
-            // Increment
+            Increment
 
         }}>
             {children}
-        </Cartcontext.Provider>
+        </Cartcontext.Provider >
     )
 }
