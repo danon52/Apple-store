@@ -15,7 +15,7 @@ export default function HeaderComp() {
 
 
   const [producsts, setProducst] = useState([])
-  const [Searh, setSearh] = useState([])
+  const [searh, setSearh] = useState('')
 
 
   // const newFilter = stateBox
@@ -24,15 +24,15 @@ export default function HeaderComp() {
 
 
   const ShowProd = setSearh
+  console.log(producsts)
   const newFlterName = producsts.filter(item => item.name === ShowProd.name)
-
-
-
   console.log(typeof (newFlterName))
+
+
   useEffect(() => {
     async function GetProducst() {
       const resp = await fetch('http://localhost:1452/api/products/')
-      const data = resp.json()
+      const data = await resp.json()
       setProducst(data)
       console.log(data)
     }
@@ -42,13 +42,24 @@ export default function HeaderComp() {
   return (
     <header className="mt-10 w-full h-20" >
       <div className="flex items-center justify-between w-full px-4 lg:px-10">
-        {/* Logo */}
+
         <Link href="/">
           <img className="h-10 w-40 lg:w-30" src="/Logo.svg" alt="Logo" />
         </Link>
-        <input className="hidden lg:flex bg-gray-200 px-3 py-3 rounded-2xl w-96 h-14 focus:outline-none focus:ring-2 focus:ring-gray-300"
-          type="text" placeholder="Search"
-          onChange={() => setSearh} />
+        <input
+          className="hidden lg:flex bg-gray-200 px-3 py-3 rounded-2xl w-96 h-14 focus:outline-none focus:ring-2 focus:ring-gray-300"
+          type="text"
+          placeholder="Search"
+          value={searh}
+          onChange={(e) => setSearh(e.target.value)}
+        />
+
+        {newFlterName.map(item => (
+          <div key={item.id}>
+            <p>{item.name}</p>
+          </div>
+        ))
+        }
         <div className="flex items-center gap-4">
           <div className="block lg:hidden">
             <DropdownMenu>
