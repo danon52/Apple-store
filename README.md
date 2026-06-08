@@ -37,7 +37,19 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 # shadcn
 
-Create in project componts libirali shadcn 
+Create in project componts libirali shadcn  
+<p> In this is a libirali i create skiletin and , drop menu </p>
+
+
+
+
+# Creen is a project 
+<p> This a page with producst </p>
+<img width="1553" height="865" alt="Снимок экрана 2026-06-08 в 20 16 30" src="https://github.com/user-attachments/assets/2d171bf4-0aed-49e5-8d0d-b4a1d06902b5" />
+ 
+<p> And this a photo , this is a cart page </p>
+  <img width="1706" height="908" alt="Снимок экрана 2026-06-08 в 20 16 14" src="https://github.com/user-attachments/assets/63ab5679-3642-4aec-af92-498f59621313" />
+
 
 
 
